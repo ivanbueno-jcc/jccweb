@@ -17,15 +17,30 @@ class JudgesInTheClassroom {
    */
   protected $database;
 
+  /**
+   * @var array $counties
+   */
   protected $counties = [];
+
+  /**
+   * @var array $days
+   */
   protected $days = [];
-  protected $judge_schedules = [];
-  protected $teacher_requests = [];
+
+  /**
+   * @var array $judgeSchedules
+   */
+  protected $judgeSchedules = [];
+
+  /**
+   * @var array $teacherRequests
+   */
+  protected $teacherRequests = [];
 
   /**
    * Constructs JudgesInTheClassroom object.
    *
-   * @param Connection $database
+   * @param \Drupal\Core\Database\Connection $database
    *   The database connection.
    */
   public function __construct(Connection $database) {
@@ -53,11 +68,11 @@ class JudgesInTheClassroom {
   /**
    * Get all judges profile and schedule information.
    *
-   * @return array
+   * @return array $judges_schedule.
    */
   public function getJudges() {
 
-    if (empty($this->judge_schedules)) {
+    if (empty($this->judgeSchedules)) {
       $query = $this->database->query("
         SELECT wsd_day.sid, wsd_day.`value` as day, wsd_county.`value` as county, wsd_preferred_time.`value` as preferred_time, wsd_alternative_time.`value` as alternative_time, wsd_optional_time.`value` as optional_time, wsd_name.`value` as name, wsd_email.`value` as email, wsd_court_name.`value` as court_name
         FROM {webform_submission_data} wsd_day 
@@ -92,14 +107,19 @@ class JudgesInTheClassroom {
       foreach ($judges as $judge_pref) {
 
         $hours = [];
-        foreach ([$judge_pref->preferred_time, $judge_pref->alternative_time, $judge_pref->optional_time] as $time) {
+        foreach (
+          [
+            $judge_pref->preferred_time,
+            $judge_pref->alternative_time,
+            $judge_pref->optional_time
+          ] as $time) {
           if (!empty($time)) {
             $hours[] = substr($time, 0, 2);
           }
         }
 
         foreach ($hours as $hour) {
-          $this->judge_schedules[$judge_pref->county][$judge_pref->day][$hour][] = [
+          $this->judgeSchedules[$judge_pref->county][$judge_pref->day][$hour][] = [
             'sid' => $judge_pref->sid,
             'name' => $judge_pref->name,
             'email' => $judge_pref->email,
@@ -109,17 +129,17 @@ class JudgesInTheClassroom {
       }
     }
 
-    return $this->judge_schedules;
+    return $this->judgeSchedules;
   }
 
   /**
    * Get all teachers.
    *
-   * @return array
+   * @return array $teacherRequests.
    */
   public function getTeachers() {
 
-    if (empty($this->teacher_requests)) {
+    if (empty($this->teacherRequests)) {
       $query = $this->database->query("
         SELECT wsd_teacher_preferred_time.sid, wsd_teacher_preferred_time.value as preferred_date, DAYNAME(wsd_teacher_preferred_time.value) as preferred_day, LPAD(HOUR(DATE_FORMAT(wsd_teacher_preferred_time.value, '%H:%i:%s')), 2, '0') as preferred_hour, wsd_teacher_county.`value` as county, wsd_teacher_name.`value` as teacher_name, wsd_teacher_email.`value` as email, wsd_teacher_phone.`value` as phone, wsd_teacher_school_name.`value` as school_name, wsd_teacher_grade_level.`value` as grade_level
         FROM {webform_submission_data} as wsd_teacher_preferred_time
@@ -145,22 +165,23 @@ class JudgesInTheClassroom {
       $teachers = $query->fetchAll();
 
       foreach ($teachers as $t) {
-        $this->teacher_requests[$t->county][$t->sid][] = $t;
+        $this->teacherRequests[$t->county][$t->sid][] = $t;
       }
     }
 
-    return $this->teacher_requests;
+    return $this->teacherRequests;
   }
 
   /**
    * Get judge matches.
    *
-   * @param $county
-   * @param $day
-   * @param null $hour
-   * @return bool|mixed
+   * @param string $county
+   * @param int $day
+   * @param int $hour
+   *
+   * @return bool|mixed $matches
    */
-  public function getMatches($county, $day, $hour = NULL) {
+  public function getMatches(string $county, int $day, int $hour = NULL) {
     $judges = $this->getJudges();
     $matches = FALSE;
 

@@ -47,4 +47,5 @@ class JccBookNavigationBlock extends BookNavigationBlock {
     }
     return [];
   }
+
 }
