@@ -24,20 +24,23 @@ class JudgesInTheClassroom {
   protected $counties = [];
 
   /**
+   * Days.
+   *
    * @var array
-   *   Days.
    */
   protected $days = [];
 
   /**
+   * Schedule of judges.
+   *
    * @var array
-   *   Schedule of judges.
    */
   protected $judgeSchedules = [];
 
   /**
+   * Teacher requests.
+   *
    * @var array
-   *   Teacher requests.
    */
   protected $teacherRequests = [];
 
@@ -184,10 +187,8 @@ class JudgesInTheClassroom {
    *
    * @param string $county
    *   County.
-   *
    * @param int $day
    *   Day.
-   *
    * @param int $hour
    *   Hour.
    *
