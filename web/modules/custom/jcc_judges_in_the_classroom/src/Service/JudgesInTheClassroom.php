@@ -18,22 +18,26 @@ class JudgesInTheClassroom {
   protected $database;
 
   /**
-   * @var array $counties
+   * @var array
+   *   Counties.
    */
   protected $counties = [];
 
   /**
-   * @var array $days
+   * @var array
+   *   Days.
    */
   protected $days = [];
 
   /**
-   * @var array $judgeSchedules
+   * @var array
+   *   Schedule of judges.
    */
   protected $judgeSchedules = [];
 
   /**
-   * @var array $teacherRequests
+   * @var array
+   *   Teacher requests.
    */
   protected $teacherRequests = [];
 
@@ -52,8 +56,9 @@ class JudgesInTheClassroom {
    * Set parameters for filtering.
    *
    * @param array $options
+   *   Options.
    */
-  public function setFilters($options = []) {
+  public function setFilters(array $options = []) {
 
     $this->counties = isset($options['counties']) && !empty($options['counties']) ?
       $options['counties'] :
@@ -68,7 +73,8 @@ class JudgesInTheClassroom {
   /**
    * Get all judges profile and schedule information.
    *
-   * @return array $judges_schedule.
+   * @return array
+   *   Judges_schedule.
    */
   public function getJudges() {
 
@@ -111,7 +117,7 @@ class JudgesInTheClassroom {
           [
             $judge_pref->preferred_time,
             $judge_pref->alternative_time,
-            $judge_pref->optional_time
+            $judge_pref->optional_time,
           ] as $time) {
           if (!empty($time)) {
             $hours[] = substr($time, 0, 2);
@@ -135,7 +141,8 @@ class JudgesInTheClassroom {
   /**
    * Get all teachers.
    *
-   * @return array $teacherRequests.
+   * @return array
+   *   Teacher requests.
    */
   public function getTeachers() {
 
@@ -176,10 +183,16 @@ class JudgesInTheClassroom {
    * Get judge matches.
    *
    * @param string $county
-   * @param int $day
-   * @param int $hour
+   *   County.
    *
-   * @return bool|mixed $matches
+   * @param int $day
+   *   Day.
+   *
+   * @param int $hour
+   *   Hour.
+   *
+   * @return bool|mixed
+   *   Judge matches.
    */
   public function getMatches(string $county, int $day, int $hour = NULL) {
     $judges = $this->getJudges();

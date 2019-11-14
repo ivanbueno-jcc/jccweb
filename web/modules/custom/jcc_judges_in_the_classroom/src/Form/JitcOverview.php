@@ -8,6 +8,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
 
 /**
  * Class JitcOverview.
+ *
  * @package Drupal\jcc_judges_in_the_classroom\Form
  */
 class JitcOverview extends FormBase {
@@ -47,11 +48,11 @@ class JitcOverview extends FormBase {
           $judge_matches = $judges_in_the_classroom->getMatches($county, $option->preferred_day, $option->preferred_hour);
           if ($judge_matches) {
             foreach ($judge_matches as $match) {
-                $match_rows[] = [
-                $match['court_name'],
-                $match['name'],
-                $match['email'],
-              ];
+              $match_rows[] = [
+                  $match['court_name'],
+                  $match['name'],
+                  $match['email'],
+                ];
             }
           }
           $match_rows_output = [
