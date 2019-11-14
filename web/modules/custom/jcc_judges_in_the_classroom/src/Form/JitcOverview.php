@@ -49,10 +49,10 @@ class JitcOverview extends FormBase {
           if ($judge_matches) {
             foreach ($judge_matches as $match) {
               $match_rows[] = [
-                  $match['court_name'],
-                  $match['name'],
-                  $match['email'],
-                ];
+                $match['court_name'],
+                $match['name'],
+                $match['email'],
+              ];
             }
           }
           $match_rows_output = [

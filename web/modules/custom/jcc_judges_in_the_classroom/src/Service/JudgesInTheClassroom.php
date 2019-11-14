@@ -18,8 +18,9 @@ class JudgesInTheClassroom {
   protected $database;
 
   /**
+   * Counties.
+   *
    * @var array
-   *   Counties.
    */
   protected $counties = [];
 
