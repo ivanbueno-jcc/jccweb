@@ -37,12 +37,12 @@ function jcc_book_navigation_theme() {
 }
 
 /**
- * Add link for creating child book pages
+ * Add link for creating child book pages.
  *
  * @param array $variables
- *   An associative array containing:
+ *   An associative array containing variables.
  */
-function jcc_book_navigation_preprocess_account_header_links(&$variables) {
+function jcc_book_navigation_preprocess_account_header_links(array &$variables) {
   $node = \Drupal::routeMatch()->getParameter('node');
 
   if (is_object($node)) {

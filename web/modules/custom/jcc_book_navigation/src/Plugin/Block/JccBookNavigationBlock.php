@@ -20,8 +20,6 @@ class JccBookNavigationBlock extends BookNavigationBlock {
    */
   public function build() {
     $current_bid = 0;
-    //ksm($this);
-    //kint($this);
     if ($node = $this->requestStack->getCurrentRequest()->get('node')) {
       $current_bid = empty($node->book['bid']) ? 0 : $node->book['bid'];
     }
@@ -38,18 +36,15 @@ class JccBookNavigationBlock extends BookNavigationBlock {
         ->execute();
       // Only show the block if the user has view access for the top-level node.
       if ($nid) {
-        // dsm('hi');
         $tree = $this->bookManager->bookTreeAllData($current_bid);
         $build = $this->bookManager->bookTreeOutput($tree);
-        // Add active trail to theme
+        // Add active trail to theme.
         $active_trail = $this->bookManager->getActiveTrailIds($node->book['bid'], $node->book);
         $build['#active_trail'] = $active_trail;
-        // Use our heme
         $build['#theme'] = 'jcc_book_navigation_block';
         return $build;
       }
     }
-    return array();
+    return [];
   }
-
 }
