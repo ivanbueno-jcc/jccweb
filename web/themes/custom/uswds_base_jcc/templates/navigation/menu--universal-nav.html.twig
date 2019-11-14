@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Override of system/menu.html.twig for the secondary menu.
+ */
+#}
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+{{ menus.menu_links(items, 0, attributes) }}
+
+{% macro menu_links(items, menu_level, attributes) %}
+  {% import _self as menus %}
+  {% if items %}
+
+    <ul{{ attributes.addClass('menu') }}>
+
+      {{ search_item|raw }}
+      {% for item in items %}
+        {%
+          set item_classes = [
+          loop.first ? 'first',
+          loop.last ? 'last',
+        ]
+        %}
+
+        <li{{ item.attributes.addClass(item_classes) }}>
+          <a href="{{ item.url }}"{% if item.in_active_trail %} class="usa-current"{% endif %}>
+            {{ item.title }}
+          </a>
+        </li>
+      {% endfor %}
+
+    </ul>
+  {% endif %}
+
+{% endmacro %}

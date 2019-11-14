@@ -23,7 +23,71 @@
         "pantheon-systems/quicksilver-pushback": "^2",
         "rvtraveller/qs-composer-installer": "^1.1",
         "webflo/drupal-core-strict": "^8.6.15",
-        "zaporylie/composer-drupal-optimizations": "^1.0"
+        "zaporylie/composer-drupal-optimizations": "^1.0",
+        "drupal/address": "1.x-dev",
+        "drupal/admin_toolbar": "^1.27",
+        "drupal/adminimal_admin_toolbar": "^1.9",
+        "drupal/adminimal_theme": "^1.5",
+        "drupal/allowed_formats": "^1.1",
+        "drupal/backup_migrate": "^4.0",
+        "drupal/block_field": "^1.0@alpha",
+        "drupal/ckeditor_codemirror": "^2.2",
+        "drupal/ckeditor_templates": "^1.1",
+        "drupal/ckeditor_templates_ui": "^1.2",
+        "drupal/claro": "^1.0@beta",
+        "drupal/coffee": "^1.0@beta",
+        "drupal/config_delete": "^1.7",
+        "drupal/ctools": "^3.2",
+        "drupal/devel": "^2.1",
+        "drupal/diff": "^1.0",
+        "drupal/dropdown_language": "^2.3",
+        "drupal/embed": "^1.0",
+        "drupal/entity_browser": "~2.0",
+        "drupal/entity_embed": "^1.0",
+        "drupal/entity_reference_revisions": "1.x-dev",
+        "drupal/entity_usage": "^2.0@beta",
+        "drupal/facets": "1.x-dev",
+        "drupal/feeds": "^3.0@alpha",
+        "drupal/field_group": "^3.0",
+        "drupal/fontawesome": "^2.14",
+        "drupal/fullcalendar_view": "^2.4",
+        "drupal/geocoder": "3.x-dev",
+        "drupal/geofield": "^1.6",
+        "drupal/geofield_map": "^2.47",
+        "drupal/graphql": "^3.0",
+        "drupal/graphql_search_api": "^1.0@RC",
+        "drupal/image_widget_crop": "^2.2",
+        "drupal/imagemagick": "^2.6",
+        "drupal/inline_entity_form": "^1.0@RC",
+        "drupal/menu_item_extras": "^2.7",
+        "drupal/menu_token": "1.x-dev",
+        "drupal/metatag": "^1.10",
+        "drupal/office_hours": "^1.2",
+        "drupal/paragraphs": "^1.9",
+        "drupal/pathauto": "^1.4",
+        "drupal/queue_ui": "^2.0",
+        "drupal/rules": "^3.0@alpha",
+        "drupal/scheduler": "^1.1",
+        "drupal/search_api": "1.x-dev",
+        "drupal/search_api_attachments": "^1.0@beta",
+        "drupal/search_api_autocomplete": "^1.2",
+        "drupal/search_api_solr": "^3.4",
+        "drupal/sendgrid_integration": "1.x-dev",
+        "drupal/smtp": "1.x-dev",
+        "drupal/taxonomy_manager": "^1.0@alpha",
+        "drupal/token_filter": "^1.1",
+        "drupal/twig_vardumper": "^1.2",
+        "drupal/uswds_base": "2.x-dev",
+        "drupal/views_field_view": "^1.0@beta",
+        "drupal/views_tree": "^2.0@alpha",
+        "drupal/webform": "^5.4",
+        "drupal/webform_embed": "1.x-dev",
+        "geocoder-php/bing-maps-provider": "^4.0",
+        "geocoder-php/google-maps-provider": "^4.4",
+        "vlucas/phpdotenv": "^2.4",
+        "webflo/drupal-finder": "^1.0.0",
+        "webmozart/path-util": "^2.3",
+        "wikimedia/composer-merge-plugin": "^1.4"
     },
     "require-dev": {
         "behat/behat": "3.*",
@@ -45,7 +109,7 @@
     "conflict": {
             "drupal/drupal": "*"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
         "classmap": [
@@ -60,9 +124,7 @@
         "lint": "find web/modules/custom web/themes/custom -name '*.php' -exec php -l {} \\;",
         "code-sniff": [
             "./vendor/bin/phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md --ignore=node_modules,bower_components,vendor ./web/modules/custom",
-            "./vendor/bin/phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md --ignore=node_modules,bower_components,vendor ./web/themes/custom",
-            "./vendor/bin/phpcs --standard=DrupalPractice --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md --ignore=node_modules,bower_components,vendor ./web/modules/custom",
-            "./vendor/bin/phpcs --standard=DrupalPractice --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md --ignore=node_modules,bower_components,vendor ./web/themes/custom"
+            "./vendor/bin/phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md --ignore=node_modules,bower_components,vendor,assets ./web/themes/custom"
         ],
         "unit-test": "echo 'No unit test step defined.'",
         "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
@@ -109,14 +171,29 @@
                 ".htaccess",
                 "web.config"
             ]
+        },
+        "enable-patching": true,
+        "composer-exit-on-patch-failure": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "patches": {
+            "drupal/core": {
+                "https://www.drupal.org/project/drupal/issues/3056458": "https://www.drupal.org/files/issues/2019-05-24/check-for-book-before-adding-elements-3056458-5.patch"
+            },
+            "drupal/menu_token": {
+                "Fix multilingual issue - https://www.drupal.org/project/menu_token/issues/3011295": "https://www.drupal.org/files/issues/2019-02-22/menu_token-link_attributes_active-3011295-8.patch"
+            }
+        },
+        "merge-plugin": {
+            "include": [
+                "web/modules/contrib/ckeditor_codemirror/composer.libraries.json"
+            ]
         }
     },
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true,
-        "platform": {
-            "php": "7.0.8"
-        }
+        "sort-packages": true
     }
 }

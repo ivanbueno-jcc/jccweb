@@ -1,0 +1,7 @@
+jcc.example:
+  path: '/judges-in-the-classroom/overview'
+  defaults:
+    _form: '\Drupal\jcc_judges_in_the_classroom\Form\JitcOverview'
+    _title: 'Judges in the Classroom'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,92 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a menu.
+ *
+ * Available variables:
+ * - classes: A list of classes to apply to the top level <ul> element.
+ * - dropdown_classes: A list of classes to apply to the dropdown <ul> element.
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *
+ * @ingroup templates
+ *
+ * Define a custom macro that will render all menu trees.
+ */
+#}
+{% macro menu_links(items, attributes, menu_level, classes, dropdown_classes) %}
+  {% if items %}
+    <div class="grid-container margin-top-2">
+      <div class="grid-row flex-row flex-align-stretch text-center">
+        {% for item in items %}
+          {%
+            set item_classes = item.url.getOption('container_attributes').class|split(" ")
+          %}
+          {%
+            set item_classes = [
+            item.is_expanded and item.below ? 'expanded dropdown',
+            item.in_active_trail ? 'active active-trail',
+            loop.first ? 'first',
+            loop.last ? 'last',
+          ]
+          %}
+          {%
+            set link_classes = [
+            'margin-1',
+            'opacity-90',
+            'display-block',
+            'usa-button',
+            'usa-button--big',
+            item.in_active_trail ? 'active-trail',
+          ]
+          %}
+          {% set column_width = loop.index > 3 ? 'fill' : '3' %}
+          <div class="tablet:grid-col-{{ column_width }} display-grid">
+            {% set link_title = item.title %}
+            {% if menu_level == 0 and item.is_expanded and item.below %}
+              {% set link_title %}{{ link_title }} <span class="caret"></span>{% endset %}
+            {% endif %}
+
+            <a href="{{ item.url }}" class="margin-1 opacity-90 display-block usa-button usa-button--big">
+              <span>
+                {% set rendered_content = item.content|without('children', 'field_menu_description') %}
+                {% if rendered_content|render %}
+                  <span class="font-heading-xl">{{ rendered_content }}</span>
+                {% endif %}
+
+                {% if item.content['#menu_link_content'].field_menu_description.0.value %}
+                  {% if not item.content['#menu_link_content'].field_hide_title.0.value %}
+                    <span class="font-heading-md">{{ item.title }}</span>
+                  {% endif %}
+                  <div class="font-heading-3xs text-italic padding-1 margin-1 border-0 border-top border-dotted border-primary-lighter">
+                  {{ item.content['#menu_link_content'].field_menu_description.0.value }}
+                  </div>
+                {% else %}
+                  {% if not item.content['#menu_link_content'].field_hide_title.0.value %}
+                    <span class="font-heading-md">{{ item.title }}</span>
+                  {% endif %}
+                {% endif %}
+              </span>
+            </a>
+
+            {% if item.below %}
+              {{ _self.menu_links(item.below, attributes.removeClass(classes), menu_level + 1, classes, dropdown_classes) }}
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+{% endmacro %}
+
+{#
+  Invoke the custom macro defined above. If classes were provided, use them.
+  This allows the template to be extended without having to also duplicate the
+  code above. @see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+{{ _self.menu_links(items, attributes, 0, classes ?: ['menu', 'menu--' ~ menu_name|clean_class, 'nav'], dropdown_classes ?: ['dropdown-menu']) }}

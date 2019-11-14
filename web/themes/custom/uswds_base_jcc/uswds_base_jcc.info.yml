@@ -1,0 +1,34 @@
+type: theme
+base theme: uswds_base
+
+name: 'Judicial Council USWDS Base Sub-Theme'
+description: 'Uses the USWDS Base and requires download of the USWDS assets'
+package: 'USWDS Base'
+core: 8.x
+logo: 'logo-banner.png'
+screenshot: 'screenshot.png'
+
+regions:
+  header_top: 'Above Header'
+  header: 'Header'
+  primary_menu: 'Primary Menu'
+  secondary_menu: 'Secondary Menu'
+  sidebar_first: 'First sidebar'
+  sidebar_second: 'Second sidebar'
+  breadcrumb: 'Breadcrumb'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  hero: 'Hero'
+  content: 'Content'
+  footer_menu: 'Footer Menu'
+  footer: 'Primary Footer'
+  footer_secondary: 'Secondary Footer'
+
+libraries:
+  - 'uswds_base_jcc/assets'
+  - 'uswds_base_jcc/uswds_custom'
+  - 'uswds_base_jcc/iframe_resizer'
+
+ckeditor_stylesheets:
+  - assets/css/uswds.css
+  - css/uswds_base.css

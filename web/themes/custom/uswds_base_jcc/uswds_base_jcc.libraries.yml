@@ -1,0 +1,24 @@
+assets:
+  version: VERSION
+  css:
+    theme:
+      assets/css/uswds.css: {}
+  js:
+    assets/js/uswds.min.js: {}
+
+uswds_custom:
+  version: VERSION
+  css:
+    theme:
+      css/uswds_base.css: {}
+  js:
+    js/uswds_base.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+
+iframe_resizer:
+  version: VERSION
+  js:
+    js/iframeResizer.contentWindow.min.js: {}
