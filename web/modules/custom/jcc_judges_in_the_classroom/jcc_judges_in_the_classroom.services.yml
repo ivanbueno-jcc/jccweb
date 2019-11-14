@@ -1,0 +1,4 @@
+services:
+  jcc.jitc:
+    class: Drupal\jcc_judges_in_the_classroom\Service\JudgesInTheClassroom
+    arguments: ['@database']

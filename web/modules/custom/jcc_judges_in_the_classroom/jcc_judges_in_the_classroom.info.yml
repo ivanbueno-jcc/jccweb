@@ -1,0 +1,7 @@
+name: 'Judges in the Classroom'
+type: module
+description: 'Utilities for matching judges with teachers in the classroom.'
+core: 8.x
+package: 'Judicial Council'
+dependencies:
+  - webform

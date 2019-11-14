@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains jcc_judges_in_the_classroom.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function jcc_judges_in_the_classroom_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the jcc_judges_in_the_classroom module.
+    case 'help.page.jcc_judges_in_the_classroom':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Profile matching of webform submissions for Judges in the Classroom.') . '</p>';
+      return $output;
+
+    default:
+  }
+}

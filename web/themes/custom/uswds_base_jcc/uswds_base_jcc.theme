@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * @file
+ * USWDS Base sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+
+require_once dirname(__FILE__) . '/includes/edge_to_edge.inc';
+require_once dirname(__FILE__) . '/includes/page.inc';
