@@ -77,7 +77,6 @@ $databases['default']['default'] = array (
   'driver' => 'mysql',
 );
 
-$config_directories['sync'] = '../config/sync';
 $settings['hash_salt'] = 't2pqE4S-2yw2dHj3hf8_Rx-XjYpyvpKMjI6VyQWfjXvY7NoJuiYppfcliyvpHaJW3exu41_IMg';
 
 /* Private directory */
