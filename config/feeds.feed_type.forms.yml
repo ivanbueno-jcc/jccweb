@@ -3,14 +3,17 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.base_field_override.node.form.title
     - field.field.node.form.field_form_type
+    - field.field.node.form.field_link
     - node.type.form
   module:
     - node
 label: Forms
 id: forms
 description: ''
-import_period: 3600
+help: ''
+import_period: -1
 fetcher: upload
 fetcher_configuration:
   allowed_extensions: 'txt csv tsv xml opml'
