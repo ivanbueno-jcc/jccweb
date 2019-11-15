@@ -19,7 +19,7 @@
         "drupal/console": "^1",
         "drupal/core": "^8.6.15",
         "drush-ops/behat-drush-endpoint": "^9.3",
-        "drush/drush": "~8.3",
+        "drush/drush": "^9.0.0",
         "pantheon-systems/quicksilver-pushback": "^2",
         "rvtraveller/qs-composer-installer": "^1.1",
         "webflo/drupal-core-strict": "^8.6.15",
@@ -131,14 +131,17 @@
         "prepare-for-pantheon": "DrupalProject\\composer\\ScriptHandler::prepareForPantheon",
         "post-install-cmd": [
             "@drupal-scaffold",
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+            "DrupalProject\\composer\\ScriptHandler::postInstall"
         ],
         "post-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+            "DrupalProject\\composer\\ScriptHandler::postInstall"
         ],
         "post-create-project-cmd": [
             "@drupal-scaffold",
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+            "DrupalProject\\composer\\ScriptHandler::postInstall"
         ]
     },
     "extra": {
@@ -168,7 +171,6 @@
                 ".editorconfig",
                 ".eslintignore",
                 ".eslintrc.json",
-                ".htaccess",
                 "web.config"
             ]
         },
