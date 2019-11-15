@@ -1,4 +1,4 @@
-apikey: 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
+apikey: ''
 test_defaults:
   to: ivan.bueno@jud.ca.gov
   subject: 'Test Email from SendGrid Module'
