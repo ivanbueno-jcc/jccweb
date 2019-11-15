@@ -8,6 +8,7 @@
 namespace DrupalProject\composer;
 
 use Composer\Script\Event;
+use DrupalFinder\DrupalFinder;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 
@@ -79,5 +80,37 @@ class ScriptHandler
     $gitignoreContents = file_get_contents($gitignoreFile);
     $gitignoreContents = preg_replace('/.*::: cut :::*/s', '', $gitignoreContents);
     file_put_contents($gitignoreFile, $gitignoreContents);
+  }
+
+
+  /**
+   * Post install tasks.
+   * @param  Event  $event
+   *  Composer script event.
+   */
+  public static function postInstall(Event $event) {
+    $fs = new Filesystem();
+    $finder = new Finder();
+    $drupalFinder = new DrupalFinder();
+    $drupalFinder->locateRoot(getcwd());
+    $drupalRoot = $drupalFinder->getDrupalRoot();
+    $composerRoot = $drupalFinder->getComposerRoot();
+
+    // Move settings.local.php files if necessary.
+    // Get site dirs.
+    $finder->depth('== 0');
+    $finder->directories()->in($drupalRoot . '/sites');
+    $copy_files = ['settings.local.php'];
+
+    foreach ($finder as $dir) {
+      $site = str_replace($drupalRoot . '/sites/', '', $dir);
+      foreach ($copy_files as $copy_file) {
+        if ($fs->exists("$composerRoot/scripts/local/$site/$copy_file") && !$fs->exists("$dir/$copy_file")) {
+          $fs->copy("$composerRoot/scripts/local/$site/$copy_file", "$dir/$copy_file");
+          echo "\n$copy_file was copied to $dir from scripts/local/$site\n";
+          echo "This should get you started. Review $dir/$copy_file if you're having trouble.\n";
+        }
+      }
+    }
   }
 }

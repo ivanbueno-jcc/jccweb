@@ -1,0 +1,12 @@
+name: jccweb
+recipe: drupal8
+config:
+  webroot: web
+proxy:
+  pma:
+    - pma.jccweb.lndo.site
+services:
+  pma:
+    type: phpmyadmin
+    hosts:
+      - database
