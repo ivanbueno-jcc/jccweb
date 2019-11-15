@@ -1,0 +1,20 @@
+uuid: dc483e97-f0d0-4962-a94c-a45731b75b70
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.superior_court
+  module:
+    - path
+id: taxonomy_term.superior_court.path
+field_name: path
+entity_type: taxonomy_term
+bundle: superior_court
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

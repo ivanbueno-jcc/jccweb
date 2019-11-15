@@ -1,0 +1,25 @@
+uuid: a3567dab-c8fb-44a1-a01b-54f2cac63d24
+langcode: en
+status: false
+dependencies:
+  config:
+    - webform.webform.clean_your_record
+  module:
+    - webform
+  theme:
+    - uswds_base_jcc
+id: webform_clean_your_record
+theme: uswds_base_jcc
+region: footer_secondary
+weight: 0
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: 'Webform - Clean Your Record'
+  provider: webform
+  label_display: visible
+  webform_id: clean_your_record
+  default_data: ''
+  redirect: false
+visibility: {  }

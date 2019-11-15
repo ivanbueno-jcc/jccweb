@@ -1,0 +1,8 @@
+uuid: d2333197-2af9-46b1-945d-00bc3cbf0bff
+langcode: en
+status: true
+dependencies: {  }
+id: long_no_hours
+label: 'Long date no hours'
+locked: false
+pattern: 'l, F j, Y'

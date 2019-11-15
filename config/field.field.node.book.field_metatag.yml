@@ -1,0 +1,21 @@
+uuid: 35e945d4-6e05-430e-b179-2068186a002a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_metatag
+    - node.type.book
+  module:
+    - metatag
+id: node.book.field_metatag
+field_name: field_metatag
+entity_type: node
+bundle: book
+label: Metatag
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

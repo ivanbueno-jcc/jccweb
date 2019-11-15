@@ -1,0 +1,177 @@
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: judges_in_the_classroom_judges
+title: 'Judges in the Classroom - Judges'
+description: 'For judges, volunteer to visit a classroom.'
+category: ''
+elements: "'#attributes':\n  class:\n    - 'padding-3 radius-md bg-white shadow-2 border border-base-lighter'\ncontact_info:\n  '#type': webform_wizard_page\n  '#title': 'Contact Info'\n  name:\n    '#type': textfield\n    '#title': Name\n    '#required': true\n  email:\n    '#type': email\n    '#title': Email\n    '#required': true\n  county:\n    '#type': select\n    '#title': County\n    '#options': county\n  court_name:\n    '#type': textfield\n    '#title': 'Court Name'\n    '#required': true\n  courthouse_address:\n    '#type': textfield\n    '#title': 'Courthouse Address'\n    '#required': true\npreferences:\n  '#type': webform_wizard_page\n  '#title': Preferences\n  preferred_group:\n    '#type': checkboxes\n    '#title': 'Preferred group'\n    '#options':\n      Elementary: Elementary\n      Middle: Middle\n      'High School': 'High School'\n    '#default_value':\n      - Elementary\n      - Middle\n      - 'High School'\n    '#required': true\n  preferred_hours_and_days:\n    '#type': webform_custom_composite\n    '#title': 'Preferred Hours and Days'\n    '#multiple': 5\n    '#description': 'Most school hours are between 8am - 3pm.'\n    '#help': 'Most school hours are between 8am - 3pm.'\n    '#required': true\n    '#default_value':\n      - preferred_day: Monday\n        preferred_time: ''\n        alternative_time: ''\n        optional_time: ''\n      - preferred_day: Tuesday\n        preferred_time: ''\n        alternative_time: ''\n        optional_time: ''\n      - preferred_day: Wednesday\n        preferred_time: ''\n        alternative_time: ''\n        optional_time: ''\n      - preferred_day: Thursday\n        preferred_time: ''\n        alternative_time: ''\n        optional_time: ''\n      - preferred_day: Friday\n        preferred_time: ''\n        alternative_time: ''\n        optional_time: ''\n    '#multiple__empty_items': '5'\n    '#multiple__sorting': false\n    '#multiple__operations': false\n    '#multiple__add_more': false\n    '#element':\n      preferred_day:\n        '#type': select\n        '#options': weekdays\n        '#title': Days\n      preferred_time:\n        '#type': webform_time\n        '#title': 'Preferred Time'\n      alternative_time:\n        '#type': webform_time\n        '#title': 'Alternative Time'\n      optional_time:\n        '#type': webform_time\n        '#title': 'Alternative Time'\nquestions_and_comments:\n  '#type': webform_wizard_page\n  '#title': 'Questions and Comments'\n  additional_expertise:\n    '#type': textarea\n    '#title': 'Additional Expertise'\n    '#description': 'Additional expertise you can offer during your visit, such as bilingual, specific area of law, or Peer Courts.'\n  additional_questions_or_comments:\n    '#type': textarea\n    '#title': 'Additional questions or comments'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#wizard_prev__label': '<'\n  '#wizard_next__label': Next"
+css: '.form-item-preferred-hours-and-days {max-width: inherit !important;}'
+javascript: ''
+settings:
+  ajax: true
+  ajax_scroll_top: form
+  ajax_progress_type: fullscreen
+  ajax_effect: fade
+  ajax_speed: null
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  page_admin_theme: false
+  form_title: source_entity_webform
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_remote_addr: true
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: true
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_progress_states: false
+  wizard_start_label: ''
+  wizard_preview_link: true
+  wizard_confirmation: false
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 2
+  preview_label: Review
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: message
+  confirmation_title: ''
+  confirmation_message: 'Thanks for your submission.&nbsp; We will keep you posted for any updates.'
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers: {  }
+uuid: eeec4b15-4e92-4893-8f74-24e86e9cefbe

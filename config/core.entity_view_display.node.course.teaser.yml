@@ -1,0 +1,40 @@
+uuid: ef06a253-d395-46c0-ba73-e341bc627eda
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.course.body
+    - field.field.node.course.field_court_of_appeals
+    - field.field.node.course.field_subject_matter
+    - field.field.node.course.field_superior_court
+    - field.field.node.course.field_tags
+    - node.type.course
+  module:
+    - text
+    - user
+id: node.course.teaser
+targetEntityType: node
+bundle: course
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_court_of_appeals: true
+  field_subject_matter: true
+  field_superior_court: true
+  field_tags: true
+  langcode: true
+  search_api_excerpt: true

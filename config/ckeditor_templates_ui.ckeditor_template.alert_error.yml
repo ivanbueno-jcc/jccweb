@@ -1,0 +1,12 @@
+uuid: 8087a9fc-1cc8-4c97-b596-07ba5aa41ca5
+langcode: en
+status: true
+dependencies: {  }
+id: alert_error
+label: 'Alert Error'
+image: ''
+description: 'An alert keeps users informed of important and sometimes time-sensitive changes.'
+html:
+  value: "<div class=\"usa-alert usa-alert--error\" role=\"alert\">\r\n<div class=\"usa-alert__body\">\r\n<h3 class=\"usa-alert__heading\">Error status</h3>\r\n\r\n<p class=\"usa-alert__text\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>\r\n</div>\r\n</div>\r\n"
+  format: full_html
+weight: 7

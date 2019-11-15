@@ -1,0 +1,12 @@
+uuid: 9d61b5b9-ee96-45f8-ab0b-2de580788af2
+langcode: en
+status: true
+dependencies: {  }
+id: alert_success
+label: 'Alert Success'
+image: ''
+description: ''
+html:
+  value: "<div class=\"usa-alert usa-alert--warning\">\r\n<div class=\"usa-alert__body\">\r\n<h3 class=\"usa-alert__heading\">Success status</h3>\r\n\r\n<p class=\"usa-alert__text\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>\r\n</div>\r\n</div>\r\n"
+  format: full_html
+weight: 5

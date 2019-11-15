@@ -1,0 +1,29 @@
+uuid: 40b011b1-16b2-4afc-803c-a5e68f6daec8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_court_of_appeals
+    - node.type.case_summary
+    - taxonomy.vocabulary.court_of_appeals
+id: node.case_summary.field_court_of_appeals
+field_name: field_court_of_appeals
+entity_type: node
+bundle: case_summary
+label: 'Court of Appeals'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      court_of_appeals: court_of_appeals
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,18 @@
+uuid: 59262537-5a8a-449e-ba08-e65aaec523ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+id: menu_link_content.footer.title
+field_name: title
+entity_type: menu_link_content
+bundle: footer
+label: 'Menu link title'
+description: 'The text to be used for this link in the menu.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

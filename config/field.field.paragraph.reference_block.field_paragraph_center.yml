@@ -1,0 +1,23 @@
+uuid: 090a30c3-8e13-40da-a6e7-5288caf9d8c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_paragraph_center
+    - paragraphs.paragraphs_type.reference_block
+id: paragraph.reference_block.field_paragraph_center
+field_name: field_paragraph_center
+entity_type: paragraph
+bundle: reference_block
+label: Center
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

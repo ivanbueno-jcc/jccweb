@@ -1,0 +1,18 @@
+uuid: 78defa82-2cdf-46a5-abff-868d9d87aee2
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.national_subject_matter_index
+id: taxonomy_term.national_subject_matter_index.name
+field_name: name
+entity_type: taxonomy_term
+bundle: national_subject_matter_index
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

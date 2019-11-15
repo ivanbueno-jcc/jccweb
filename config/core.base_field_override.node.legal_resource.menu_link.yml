@@ -1,0 +1,20 @@
+uuid: 9b56431c-39c2-400f-985f-06a6b5d66abb
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.legal_resource
+id: node.legal_resource.menu_link
+field_name: menu_link
+entity_type: node
+bundle: legal_resource
+label: 'Menu link'
+description: 'Computed menu link for the node (only available during node saving).'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

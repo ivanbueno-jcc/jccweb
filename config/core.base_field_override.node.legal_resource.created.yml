@@ -1,0 +1,18 @@
+uuid: acb857fc-b8e5-4414-b3d5-d9576d6a908b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.legal_resource
+id: node.legal_resource.created
+field_name: created
+entity_type: node
+bundle: legal_resource
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

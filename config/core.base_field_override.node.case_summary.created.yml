@@ -1,0 +1,18 @@
+uuid: 8328d48b-ac83-474f-8a17-357c7c6bcffa
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.case_summary
+id: node.case_summary.created
+field_name: created
+entity_type: node
+bundle: case_summary
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

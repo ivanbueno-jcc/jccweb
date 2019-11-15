@@ -1,0 +1,18 @@
+uuid: 0e7913f7-2517-4cce-96fe-3006e1a63e09
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.court_of_appeals
+id: taxonomy_term.court_of_appeals.name
+field_name: name
+entity_type: taxonomy_term
+bundle: court_of_appeals
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

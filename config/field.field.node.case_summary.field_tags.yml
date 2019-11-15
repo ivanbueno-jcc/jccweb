@@ -1,0 +1,29 @@
+uuid: 35d0bc78-3dd8-4b1f-8bd0-91af94cc3823
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags
+    - node.type.case_summary
+    - taxonomy.vocabulary.tags
+id: node.case_summary.field_tags
+field_name: field_tags
+entity_type: node
+bundle: case_summary
+label: Tags
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

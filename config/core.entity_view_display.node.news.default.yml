@@ -1,0 +1,104 @@
+uuid: e83cbf8d-838d-4cb2-a544-c3116900057b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.news.body
+    - field.field.node.news.field_attachments
+    - field.field.node.news.field_court_of_appeals
+    - field.field.node.news.field_division
+    - field.field.node.news.field_link
+    - field.field.node.news.field_metatag
+    - field.field.node.news.field_subject_matter
+    - field.field.node.news.field_superior_court
+    - field.field.node.news.field_tags
+    - node.type.news
+  module:
+    - link
+    - metatag
+    - text
+    - user
+id: node.news.default
+targetEntityType: node
+bundle: news
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_attachments:
+    type: entity_reference_entity_view
+    weight: 1
+    label: above
+    settings:
+      view_mode: node_
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_court_of_appeals:
+    weight: 6
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_division:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_link:
+    weight: 2
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_metatag:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+  field_subject_matter:
+    weight: 5
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_superior_court:
+    weight: 7
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_tags:
+    weight: 3
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  langcode: true
+  links: true
+  search_api_excerpt: true

@@ -1,0 +1,22 @@
+uuid: 110fff3e-3a95-4551-90b4-6cc66b1218bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - uswds_base_jcc
+_core:
+  default_config_hash: z8PNCzfA1DWM9hMbq_Olyzbmor_2bsxlv5_rOGuHwHM
+id: uswds_base_jcc_messages
+theme: uswds_base_jcc
+region: highlighted
+weight: -50
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,20 @@
+uuid: a329e653-90c1-467d-9959-82764e6776aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.national_subject_matter_index
+  module:
+    - path
+id: taxonomy_term.national_subject_matter_index.path
+field_name: path
+entity_type: taxonomy_term
+bundle: national_subject_matter_index
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

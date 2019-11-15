@@ -1,0 +1,21 @@
+uuid: c7a55a5e-f2c8-47a9-99c0-3738cd8734ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - dropdown_language
+  theme:
+    - uswds_base_jcc
+id: dropdownlanguage
+theme: uswds_base_jcc
+region: header_top
+weight: -12
+provider: null
+plugin: 'dropdown_language:language_interface'
+settings:
+  id: 'dropdown_language:language_interface'
+  label: 'Dropdown Language'
+  provider: dropdown_language
+  label_display: '0'
+  labels: null
+visibility: {  }

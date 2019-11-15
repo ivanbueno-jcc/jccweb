@@ -1,0 +1,55 @@
+uuid: e98b841c-bfec-41d9-9b9a-0f9fb0a30644
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.default_index
+    - views.view.search_api
+  module:
+    - search_api
+id: facets_summary
+name: 'Facets Summary'
+facets:
+  content_type:
+    checked: true
+    label: 'Content type'
+    separator: ', '
+    weight: 0
+    show_count: false
+  court_of_appeals:
+    checked: true
+    label: 'Court of Appeals'
+    separator: ', '
+    weight: 0
+    show_count: false
+  superior_court:
+    checked: true
+    label: 'Superior Court'
+    separator: ', '
+    weight: 0
+    show_count: false
+  subject_matter:
+    checked: true
+    label: 'Subject Matter'
+    separator: ', '
+    weight: 0
+    show_count: false
+  tags:
+    checked: true
+    label: Tags
+    separator: ', '
+    weight: 0
+    show_count: false
+facet_source_id: 'search_api:views_page__search_api__page_1'
+processor_configs:
+  hide_when_not_rendered:
+    processor_id: hide_when_not_rendered
+    weights:
+      build: '45'
+    settings: {  }
+  reset_facets:
+    processor_id: reset_facets
+    weights:
+      build: '30'
+    settings:
+      link_text: Reset

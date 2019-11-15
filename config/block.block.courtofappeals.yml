@@ -1,0 +1,29 @@
+uuid: 78705676-e5f3-4b07-b493-6d660796d97f
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.court_of_appeals
+  module:
+    - facets
+    - system
+  theme:
+    - uswds_base_jcc
+id: courtofappeals
+theme: uswds_base_jcc
+region: sidebar_first
+weight: -7
+provider: null
+plugin: 'facet_block:court_of_appeals'
+settings:
+  id: 'facet_block:court_of_appeals'
+  label: 'Court of Appeals'
+  provider: facets
+  label_display: visible
+  block_id: courtofappeals
+visibility:
+  request_path:
+    id: request_path
+    pages: "/search\r\n/search/*"
+    negate: false
+    context_mapping: {  }

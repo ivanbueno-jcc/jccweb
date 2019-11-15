@@ -1,0 +1,25 @@
+uuid: e16250dc-bee2-440e-840c-bca154130981
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node_type_node_title
+label: 'Node Type, Node Title'
+type: 'canonical_entities:node'
+pattern: '[node:content-type]/[node:title]'
+selection_criteria:
+  026f883c-f14a-4c1e-8428-8e1cb9e4799f:
+    id: node_type
+    bundles:
+      case_summary: case_summary
+      course: course
+      form: form
+      legal_resource: legal_resource
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 026f883c-f14a-4c1e-8428-8e1cb9e4799f
+selection_logic: and
+weight: -5
+relationships: {  }

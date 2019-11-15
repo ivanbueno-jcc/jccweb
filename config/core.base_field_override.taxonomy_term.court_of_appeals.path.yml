@@ -1,0 +1,20 @@
+uuid: f4342c84-392e-4553-9816-586e303bdd76
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.court_of_appeals
+  module:
+    - path
+id: taxonomy_term.court_of_appeals.path
+field_name: path
+entity_type: taxonomy_term
+bundle: court_of_appeals
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

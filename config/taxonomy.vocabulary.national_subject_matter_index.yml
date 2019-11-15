@@ -1,0 +1,8 @@
+uuid: b54cd62c-bc40-47a7-bf68-4a4e119ba2cc
+langcode: en
+status: true
+dependencies: {  }
+name: 'National Subject Matter Index'
+vid: national_subject_matter_index
+description: ''
+weight: 0

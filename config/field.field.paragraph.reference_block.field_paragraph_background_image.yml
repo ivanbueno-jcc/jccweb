@@ -1,0 +1,28 @@
+uuid: eb32bec6-f896-49bc-af61-56f4c7432353
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_paragraph_background_image
+    - media.type.image
+    - paragraphs.paragraphs_type.reference_block
+id: paragraph.reference_block.field_paragraph_background_image
+field_name: field_paragraph_background_image
+entity_type: paragraph
+bundle: reference_block
+label: 'Background Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

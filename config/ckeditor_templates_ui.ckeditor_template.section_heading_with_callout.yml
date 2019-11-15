@@ -1,0 +1,12 @@
+uuid: 7f6a6860-3d4d-4b63-b5aa-3d4723738064
+langcode: en
+status: true
+dependencies: {  }
+id: section_heading_with_callout
+label: 'Section Heading with Callout'
+image: ''
+description: 'Lead paragraph with callout'
+html:
+  value: "<div class=\"grid-row\">\r\n<h1 class=\"font-heading-xl margin-top-0 tablet:margin-bottom-0\">Section Heading with Callout</h1>\r\n</div>\r\n\r\n<div class=\"grid-row grid-gap-6 text-middle flex-align-center\">\r\n<div class=\"grid-col-8\">\r\n<p class=\"usa-intro\">Everything up to this point should help people understand your agency or project: who you are, your goal or mission, and how you approach it. Use this section to encourage them to act. Describe why they should get in touch here, and use an active verb on the button below. “Get in touch,” “Learn more,” and so on.</p>\r\n</div>\r\n\r\n<div class=\"grid-col-4\">\r\n<div class=\"usa-hero__callout\">\r\n<h1 class=\"usa-hero__heading\"><span class=\"usa-hero__heading--alt\">Hero callout:</span>Bring attention</h1>\r\n\r\n<p>Support the callout with some short explanatory text. You don’t need more than a couple of sentences.</p>\r\n<a class=\"usa-button\" href=\"#\">Call to action</a></div>\r\n</div>\r\n</div>\r\n"
+  format: full_html
+weight: 9

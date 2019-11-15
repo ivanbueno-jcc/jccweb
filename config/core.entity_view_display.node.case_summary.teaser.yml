@@ -1,0 +1,40 @@
+uuid: c35f86e7-5558-4ffc-a1ef-3b146c3b82e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.case_summary.body
+    - field.field.node.case_summary.field_court_of_appeals
+    - field.field.node.case_summary.field_subject_matter
+    - field.field.node.case_summary.field_superior_court
+    - field.field.node.case_summary.field_tags
+    - node.type.case_summary
+  module:
+    - text
+    - user
+id: node.case_summary.teaser
+targetEntityType: node
+bundle: case_summary
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_court_of_appeals: true
+  field_subject_matter: true
+  field_superior_court: true
+  field_tags: true
+  langcode: true
+  search_api_excerpt: true
