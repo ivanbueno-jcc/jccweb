@@ -1,0 +1,6 @@
+ignored_config_entities:
+  0: geofield_map.settings
+  2: sendgrid_integration.settings
+  4: 'webform.webform.*'
+_core:
+  default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
