@@ -1,0 +1,29 @@
+uuid: fb3ba927-cfb5-4d66-a080-cf2239450e35
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.division
+  module:
+    - facets
+    - system
+  theme:
+    - uswds_base_jcc
+id: division
+theme: uswds_base_jcc
+region: sidebar_first
+weight: -9
+provider: null
+plugin: 'facet_block:division'
+settings:
+  id: 'facet_block:division'
+  label: Division
+  provider: facets
+  label_display: visible
+  block_id: division
+visibility:
+  request_path:
+    id: request_path
+    pages: "/search\r\n/search/*"
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,19 @@
+uuid: c9408d6a-69fd-4dc0-a974-a879be1bdaed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.menu_link_content.field_menu_description
+    - system.menu.main
+id: menu_link_content.main.field_menu_description
+field_name: field_menu_description
+entity_type: menu_link_content
+bundle: main
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

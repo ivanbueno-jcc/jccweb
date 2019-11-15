@@ -1,0 +1,22 @@
+uuid: e37a234d-7256-4f5c-979a-8f134ee483a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.case_summary
+  module:
+    - text
+id: node.case_summary.body
+field_name: body
+entity_type: node
+bundle: case_summary
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

@@ -1,0 +1,22 @@
+uuid: 5973d707-64b6-4162-a16a-c24c591f2b12
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.course
+id: node.course.sticky
+field_name: sticky
+entity_type: node
+bundle: course
+label: 'Sticky at top of lists'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

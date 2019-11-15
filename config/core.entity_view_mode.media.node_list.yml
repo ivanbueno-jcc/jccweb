@@ -1,0 +1,10 @@
+uuid: 624bfd88-1867-43dd-a816-28b327ad2e9b
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.node_list
+label: 'Node List'
+targetEntityType: media
+cache: true

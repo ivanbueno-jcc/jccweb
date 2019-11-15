@@ -1,0 +1,19 @@
+uuid: ad2ee1e1-aa45-43fa-afa8-bc85973c0a7e
+langcode: en
+status: true
+dependencies:
+  module:
+    - address
+    - node
+id: node.field_mailing_address
+field_name: field_mailing_address
+entity_type: node
+type: address
+settings: {  }
+module: address
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

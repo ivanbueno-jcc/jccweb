@@ -1,4 +1,4 @@
-uuid: 2bf3a7b0-f00a-4345-af3d-7670c8249787
+uuid: cdf4c99e-49b0-496a-80ce-1b375812ad42
 langcode: en
 status: true
 dependencies:
@@ -37,8 +37,9 @@ settings:
         -
           name: Media
           items:
+            - assets
+            - node
             - Blockquote
-            - DrupalImage
             - Table
             - HorizontalRule
         -
@@ -46,18 +47,52 @@ settings:
           items:
             - Format
         -
+          name: Tokens
+          items:
+            - DrupalFontAwesome
+            - tokenbrowser
+        -
           name: Tools
           items:
             - ShowBlocks
+            - Templates
             - Source
+        -
+          name: Extra
+          items:
+            - Maximize
   plugins:
+    language:
+      language_list: un
     stylescombo:
       styles: ''
+    codemirror:
+      enable: true
+      startupMode: wysiwyg
+      mode: application/x-httpd-php
+      theme: solarized
+      options:
+        lineNumbers: true
+        lineWrapping: true
+        matchBrackets: true
+        autoCloseTags: true
+        autoCloseBrackets: true
+        enableSearchTools: true
+        enableCodeFolding: true
+        enableCodeFormatting: true
+        autoFormatOnStart: true
+        autoFormatOnModeChange: true
+        autoFormatOnUncomment: true
+    templates:
+      template_path: ''
+      replace_content: 0
+    tokenbrowser:
+      token_types: {  }
 image_upload:
   status: true
   scheme: public
   directory: inline-images
   max_size: ''
   max_dimensions:
-    width: 0
-    height: 0
+    width: null
+    height: null

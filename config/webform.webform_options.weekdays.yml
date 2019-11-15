@@ -1,0 +1,9 @@
+uuid: 66da342e-6b32-4433-8944-532613060b98
+langcode: en
+status: true
+dependencies: {  }
+id: weekdays
+label: Weekdays
+category: 'Date and time'
+likert: false
+options: "Monday: Monday\nTuesday: Tuesday\nWednesday: Wednesday\nThursday: Thursday\nFriday: Friday\n"

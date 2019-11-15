@@ -1,0 +1,22 @@
+uuid: dfc75bf9-5ab6-4cf4-8d78-cd385d2a2b9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_reference_block
+    - paragraphs.paragraphs_type.views_reference_block
+  module:
+    - block_field
+id: paragraph.views_reference_block.field_reference_block
+field_name: field_reference_block
+entity_type: paragraph
+bundle: views_reference_block
+label: 'Reference Block'
+description: 'Embed existing blocks from custom library and views.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  plugin_ids: {  }
+field_type: block_field

@@ -1,0 +1,12 @@
+uuid: 9210769a-ec1f-4441-a1d1-6f33ec87b647
+langcode: en
+status: true
+dependencies: {  }
+id: callout
+label: Callout
+image: ''
+description: 'Callout with title and button'
+html:
+  value: "<div class=\"usa-hero__callout\">\r\n<h1 class=\"usa-hero__heading\"><span class=\"usa-hero__heading--alt\">Hero callout:</span>Bring attention to a project priority</h1>\r\n\r\n<p>Support the callout with some short explanatory text. You don’t need more than a couple of sentences.</p>\r\n<a class=\"usa-button\" href=\"javascript:void(0)\">Call to action</a></div>\r\n"
+  format: full_html
+weight: 4

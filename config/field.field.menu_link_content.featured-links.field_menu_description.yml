@@ -1,0 +1,19 @@
+uuid: 0489f709-a79d-4388-aa45-0f4c00376ebb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.menu_link_content.field_menu_description
+    - system.menu.featured-links
+id: menu_link_content.featured-links.field_menu_description
+field_name: field_menu_description
+entity_type: menu_link_content
+bundle: featured-links
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

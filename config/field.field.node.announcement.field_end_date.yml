@@ -1,0 +1,24 @@
+uuid: ef6e725c-662c-4051-a6b1-0be3ebd52f24
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_end_date
+    - node.type.announcement
+  module:
+    - datetime
+id: node.announcement.field_end_date
+field_name: field_end_date
+entity_type: node
+bundle: announcement
+label: 'End Date'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    default_date_type: relative
+    default_date: '+1 days'
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,18 @@
+uuid: dd0a0141-e71e-4b9f-a0ca-ec71b3fb862b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.book
+id: node.book.created
+field_name: created
+entity_type: node
+bundle: book
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

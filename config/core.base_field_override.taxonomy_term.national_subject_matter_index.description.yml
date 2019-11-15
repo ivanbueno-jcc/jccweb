@@ -1,0 +1,20 @@
+uuid: b30900cb-0a36-4587-b812-7aba87eaa6ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.national_subject_matter_index
+  module:
+    - text
+id: taxonomy_term.national_subject_matter_index.description
+field_name: description
+entity_type: taxonomy_term
+bundle: national_subject_matter_index
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

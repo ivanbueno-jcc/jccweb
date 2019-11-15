@@ -1,0 +1,22 @@
+uuid: a413990c-bf22-4122-8b55-1a5fc082e37d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.form
+id: node.form.status
+field_name: status
+entity_type: node
+bundle: form
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

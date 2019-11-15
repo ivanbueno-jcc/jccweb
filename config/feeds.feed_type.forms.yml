@@ -1,0 +1,72 @@
+uuid: 5aebd377-8eec-4ab4-9615-aa005a60f0e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.form.field_form_type
+    - node.type.form
+  module:
+    - node
+label: Forms
+id: forms
+description: ''
+import_period: 3600
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'private://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  update_existing: 0
+  update_non_existent: _keep
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+  authorize: true
+  skip_hash_check: false
+  values:
+    type: form
+custom_sources:
+  csv_desc:
+    label: csv_desc
+    value: csv_desc
+    machine_name: csv_desc
+  csv_type:
+    label: csv_type
+    value: csv_type
+    machine_name: csv_type
+  csv_title:
+    label: csv_title
+    value: csv_title
+    machine_name: csv_title
+  csv_file:
+    label: csv_file
+    value: csv_file
+    machine_name: csv_file
+  csv_url:
+    label: csv_url
+    value: csv_url
+    machine_name: csv_url
+mappings:
+  -
+    target: field_form_type
+    map:
+      target_id: csv_type
+    settings:
+      reference_by: name
+      autocreate: false
+  -
+    target: title
+    map:
+      value: csv_title
+    unique: {  }
+  -
+    target: field_link
+    map:
+      uri: csv_url
+      title: csv_title

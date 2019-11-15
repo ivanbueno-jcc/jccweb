@@ -1,11 +1,11 @@
-uuid: 8930ae0e-6a87-43f6-b3db-6500a0a8cead
-name: jccweb
+uuid: 5175a80f-0361-406f-a02c-9125184a56f9
+name: 'Judicial Council'
 mail: ivan.bueno@jud.ca.gov
-slogan: 'Hello milky way'
+slogan: ''
 page:
   403: ''
   404: ''
-  front: /node
+  front: /node/9
 admin_compact_mode: false
 weight_select_max: 100
 langcode: en

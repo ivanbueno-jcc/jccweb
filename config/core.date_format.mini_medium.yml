@@ -1,0 +1,8 @@
+uuid: 9f1fd9e5-8cd1-406c-a33a-cc55e6e44b64
+langcode: en
+status: true
+dependencies: {  }
+id: mini_medium
+label: 'Mini Medium'
+locked: false
+pattern: 'D, M d, g:i A'

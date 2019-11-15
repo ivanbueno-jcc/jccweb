@@ -1,0 +1,18 @@
+uuid: fda5304d-fa0e-4732-9360-e440696dcf15
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.form_type
+id: taxonomy_term.form_type.name
+field_name: name
+entity_type: taxonomy_term
+bundle: form_type
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

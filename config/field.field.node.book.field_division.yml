@@ -1,0 +1,29 @@
+uuid: f5b8b34a-84f4-4c59-9166-996b00ec8f7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_division
+    - node.type.book
+    - taxonomy.vocabulary.division
+id: node.book.field_division
+field_name: field_division
+entity_type: node
+bundle: book
+label: Division
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      division: division
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

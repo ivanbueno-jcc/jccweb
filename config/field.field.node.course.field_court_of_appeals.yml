@@ -1,0 +1,29 @@
+uuid: a0120393-2270-4013-98e1-df0c059cf41d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_court_of_appeals
+    - node.type.course
+    - taxonomy.vocabulary.court_of_appeals
+id: node.course.field_court_of_appeals
+field_name: field_court_of_appeals
+entity_type: node
+bundle: course
+label: 'Court of Appeals'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      court_of_appeals: court_of_appeals
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

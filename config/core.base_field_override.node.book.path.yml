@@ -1,0 +1,20 @@
+uuid: 2bed2adb-a48f-4943-bcf1-d258999a455e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.book
+  module:
+    - path
+id: node.book.path
+field_name: path
+entity_type: node
+bundle: book
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

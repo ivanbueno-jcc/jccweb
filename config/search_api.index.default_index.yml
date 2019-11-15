@@ -1,0 +1,389 @@
+uuid: 8000a204-01bf-41a6-bab3-28a31f98f930
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - user
+    - taxonomy
+    - paragraphs
+    - search_api
+  config:
+    - field.storage.node.field_court_of_appeals
+    - field.storage.node.field_division
+    - field.storage.node.field_form_type
+    - field.storage.node.field_paragraphs
+    - field.storage.paragraph.field_paragraph_content
+    - field.storage.node.field_subject_matter
+    - field.storage.node.field_superior_court
+    - field.storage.node.field_tags
+    - search_api.server.default_server
+    - core.entity_view_mode.node.search_index
+_core:
+  default_config_hash: GLmLegZGHtMF6annRqgjizJAoiAip-IT-XOsDMCZfog
+id: default_index
+name: 'Default content index'
+description: 'Default content index created by the Database Search Defaults module'
+read_only: false
+field_settings:
+  aggregated_field:
+    label: 'Aggregated field'
+    property_path: aggregated_field
+    type: string
+    configuration:
+      type: union
+      fields: {  }
+  author:
+    label: 'Author name'
+    datasource_id: 'entity:node'
+    property_path: 'uid:entity:name'
+    type: string
+    dependencies:
+      module:
+        - node
+        - user
+        - user
+  changed:
+    label: Changed
+    datasource_id: 'entity:node'
+    property_path: changed
+    type: date
+    dependencies:
+      module:
+        - node
+  created:
+    label: 'Authored on'
+    datasource_id: 'entity:node'
+    property_path: created
+    type: date
+    dependencies:
+      module:
+        - node
+  field_court_of_appeals:
+    label: 'Court of Appeals'
+    datasource_id: 'entity:node'
+    property_path: field_court_of_appeals
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_court_of_appeals
+  field_division:
+    label: Division
+    datasource_id: 'entity:node'
+    property_path: field_division
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_division
+  field_form_type:
+    label: 'Form Type'
+    datasource_id: 'entity:node'
+    property_path: field_form_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_form_type
+  field_paragraph_content:
+    label: 'Paragraphs » Paragraph » Content'
+    datasource_id: 'entity:node'
+    property_path: 'field_paragraphs:entity:field_paragraph_content'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_paragraphs
+        - field.storage.paragraph.field_paragraph_content
+      module:
+        - paragraphs
+  field_subject_matter:
+    label: 'Subject Matter'
+    datasource_id: 'entity:node'
+    property_path: field_subject_matter
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_subject_matter
+  field_superior_court:
+    label: 'Superior Court'
+    datasource_id: 'entity:node'
+    property_path: field_superior_court
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_superior_court
+  field_tags:
+    label: Tags
+    datasource_id: 'entity:node'
+    property_path: field_tags
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_tags
+  form_type_name:
+    label: 'Form Type » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_form_type:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_form_type
+      module:
+        - taxonomy
+        - taxonomy
+  name:
+    label: 'Subject Matter » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_subject_matter:entity:name'
+    type: text
+    boost: !!float 2
+    dependencies:
+      config:
+        - field.storage.node.field_subject_matter
+      module:
+        - taxonomy
+        - taxonomy
+  name_1:
+    label: 'Superior Court » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_superior_court:entity:name'
+    type: text
+    boost: !!float 5
+    dependencies:
+      config:
+        - field.storage.node.field_superior_court
+      module:
+        - taxonomy
+        - taxonomy
+  name_2:
+    label: 'Court of Appeals » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_court_of_appeals:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_court_of_appeals
+      module:
+        - taxonomy
+        - taxonomy
+  name_3:
+    label: 'Division » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_division:entity:name'
+    type: text
+    boost: !!float 2
+    dependencies:
+      config:
+        - field.storage.node.field_division
+      module:
+        - taxonomy
+        - taxonomy
+  node_grants:
+    label: 'Node access information'
+    property_path: search_api_node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
+  rendered_item:
+    label: 'Rendered item'
+    property_path: rendered_item
+    type: text
+    configuration:
+      roles:
+        anonymous: anonymous
+      view_mode:
+        'entity:node':
+          article: search_index
+          book: search_index
+          landing_page: search_index
+          page: search_index
+  status:
+    label: 'Publishing status'
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    indexed_locked: true
+    type_locked: true
+    dependencies:
+      module:
+        - node
+  sticky:
+    label: 'Sticky at top of lists'
+    datasource_id: 'entity:node'
+    property_path: sticky
+    type: boolean
+    dependencies:
+      module:
+        - node
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: !!float 8
+    dependencies:
+      module:
+        - node
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+    dependencies:
+      module:
+        - node
+  uid:
+    label: 'Author ID'
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    indexed_locked: true
+    type_locked: true
+    dependencies:
+      module:
+        - node
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url:
+    weights:
+      preprocess_index: -30
+  aggregated_field:
+    weights:
+      add_properties: 20
+  content_access:
+    weights:
+      preprocess_index: -6
+      preprocess_query: -4
+  entity_status:
+    weights:
+      preprocess_index: -10
+  hierarchy:
+    fields:
+      field_form_type: taxonomy_term-parent
+      field_subject_matter: taxonomy_term-parent
+    weights:
+      preprocess_index: -45
+  highlight:
+    highlight: always
+    highlight_partial: true
+    excerpt: true
+    excerpt_length: 256
+    exclude_fields: {  }
+    prefix: '<strong>'
+    suffix: '</strong>'
+    weights:
+      postprocess_query: 0
+  html_filter:
+    all_fields: false
+    fields:
+      - rendered_item
+    title: true
+    alt: true
+    tags:
+      b: 2
+      h1: 5
+      h2: 3
+      h3: 2
+      string: 2
+    weights:
+      preprocess_index: -3
+      preprocess_query: -6
+  ignorecase:
+    all_fields: true
+    fields:
+      - aggregated_field
+      - author
+      - field_paragraph_content
+      - form_type_name
+      - name
+      - name_1
+      - name_2
+      - name_3
+      - rendered_item
+      - title
+      - type
+    weights:
+      preprocess_index: -5
+      preprocess_query: -8
+  language_with_fallback: {  }
+  rendered_item:
+    weights:
+      add_properties: 0
+      pre_index_save: -10
+  stopwords:
+    all_fields: false
+    fields:
+      - rendered_item
+      - title
+    stopwords:
+      - a
+      - an
+      - and
+      - are
+      - as
+      - at
+      - be
+      - but
+      - by
+      - for
+      - if
+      - in
+      - into
+      - is
+      - it
+      - 'no'
+      - not
+      - of
+      - 'on'
+      - or
+      - s
+      - such
+      - t
+      - that
+      - the
+      - their
+      - then
+      - there
+      - these
+      - they
+      - this
+      - to
+      - was
+      - will
+      - with
+    weights:
+      preprocess_index: -5
+      preprocess_query: -10
+  tokenizer:
+    all_fields: false
+    fields:
+      - rendered_item
+      - title
+    spaces: ''
+    overlap_cjk: 1
+    minimum_word_size: '3'
+    weights:
+      preprocess_index: -2
+      preprocess_query: -5
+  transliteration:
+    all_fields: false
+    fields:
+      - field_paragraph_content
+      - rendered_item
+      - title
+    weights:
+      preprocess_index: -4
+      preprocess_query: -7
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  index_directly: true
+server: default_server

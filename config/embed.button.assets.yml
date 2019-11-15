@@ -1,0 +1,22 @@
+uuid: 23a9678c-2ef2-4b2d-9ccd-e380a36e01e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.asset_browser
+  content:
+    - 'file:file:ce09b0d5-08a4-470c-8c17-c95d15ae246c'
+  module:
+    - entity_embed
+    - media
+label: Assets
+id: assets
+type_id: entity
+type_settings:
+  entity_type: media
+  bundles: {  }
+  display_plugins: {  }
+  entity_browser: asset_browser
+  entity_browser_settings:
+    display_review: false
+icon_uuid: ce09b0d5-08a4-470c-8c17-c95d15ae246c

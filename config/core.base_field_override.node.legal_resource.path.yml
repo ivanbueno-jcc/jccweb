@@ -1,0 +1,20 @@
+uuid: 03ba9614-22e9-40ab-8b18-ae65214501a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.legal_resource
+  module:
+    - path
+id: node.legal_resource.path
+field_name: path
+entity_type: node
+bundle: legal_resource
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

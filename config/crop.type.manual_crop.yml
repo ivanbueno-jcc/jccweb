@@ -1,0 +1,12 @@
+uuid: 15d0b7ef-9e7a-4bfe-8b3d-85db2ad13ab6
+langcode: en
+status: true
+dependencies: {  }
+label: 'Manual Crop'
+id: manual_crop
+description: 'Crop type using manual selection.'
+aspect_ratio: ''
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: null
+hard_limit_height: null
