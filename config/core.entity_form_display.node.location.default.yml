@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.field.node.location.body
     - field.field.node.location.field_division
-    - field.field.node.location.field_geolocation
+    - field.field.node.location.field_geoloc
     - field.field.node.location.field_images
     - field.field.node.location.field_location
     - field.field.node.location.field_mailing_address
@@ -17,7 +17,6 @@ dependencies:
   module:
     - address
     - field_group
-    - geofield
     - media_library
     - metatag
     - office_hours
@@ -160,7 +159,7 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -169,13 +168,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
-    region: content
-  field_geolocation:
-    weight: 10
-    settings:
-      html5_geolocation: false
-    third_party_settings: {  }
-    type: geofield_latlon
     region: content
   field_images:
     weight: 3
@@ -197,7 +189,7 @@ content:
     type: address_default
     region: content
   field_metatag:
-    weight: 11
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
@@ -230,7 +222,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 8
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -238,21 +230,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 5
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 9
+    weight: 8
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 6
     region: content
     third_party_settings: {  }
   title:
@@ -264,7 +256,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 5
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -277,4 +269,5 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_geoloc: true

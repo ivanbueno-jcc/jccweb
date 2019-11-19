@@ -3,19 +3,19 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_geolocation
+    - field.storage.node.field_geoloc
     - field.storage.node.field_images
     - field.storage.node.field_location
     - field.storage.node.field_mailing_address
     - field.storage.node.field_office_hours
     - field.storage.node.field_phone
     - field.storage.node.field_phone_hours
+    - filter.format.full_html
     - image.style.medium
     - node.type.location
   module:
     - address
-    - geofield
-    - geofield_map
+    - geolocation
     - media
     - node
     - office_hours
@@ -66,87 +66,510 @@ display:
         options:
           offset: 0
       style:
-        type: geofield_google_map
+        type: maps_common
         options:
-          data_source: field_geolocation
-          entity_source: __base_table
-          map_dimensions:
+          geolocation_field: field_geoloc
+          data_provider_id: geolocation_field_provider
+          title_field: title
+          label_field: none
+          marker_icon_path: ''
+          marker_row_number: 0
+          centre:
+            client_location:
+              enable: true
+              weight: 0
+              map_center_id: client_location
+            fit_bounds:
+              enable: true
+              weight: 0
+              map_center_id: fit_bounds
+              settings:
+                reset_zoom: false
+            fixed_boundaries:
+              settings:
+                north: ''
+                east: ''
+                south: ''
+                west: ''
+              weight: 0
+              enable: false
+              map_center_id: fixed_boundaries
+            first_row:
+              weight: 0
+              enable: false
+              map_center_id: location_plugins
+              settings:
+                location_option_id: first_row
+            fixed_value:
+              settings:
+                latitude: null
+                longitude: null
+                location_option_id: fixed_value
+              weight: 0
+              enable: false
+              map_center_id: location_plugins
+            freeogeoip:
+              weight: 0
+              enable: false
+              map_center_id: location_plugins
+              settings:
+                location_option_id: freeogeoip
+            ipstack:
+              settings:
+                access_key: ''
+                location_option_id: ipstack
+              weight: 0
+              enable: false
+              map_center_id: location_plugins
+          even_empty: 1
+          map_provider_id: leaflet
+          map_provider_settings:
+            map_features:
+              leaflet_control_layer:
+                weight: 0
+                settings:
+                  position: topright
+                  default_label: false
+                  tile_layer_providers:
+                    OpenStreetMap:
+                      'OpenStreetMap Mapnik':
+                        label: ''
+                        checkbox: false
+                      'OpenStreetMap BlackAndWhite':
+                        label: ''
+                        checkbox: false
+                      'OpenStreetMap DE':
+                        label: ''
+                        checkbox: false
+                      'OpenStreetMap CH':
+                        label: ''
+                        checkbox: false
+                      'OpenStreetMap France':
+                        label: ''
+                        checkbox: false
+                      'OpenStreetMap HOT':
+                        label: ''
+                        checkbox: false
+                      'OpenStreetMap BZH':
+                        label: ''
+                        checkbox: false
+                    OpenTopoMap:
+                      OpenTopoMap:
+                        label: ''
+                        checkbox: false
+                    Thunderforest:
+                      'Thunderforest OpenCycleMap':
+                        label: ''
+                        checkbox: false
+                      'Thunderforest Transport':
+                        label: ''
+                        checkbox: false
+                      'Thunderforest TransportDark':
+                        label: ''
+                        checkbox: false
+                      'Thunderforest SpinalMap':
+                        label: ''
+                        checkbox: false
+                      'Thunderforest Landscape':
+                        label: ''
+                        checkbox: false
+                      'Thunderforest Outdoors':
+                        label: ''
+                        checkbox: false
+                      'Thunderforest Pioneer':
+                        label: ''
+                        checkbox: false
+                    OpenMapSurfer:
+                      'OpenMapSurfer Roads':
+                        label: ''
+                        checkbox: false
+                      'OpenMapSurfer Grayscale':
+                        label: ''
+                        checkbox: false
+                    Hydda:
+                      'Hydda Full':
+                        label: ''
+                        checkbox: false
+                      'Hydda Base':
+                        label: ''
+                        checkbox: false
+                    MapBox:
+                      MapBox:
+                        label: ''
+                        checkbox: false
+                    Stamen:
+                      'Stamen Toner':
+                        label: ''
+                        checkbox: false
+                      'Stamen TonerBackground':
+                        label: ''
+                        checkbox: false
+                      'Stamen TonerLite':
+                        label: ''
+                        checkbox: false
+                      'Stamen Watercolor':
+                        label: ''
+                        checkbox: false
+                      'Stamen Terrain':
+                        label: ''
+                        checkbox: false
+                      'Stamen TerrainBackground':
+                        label: ''
+                        checkbox: false
+                      'Stamen TopOSMRelief':
+                        label: ''
+                        checkbox: false
+                    Esri:
+                      'Esri WorldStreetMap':
+                        label: ''
+                        checkbox: false
+                      'Esri DeLorme':
+                        label: ''
+                        checkbox: false
+                      'Esri WorldTopoMap':
+                        label: ''
+                        checkbox: false
+                      'Esri WorldImagery':
+                        label: ''
+                        checkbox: false
+                      'Esri WorldTerrain':
+                        label: ''
+                        checkbox: false
+                      'Esri WorldShadedRelief':
+                        label: ''
+                        checkbox: false
+                      'Esri WorldPhysical':
+                        label: ''
+                        checkbox: false
+                      'Esri OceanBasemap':
+                        label: ''
+                        checkbox: false
+                      'Esri NatGeoWorldMap':
+                        label: ''
+                        checkbox: false
+                      'Esri WorldGrayCanvas':
+                        label: ''
+                        checkbox: false
+                    HERE:
+                      'HERE normalDay':
+                        label: ''
+                        checkbox: false
+                      'HERE normalDayCustom':
+                        label: ''
+                        checkbox: false
+                      'HERE normalDayGrey':
+                        label: ''
+                        checkbox: false
+                      'HERE normalDayMobile':
+                        label: ''
+                        checkbox: false
+                      'HERE normalDayGreyMobile':
+                        label: ''
+                        checkbox: false
+                      'HERE normalDayTransit':
+                        label: ''
+                        checkbox: false
+                      'HERE normalDayTransitMobile':
+                        label: ''
+                        checkbox: false
+                      'HERE normalNight':
+                        label: ''
+                        checkbox: false
+                      'HERE normalNightMobile':
+                        label: ''
+                        checkbox: false
+                      'HERE normalNightGrey':
+                        label: ''
+                        checkbox: false
+                      'HERE normalNightGreyMobile':
+                        label: ''
+                        checkbox: false
+                      'HERE normalNightTransit':
+                        label: ''
+                        checkbox: false
+                      'HERE normalNightTransitMobile':
+                        label: ''
+                        checkbox: false
+                      'HERE redcuedDay':
+                        label: ''
+                        checkbox: false
+                      'HERE redcuedNight':
+                        label: ''
+                        checkbox: false
+                      'HERE basicMap':
+                        label: ''
+                        checkbox: false
+                      'HERE mapLabels':
+                        label: ''
+                        checkbox: false
+                      'HERE trafficFlow':
+                        label: ''
+                        checkbox: false
+                      'HERE carnavDayGrey':
+                        label: ''
+                        checkbox: false
+                      'HERE hybridDayMobile':
+                        label: ''
+                        checkbox: false
+                      'HERE hybridDayTransit':
+                        label: ''
+                        checkbox: false
+                      'HERE hybridDayGrey':
+                        label: ''
+                        checkbox: false
+                      'HERE pedestrianDay':
+                        label: ''
+                        checkbox: false
+                      'HERE pedestrianNight':
+                        label: ''
+                        checkbox: false
+                      'HERE satelliteDay':
+                        label: ''
+                        checkbox: false
+                      'HERE terrainDay':
+                        label: ''
+                        checkbox: false
+                      'HERE terrainDayMobile':
+                        label: ''
+                        checkbox: false
+                    FreeMapSK:
+                      FreeMapSK:
+                        label: ''
+                        checkbox: false
+                    MtbMap:
+                      MtbMap:
+                        label: ''
+                        checkbox: false
+                    CartoDB:
+                      'CartoDB Positron':
+                        label: ''
+                        checkbox: false
+                      'CartoDB PositronNoLabels':
+                        label: ''
+                        checkbox: false
+                      'CartoDB PositronOnlyLabels':
+                        label: ''
+                        checkbox: false
+                      'CartoDB DarkMatter':
+                        label: ''
+                        checkbox: false
+                      'CartoDB DarkMatterNoLabels':
+                        label: ''
+                        checkbox: false
+                      'CartoDB DarkMatterOnlyLabels':
+                        label: ''
+                        checkbox: false
+                      'CartoDB Voyager':
+                        label: ''
+                        checkbox: false
+                      'CartoDB VoyagerNoLabels':
+                        label: ''
+                        checkbox: false
+                      'CartoDB VoyagerOnlyLabels':
+                        label: ''
+                        checkbox: false
+                      'CartoDB VoyagerLabelsUnder':
+                        label: ''
+                        checkbox: false
+                    HikeBike:
+                      HikeBike:
+                        label: ''
+                        checkbox: false
+                      'HikeBike HillShading':
+                        label: ''
+                        checkbox: false
+                    BasemapAT:
+                      'BasemapAT basemap':
+                        label: ''
+                        checkbox: false
+                      'BasemapAT grau':
+                        label: ''
+                        checkbox: false
+                      'BasemapAT overlay':
+                        label: ''
+                        checkbox: false
+                      'BasemapAT highdpi':
+                        label: ''
+                        checkbox: false
+                      'BasemapAT orthofoto':
+                        label: ''
+                        checkbox: false
+                    NLS:
+                      NLS:
+                        label: ''
+                        checkbox: false
+                    Wikimedia:
+                      Wikimedia:
+                        label: ''
+                        checkbox: false
+                    GeoportailFrance:
+                      'GeoportailFrance parcels':
+                        label: ''
+                        checkbox: false
+                      'GeoportailFrance ignMaps':
+                        label: ''
+                        checkbox: false
+                      'GeoportailFrance maps':
+                        label: ''
+                        checkbox: false
+                      'GeoportailFrance orthos':
+                        label: ''
+                        checkbox: false
+                  tile_providers_options:
+                    Thunderforest:
+                      apikey: ''
+                    MapBox:
+                      accessToken: ''
+                    HERE:
+                      app_id: ''
+                      app_code: ''
+                    GeoportailFrance:
+                      apikey: ''
+                enabled: false
+              leaflet_tile_layer:
+                weight: 0
+                settings:
+                  tile_layer_provider: 'OpenStreetMap Mapnik'
+                  tile_provider_options:
+                    Thunderforest:
+                      apikey: ''
+                    MapBox:
+                      accessToken: ''
+                    HERE:
+                      app_id: ''
+                      app_code: ''
+                    GeoportailFrance:
+                      apikey: ''
+                enabled: false
+              leaflet_tile_layer_overlay:
+                weight: 0
+                settings:
+                  tile_layer_overlay: OpenInfraMap.Power
+                enabled: false
+              leaflet_custom_tile_layer:
+                weight: 0
+                settings:
+                  tile_layer_url: '//{s}.tile.osm.org/{z}/{x}/{y}.png'
+                  tile_layer_attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+                  tile_layer_subdomains: abc
+                  tile_layer_zoom: 18
+                enabled: false
+              leaflet_max_bounds:
+                weight: 0
+                settings:
+                  north: null
+                  south: null
+                  east: null
+                  west: null
+                enabled: false
+              leaflet_marker_zoom_and_animate:
+                weight: 0
+                settings:
+                  marker_zoom_anchor_id: ''
+                enabled: false
+              geolocation_marker_scroll_to_id:
+                weight: 0
+                settings:
+                  scroll_target_id: ''
+                enabled: false
+              leaflet_marker_popup:
+                enabled: true
+                weight: 0
+                settings:
+                  info_auto_display: false
+              leaflet_marker_icon:
+                weight: 0
+                settings:
+                  marker_icon_path: ''
+                  icon_size:
+                    width: null
+                    height: null
+                  icon_anchor:
+                    x: null
+                    'y': null
+                  popup_anchor:
+                    x: 0
+                    'y': 0
+                  marker_shadow_path: ''
+                  shadow_size:
+                    width: null
+                    height: null
+                  shadow_anchor:
+                    x: null
+                    'y': null
+                enabled: false
+              leaflet_marker_clusterer:
+                enabled: true
+                weight: 0
+                settings:
+                  cluster_settings:
+                    show_coverage_on_hover: true
+                    zoom_to_bounds_on_click: true
+                  disable_clustering_at_zoom: 0
+              leaflet_control_zoom:
+                enabled: true
+                weight: 0
+                settings:
+                  position: topright
+              leaflet_control_scale:
+                weight: 0
+                settings:
+                  position: topright
+                  metric: true
+                  imperial: true
+                enabled: false
+              leaflet_control_recenter:
+                weight: 0
+                settings:
+                  position: topright
+                enabled: false
+              leaflet_control_locate:
+                weight: 0
+                settings:
+                  position: topright
+                enabled: false
+              leaflet_control_geocoder:
+                weight: 0
+                settings:
+                  position: topright
+                  geocoder: photon
+                  settings:
+                    label: Address
+                    description: 'Enter an address to be localized.'
+                    autocomplete_min_length: 1
+                    location_priority:
+                      lat: null
+                      lng: null
+                enabled: false
+              leaflet_control_fullscreen:
+                weight: 0
+                settings:
+                  position: topright
+                enabled: false
+              leaflet_gesture_handling:
+                weight: 0
+                enabled: false
+              leaflet_disable_user_interaction:
+                weight: 0
+                enabled: false
+              leaflet_client_location_indicator:
+                weight: 0
+                enabled: false
+              leaflet_wms:
+                weight: 0
+                settings:
+                  url: ''
+                  version: 1.1.1
+                  layers: ''
+                  styles: ''
+                  srs: ''
+                  format: image/jpeg
+                  transparent: false
+                  identify: false
+                enabled: false
+            height: 400px
             width: 100%
-            height: 450px
-          map_empty:
-            empty_behaviour: '0'
-          map_center:
-            lat: '42'
-            lon: '12.5'
-            center_force: 0
-            geocode: 'Find my location'
-          map_zoom_and_pan:
-            zoom:
-              initial: '16'
-              force: 0
-              min: '1'
-              max: '22'
-              finer: '0'
-            gestureHandling: auto
-            scrollwheel: '1'
-            draggable: '1'
-            map_reset: 0
-            map_reset_position: TOP_RIGHT
-          map_controls:
-            disable_default_ui: 0
-            zoom_control: 1
-            map_type_id: roadmap
-            map_type_control: 1
-            map_type_control_options_type_ids:
-              roadmap: roadmap
-              satellite: satellite
-              hybrid: hybrid
-              terrain: terrain
-            scale_control: 1
-            street_view_control: 1
-            fullscreen_control: 1
-          map_marker_and_infowindow:
-            icon_image_path: ''
-            infowindow_field: '#rendered_entity'
-            multivalue_split: 0
-            view_mode: teaser
-            tooltip_field: title
-            theming:
-              plugin_id: none
-              plugins_descriptions:
-                table: ''
-          map_additional_options: ''
-          map_additional_libraries:
-            places: 0
-            drawing: 0
-            geometry: 0
-            visualization: 0
-          map_geometries_options: '{"strokeColor":"black","strokeOpacity":"0.8","strokeWeight":2,"fillColor":"blue","fillOpacity":"0.1","clickable":false}'
-          map_oms:
-            map_oms_control: 1
-            map_oms_options: '{"markersWontMove":"true","markersWontHide":"true","basicFormatEvents":"true","nearbyDistance":3}'
-          custom_style_map:
-            custom_style_control: 0
-            custom_style_name: ''
-            custom_style_options: ''
-            custom_style_default: 0
-          map_markercluster:
-            markercluster_control: 0
-            markercluster_additional_options: '{"maxZoom":12,"gridSize":50}'
-          map_geocoder:
-            control: 0
-            settings:
-              position: TOP_LEFT
-              input_size: '25'
-              providers:
-                bingmaps:
-                  weight: '0'
-                  checked: 0
-              min_terms: '4'
-              delay: '800'
-              zoom: '16'
-              infowindow: 0
-              options: ''
+            zoom: '10'
       row:
         type: fields
         options:
@@ -202,10 +625,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_geolocation:
-          id: field_geolocation
-          table: node__field_geolocation
-          field: field_geolocation
+        field_geoloc:
+          id: field_geoloc
+          table: node__field_geoloc
+          field: field_geoloc
           relationship: none
           group_type: group
           admin_label: ''
@@ -250,12 +673,10 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: geofield_default
-          settings:
-            output_format: wkt
-            output_escape: 1
-          group_column: value
+          click_sort_column: ''
+          type: geolocation_latlng
+          settings: {  }
+          group_column: ''
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -265,7 +686,7 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
+          plugin_id: geolocation_field
       filters:
         status:
           value: '1'
@@ -317,7 +738,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_geolocation'
+        - 'config:field.storage.node.field_geoloc'
   block_1:
     display_plugin: block
     id: block_1
@@ -334,7 +755,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_geolocation'
+        - 'config:field.storage.node.field_geoloc'
   page_1:
     display_plugin: page
     id: page_1
@@ -863,14 +1284,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_geolocation:
-          id: field_geolocation
-          table: node__field_geolocation
-          field: field_geolocation
+        field_geoloc:
+          id: field_geoloc
+          table: node__field_geoloc
+          field: field_geoloc
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: Geolocation
           exclude: false
           alter:
             alter_text: false
@@ -903,7 +1324,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -911,93 +1332,508 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: geofield_google_map
+          click_sort_column: ''
+          type: geolocation_map
           settings:
-            map_dimensions:
-              width: 100%
-              height: 350px
-            map_empty:
-              empty_behaviour: '0'
-              empty_message: 'No Geofield Value entered for this field'
-            map_center:
-              lat: '42'
-              lon: '12.5'
-              center_force: 0
-              geocode: 'Find my location'
-            map_zoom_and_pan:
-              zoom:
-                initial: '18'
-                force: 0
-                min: '1'
-                max: '22'
-                finer: '0'
-              gestureHandling: auto
-              scrollwheel: '1'
-              draggable: '1'
-              map_reset: 0
-              map_reset_position: TOP_RIGHT
-            map_controls:
-              disable_default_ui: 0
-              zoom_control: 0
-              map_type_id: roadmap
-              map_type_control: 0
-              map_type_control_options_type_ids:
-                roadmap: 0
-                satellite: 0
-                hybrid: 0
-                terrain: 0
-              scale_control: 0
-              street_view_control: 0
-              fullscreen_control: 0
-            map_marker_and_infowindow:
-              icon_image_path: ''
-              infowindow_field: title
-              multivalue_split: 0
-              view_mode: full
-              force_open: 0
-              icon_image_mode: icon_file
-              icon_file_wrapper:
-                icon_file:
-                  fids: {  }
-                  upload_button: Upload
-                  remove_button: Remove
-                  upload: ''
-                  is_svg: false
-                image_style: geofield_map_default_icon_style
-            map_additional_options: ''
-            map_additional_libraries:
-              places: 0
-              drawing: 0
-              geometry: 0
-              visualization: 0
-            map_geometries_options: '{"strokeColor":"black","strokeOpacity":"0.8","strokeWeight":2,"fillColor":"blue","fillOpacity":"0.1","clickable":false}'
-            map_oms:
-              map_oms_control: 0
-              map_oms_options: '{"markersWontMove":"true","markersWontHide":"true","basicFormatEvents":"true","nearbyDistance":3}'
-            custom_style_map:
-              custom_style_control: 0
-              custom_style_name: ''
-              custom_style_options: ''
-              custom_style_default: 0
-            map_markercluster:
-              markercluster_control: 0
-              markercluster_additional_options: '{"maxZoom":12,"gridSize":50}'
-            map_geocoder:
-              control: 0
-              settings:
-                position: TOP_LEFT
-                input_size: '25'
-                providers:
-                  bingmaps:
-                    weight: '0'
-                    checked: 0
-                min_terms: '4'
-                delay: '800'
-                zoom: '16'
-                infowindow: 0
-                options: ''
-          group_column: value
+            set_marker: '0'
+            title: ''
+            info_text:
+              value: ''
+              format: full_html
+            replacement_patterns:
+              token_geolocation:
+                token_items: ''
+            centre:
+              fit_bounds:
+                enable: true
+                settings:
+                  reset_zoom: true
+                weight: -101
+                map_center_id: fit_bounds
+              client_location:
+                weight: 0
+                enable: false
+                map_center_id: client_location
+              fixed_boundaries:
+                settings:
+                  north: ''
+                  east: ''
+                  south: ''
+                  west: ''
+                weight: 0
+                enable: false
+                map_center_id: fixed_boundaries
+              fixed_value:
+                settings:
+                  latitude: null
+                  longitude: null
+                  location_option_id: fixed_value
+                weight: 0
+                enable: false
+                map_center_id: location_plugins
+              freeogeoip:
+                weight: 0
+                enable: false
+                map_center_id: location_plugins
+                settings:
+                  location_option_id: freeogeoip
+              ipstack:
+                settings:
+                  access_key: ''
+                  location_option_id: ipstack
+                weight: 0
+                enable: false
+                map_center_id: location_plugins
+            map_provider_id: leaflet
+            map_provider_settings:
+              map_features:
+                leaflet_control_layer:
+                  weight: 0
+                  settings:
+                    position: topright
+                    default_label: false
+                    tile_layer_providers:
+                      OpenStreetMap:
+                        'OpenStreetMap Mapnik':
+                          label: ''
+                          checkbox: false
+                        'OpenStreetMap BlackAndWhite':
+                          label: ''
+                          checkbox: false
+                        'OpenStreetMap DE':
+                          label: ''
+                          checkbox: false
+                        'OpenStreetMap CH':
+                          label: ''
+                          checkbox: false
+                        'OpenStreetMap France':
+                          label: ''
+                          checkbox: false
+                        'OpenStreetMap HOT':
+                          label: ''
+                          checkbox: false
+                        'OpenStreetMap BZH':
+                          label: ''
+                          checkbox: false
+                      OpenTopoMap:
+                        OpenTopoMap:
+                          label: ''
+                          checkbox: false
+                      Thunderforest:
+                        'Thunderforest OpenCycleMap':
+                          label: ''
+                          checkbox: false
+                        'Thunderforest Transport':
+                          label: ''
+                          checkbox: false
+                        'Thunderforest TransportDark':
+                          label: ''
+                          checkbox: false
+                        'Thunderforest SpinalMap':
+                          label: ''
+                          checkbox: false
+                        'Thunderforest Landscape':
+                          label: ''
+                          checkbox: false
+                        'Thunderforest Outdoors':
+                          label: ''
+                          checkbox: false
+                        'Thunderforest Pioneer':
+                          label: ''
+                          checkbox: false
+                      OpenMapSurfer:
+                        'OpenMapSurfer Roads':
+                          label: ''
+                          checkbox: false
+                        'OpenMapSurfer Grayscale':
+                          label: ''
+                          checkbox: false
+                      Hydda:
+                        'Hydda Full':
+                          label: ''
+                          checkbox: false
+                        'Hydda Base':
+                          label: ''
+                          checkbox: false
+                      MapBox:
+                        MapBox:
+                          label: ''
+                          checkbox: false
+                      Stamen:
+                        'Stamen Toner':
+                          label: ''
+                          checkbox: false
+                        'Stamen TonerBackground':
+                          label: ''
+                          checkbox: false
+                        'Stamen TonerLite':
+                          label: ''
+                          checkbox: false
+                        'Stamen Watercolor':
+                          label: ''
+                          checkbox: false
+                        'Stamen Terrain':
+                          label: ''
+                          checkbox: false
+                        'Stamen TerrainBackground':
+                          label: ''
+                          checkbox: false
+                        'Stamen TopOSMRelief':
+                          label: ''
+                          checkbox: false
+                      Esri:
+                        'Esri WorldStreetMap':
+                          label: ''
+                          checkbox: false
+                        'Esri DeLorme':
+                          label: ''
+                          checkbox: false
+                        'Esri WorldTopoMap':
+                          label: ''
+                          checkbox: false
+                        'Esri WorldImagery':
+                          label: ''
+                          checkbox: false
+                        'Esri WorldTerrain':
+                          label: ''
+                          checkbox: false
+                        'Esri WorldShadedRelief':
+                          label: ''
+                          checkbox: false
+                        'Esri WorldPhysical':
+                          label: ''
+                          checkbox: false
+                        'Esri OceanBasemap':
+                          label: ''
+                          checkbox: false
+                        'Esri NatGeoWorldMap':
+                          label: ''
+                          checkbox: false
+                        'Esri WorldGrayCanvas':
+                          label: ''
+                          checkbox: false
+                      HERE:
+                        'HERE normalDay':
+                          label: ''
+                          checkbox: false
+                        'HERE normalDayCustom':
+                          label: ''
+                          checkbox: false
+                        'HERE normalDayGrey':
+                          label: ''
+                          checkbox: false
+                        'HERE normalDayMobile':
+                          label: ''
+                          checkbox: false
+                        'HERE normalDayGreyMobile':
+                          label: ''
+                          checkbox: false
+                        'HERE normalDayTransit':
+                          label: ''
+                          checkbox: false
+                        'HERE normalDayTransitMobile':
+                          label: ''
+                          checkbox: false
+                        'HERE normalNight':
+                          label: ''
+                          checkbox: false
+                        'HERE normalNightMobile':
+                          label: ''
+                          checkbox: false
+                        'HERE normalNightGrey':
+                          label: ''
+                          checkbox: false
+                        'HERE normalNightGreyMobile':
+                          label: ''
+                          checkbox: false
+                        'HERE normalNightTransit':
+                          label: ''
+                          checkbox: false
+                        'HERE normalNightTransitMobile':
+                          label: ''
+                          checkbox: false
+                        'HERE redcuedDay':
+                          label: ''
+                          checkbox: false
+                        'HERE redcuedNight':
+                          label: ''
+                          checkbox: false
+                        'HERE basicMap':
+                          label: ''
+                          checkbox: false
+                        'HERE mapLabels':
+                          label: ''
+                          checkbox: false
+                        'HERE trafficFlow':
+                          label: ''
+                          checkbox: false
+                        'HERE carnavDayGrey':
+                          label: ''
+                          checkbox: false
+                        'HERE hybridDayMobile':
+                          label: ''
+                          checkbox: false
+                        'HERE hybridDayTransit':
+                          label: ''
+                          checkbox: false
+                        'HERE hybridDayGrey':
+                          label: ''
+                          checkbox: false
+                        'HERE pedestrianDay':
+                          label: ''
+                          checkbox: false
+                        'HERE pedestrianNight':
+                          label: ''
+                          checkbox: false
+                        'HERE satelliteDay':
+                          label: ''
+                          checkbox: false
+                        'HERE terrainDay':
+                          label: ''
+                          checkbox: false
+                        'HERE terrainDayMobile':
+                          label: ''
+                          checkbox: false
+                      FreeMapSK:
+                        FreeMapSK:
+                          label: ''
+                          checkbox: false
+                      MtbMap:
+                        MtbMap:
+                          label: ''
+                          checkbox: false
+                      CartoDB:
+                        'CartoDB Positron':
+                          label: ''
+                          checkbox: false
+                        'CartoDB PositronNoLabels':
+                          label: ''
+                          checkbox: false
+                        'CartoDB PositronOnlyLabels':
+                          label: ''
+                          checkbox: false
+                        'CartoDB DarkMatter':
+                          label: ''
+                          checkbox: false
+                        'CartoDB DarkMatterNoLabels':
+                          label: ''
+                          checkbox: false
+                        'CartoDB DarkMatterOnlyLabels':
+                          label: ''
+                          checkbox: false
+                        'CartoDB Voyager':
+                          label: ''
+                          checkbox: false
+                        'CartoDB VoyagerNoLabels':
+                          label: ''
+                          checkbox: false
+                        'CartoDB VoyagerOnlyLabels':
+                          label: ''
+                          checkbox: false
+                        'CartoDB VoyagerLabelsUnder':
+                          label: ''
+                          checkbox: false
+                      HikeBike:
+                        HikeBike:
+                          label: ''
+                          checkbox: false
+                        'HikeBike HillShading':
+                          label: ''
+                          checkbox: false
+                      BasemapAT:
+                        'BasemapAT basemap':
+                          label: ''
+                          checkbox: false
+                        'BasemapAT grau':
+                          label: ''
+                          checkbox: false
+                        'BasemapAT overlay':
+                          label: ''
+                          checkbox: false
+                        'BasemapAT highdpi':
+                          label: ''
+                          checkbox: false
+                        'BasemapAT orthofoto':
+                          label: ''
+                          checkbox: false
+                      NLS:
+                        NLS:
+                          label: ''
+                          checkbox: false
+                      Wikimedia:
+                        Wikimedia:
+                          label: ''
+                          checkbox: false
+                      GeoportailFrance:
+                        'GeoportailFrance parcels':
+                          label: ''
+                          checkbox: false
+                        'GeoportailFrance ignMaps':
+                          label: ''
+                          checkbox: false
+                        'GeoportailFrance maps':
+                          label: ''
+                          checkbox: false
+                        'GeoportailFrance orthos':
+                          label: ''
+                          checkbox: false
+                    tile_providers_options:
+                      Thunderforest:
+                        apikey: ''
+                      MapBox:
+                        accessToken: ''
+                      HERE:
+                        app_id: ''
+                        app_code: ''
+                      GeoportailFrance:
+                        apikey: ''
+                  enabled: false
+                leaflet_tile_layer:
+                  weight: 0
+                  settings:
+                    tile_layer_provider: 'OpenStreetMap Mapnik'
+                    tile_provider_options:
+                      Thunderforest:
+                        apikey: ''
+                      MapBox:
+                        accessToken: ''
+                      HERE:
+                        app_id: ''
+                        app_code: ''
+                      GeoportailFrance:
+                        apikey: ''
+                  enabled: false
+                leaflet_tile_layer_overlay:
+                  weight: 0
+                  settings:
+                    tile_layer_overlay: OpenInfraMap.Power
+                  enabled: false
+                leaflet_custom_tile_layer:
+                  weight: 0
+                  settings:
+                    tile_layer_url: '//{s}.tile.osm.org/{z}/{x}/{y}.png'
+                    tile_layer_attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+                    tile_layer_subdomains: abc
+                    tile_layer_zoom: 18
+                  enabled: false
+                leaflet_max_bounds:
+                  weight: 0
+                  settings:
+                    north: null
+                    south: null
+                    east: null
+                    west: null
+                  enabled: false
+                leaflet_marker_zoom_and_animate:
+                  weight: 0
+                  settings:
+                    marker_zoom_anchor_id: ''
+                  enabled: false
+                geolocation_marker_scroll_to_id:
+                  weight: 0
+                  settings:
+                    scroll_target_id: ''
+                  enabled: false
+                leaflet_marker_popup:
+                  weight: 0
+                  enabled: false
+                  settings:
+                    info_auto_display: false
+                leaflet_marker_icon:
+                  weight: 0
+                  settings:
+                    marker_icon_path: ''
+                    icon_size:
+                      width: null
+                      height: null
+                    icon_anchor:
+                      x: null
+                      'y': null
+                    popup_anchor:
+                      x: 0
+                      'y': 0
+                    marker_shadow_path: ''
+                    shadow_size:
+                      width: null
+                      height: null
+                    shadow_anchor:
+                      x: null
+                      'y': null
+                  enabled: false
+                leaflet_marker_clusterer:
+                  weight: 0
+                  settings:
+                    disable_clustering_at_zoom: 0
+                    cluster_settings:
+                      show_coverage_on_hover: false
+                      zoom_to_bounds_on_click: false
+                  enabled: false
+                leaflet_control_zoom:
+                  weight: 0
+                  settings:
+                    position: topright
+                  enabled: false
+                leaflet_control_scale:
+                  weight: 0
+                  settings:
+                    position: topright
+                    metric: false
+                    imperial: false
+                  enabled: false
+                leaflet_control_recenter:
+                  weight: 0
+                  settings:
+                    position: topright
+                  enabled: false
+                leaflet_control_locate:
+                  weight: 0
+                  settings:
+                    position: topright
+                  enabled: false
+                leaflet_control_geocoder:
+                  weight: 0
+                  settings:
+                    position: topright
+                    geocoder: photon
+                    settings:
+                      label: Address
+                      description: 'Enter an address to be localized.'
+                      autocomplete_min_length: 1
+                      location_priority:
+                        lat: null
+                        lng: null
+                  enabled: false
+                leaflet_control_fullscreen:
+                  weight: 0
+                  settings:
+                    position: topright
+                  enabled: false
+                leaflet_gesture_handling:
+                  weight: 0
+                  enabled: false
+                leaflet_disable_user_interaction:
+                  weight: 0
+                  enabled: false
+                leaflet_client_location_indicator:
+                  weight: 0
+                  enabled: false
+                leaflet_wms:
+                  weight: 0
+                  settings:
+                    url: ''
+                    version: 1.1.1
+                    layers: ''
+                    styles: ''
+                    srs: ''
+                    format: image/jpeg
+                    transparent: false
+                    identify: false
+                  enabled: false
+              height: 300px
+              width: 400px
+              zoom: '15'
+            use_overridden_map_settings: 0
+          group_column: ''
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -1007,7 +1843,7 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
+          plugin_id: geolocation_field
       path: general-information/location
     cache_metadata:
       max-age: -1
@@ -1017,7 +1853,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_geolocation'
+        - 'config:field.storage.node.field_geoloc'
         - 'config:field.storage.node.field_images'
         - 'config:field.storage.node.field_location'
         - 'config:field.storage.node.field_mailing_address'
