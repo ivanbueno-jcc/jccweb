@@ -244,26 +244,26 @@ workflows:
           requires:
             - static_tests
             - build_php
-      - visual_regression_test:
-          requires:
-            - configure_env_vars
-            - deploy_to_pantheon
-          filters:
-            branches:
-              ignore:
-                - master
+#      - visual_regression_test:
+#          requires:
+#            - configure_env_vars
+#            - deploy_to_pantheon
+#          filters:
+#            branches:
+#              ignore:
+#                - master
 #      - behat_test:
 #          requires:
 #            - deploy_to_pantheon
 #            - visual_regression_test
 
-  scheduled_update_check:
-    triggers:
-       - schedule:
-           cron: "0 0 * * *"
-           filters:
-             branches:
-              only:
-                - master
-    jobs:
-      - composer_lock_updater
+#  scheduled_update_check:
+#    triggers:
+#       - schedule:
+#           cron: "0 0 * * *"
+#           filters:
+#             branches:
+#              only:
+#                - master
+#    jobs:
+#      - composer_lock_updater
