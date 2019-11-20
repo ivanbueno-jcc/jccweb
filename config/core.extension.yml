@@ -69,6 +69,7 @@ module:
   imagemagick: 0
   inline_entity_form: 0
   inline_form_errors: 0
+  insert_view: 0
   jcc_book_navigation: 0
   jcc_judges_in_the_classroom: 0
   jcc_misc: 0
