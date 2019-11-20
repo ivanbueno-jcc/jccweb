@@ -54,6 +54,7 @@
         "drupal/image_widget_crop": "^2.2",
         "drupal/imagemagick": "^2.6",
         "drupal/inline_entity_form": "^1.0@RC",
+        "drupal/insert_view": "1.x-dev",
         "drupal/menu_item_extras": "^2.7",
         "drupal/menu_token": "1.x-dev",
         "drupal/metatag": "^1.10",
