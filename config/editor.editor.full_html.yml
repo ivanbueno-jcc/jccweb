@@ -60,6 +60,7 @@ settings:
         -
           name: Extra
           items:
+            - A11ychecker
             - Maximize
   plugins:
     language:
