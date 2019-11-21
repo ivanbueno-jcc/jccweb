@@ -1,10 +1,10 @@
 definitions:
   contact__site_page:
-    weight: -48
-    parent: ''
     menu_name: footer
-    enabled: true
+    parent: ''
+    weight: -48
     expanded: true
+    enabled: false
   standard__front_page:
     weight: -49
     menu_name: main
