@@ -76,15 +76,15 @@ display:
           marker_row_number: 0
           centre:
             client_location:
-              enable: true
               weight: 0
+              enable: false
               map_center_id: client_location
             fit_bounds:
               enable: true
+              settings:
+                reset_zoom: true
               weight: 0
               map_center_id: fit_bounds
-              settings:
-                reset_zoom: false
             fixed_boundaries:
               settings:
                 north: ''
