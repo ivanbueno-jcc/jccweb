@@ -50,7 +50,7 @@
 
         <div class="grid-row grid-gap-4">
     {% else %}
-      <ul id="basic-nav-section-{{ button_id }}" class="usa-nav__submenu{% if menu_level > 1 %}-list{% endif %}"{% if menu_level == 1  %} hidden=""{% endif %}>
+      <ul id="basic-nav-section-{{ button_id }}" class="usa-nav__submenu{% if menu_level > 1 %}-list text-no-wrap{% endif %}"{% if menu_level == 1  %} hidden=""{% endif %}>
 
       {% if duplicate_parent and megamenu == 0 %}
         <li class="usa-nav__submenu-item">
@@ -75,7 +75,7 @@
                 {% endif %}
 
                 {% if not item.content['#menu_link_content'].field_hide_title.0.value %}
-                  <strong>{{ item.title }}</strong>
+                  <span class="font-heading-md">{{ item.title }}</span>
                 {% endif %}
               </span>
             </a>
