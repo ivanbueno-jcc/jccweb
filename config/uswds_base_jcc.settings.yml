@@ -5,7 +5,8 @@ features:
   comment_user_verification: true
   favicon: true
 logo:
-  use_default: true
+  use_default: false
+  path: 'public://trialcourt-slo-light.png'
 favicon:
   use_default: true
 cdn_provider: ''
@@ -20,12 +21,12 @@ uswds_header_mega_display_second: 1
 uswds_government_banner: 0
 uswds_footer_style: big
 uswds_footer_agency: 1
-uswds_footer_agency_name: 'San Luis Obispo'
-uswds_footer_agency_url: '#agency'
+uswds_footer_agency_name: 'County of San Luis Obispo'
+uswds_footer_agency_url: ''
 uswds_footer_agency_logo: logo-dark.png
-uswds_contact_center: 'Agency Contact Center'
-uswds_email: info@agency.gov
-uswds_phone: '(800) CALL-GOVT'
+uswds_contact_center: ''
+uswds_email: ''
+uswds_phone: ''
 uswds_facebook: '#facebook'
 uswds_twitter: '#slo'
 uswds_youtube: '#youtube'
