@@ -151,6 +151,9 @@ header nav .usa-nav__secondary {
 .menu_link_content {
   display: inline-block;
 }
+.jcc-menu-extras-body:hover {
+  background-color: #0b4778;
+}
 
 /* Alert */
 * + .usa-alert {
