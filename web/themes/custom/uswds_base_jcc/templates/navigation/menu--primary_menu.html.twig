@@ -67,8 +67,8 @@
         <div class="desktop:grid-col-3">
         {% if mega_display_second and item.below  %}
           <div class="usa-nav__submenu-item">
-            <a href="{{ item.url }}" class="">
-              <span>
+            {% if item.url.tostring is not empty %}<a href="{{ item.url }}" class="">{% endif %}
+              <span class="text-white">
                 {% set rendered_content = item.content|without('children') %}
                 {% if rendered_content|render %}
                   {{ rendered_content }}
@@ -78,7 +78,7 @@
                   <span class="font-heading-md">{{ item.title }}</span>
                 {% endif %}
               </span>
-            </a>
+              {% if item.url.tostring is not empty %}</a>{% endif %}
           </div>
         {% endif %}
       {% else %}
