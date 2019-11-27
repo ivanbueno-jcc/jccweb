@@ -34,12 +34,25 @@
                     "type": "zip"
                 }
             }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/templates",
+                "version": "4.13.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/templates/releases/templates_4.13.0.zip",
+                    "type": "zip"
+                }
+            }
         }
     ],
     "require": {
         "php": ">=7.0.8",
         "ckeditor/a11ychecker": "^1.1",
         "ckeditor/balloonpanel": "^4.13.0",
+        "ckeditor/templates": "^4.13",
         "composer/installers": "^1.0.20",
         "cweagans/composer-patches": "^1.0",
         "drupal-composer/drupal-scaffold": "^2.0.1",
@@ -183,7 +196,7 @@
     "extra": {
         "installer-paths": {
             "web/core": ["type:drupal-core"],
-            "web/libraries/{$name}": ["type:drupal-library", "ckeditor/a11ychecker", "ckeditor/balloonpanel"],
+            "web/libraries/{$name}": ["type:drupal-library", "ckeditor/a11ychecker", "ckeditor/balloonpanel", "ckeditor/templates"],
             "web/modules/contrib/{$name}": ["type:drupal-module"],
             "web/profiles/contrib/{$name}": ["type:drupal-profile"],
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
