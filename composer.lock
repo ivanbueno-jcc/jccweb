@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8cc117c765c816c79a5074dd9f254de1",
+    "content-hash": "bcdb5343453f56ed6aa3c8b74dc95e36",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -277,6 +277,15 @@
             "dist": {
                 "type": "zip",
                 "url": "https://download.ckeditor.com/balloonpanel/releases/balloonpanel_4.13.0.zip"
+            },
+            "type": "drupal-library"
+        },
+        {
+            "name": "ckeditor/templates",
+            "version": "4.13.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://download.ckeditor.com/templates/releases/templates_4.13.0.zip"
             },
             "type": "drupal-library"
         },
