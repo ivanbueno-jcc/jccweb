@@ -4,12 +4,14 @@ status: true
 dependencies:
   config:
     - field.field.node.form.body
+    - field.field.node.form.feeds_item
     - field.field.node.form.field_attachments
     - field.field.node.form.field_form_type
     - field.field.node.form.field_link
     - node.type.form
   module:
     - allowed_formats
+    - autocomplete_deluxe
     - field_group
     - link
     - media_library
@@ -107,9 +109,20 @@ content:
     region: content
   field_form_type:
     weight: 10
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      size: 60
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
+      no_empty_message: 'No terms could be found. Please type in order to add a new term.'
     third_party_settings: {  }
-    type: options_select
+    type: autocomplete_deluxe
     region: content
   field_link:
     weight: 3
@@ -170,4 +183,5 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  feeds_item: true
