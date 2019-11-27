@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb572c03500820ab987118c1d9529d26",
+    "content-hash": "8cc117c765c816c79a5074dd9f254de1",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -258,6 +258,27 @@
             ],
             "description": "Drupal code generator",
             "time": "2019-10-27T14:27:26+00:00"
+        },
+        {
+            "name": "ckeditor/a11ychecker",
+            "version": "1.1.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://download.ckeditor.com/a11ychecker/releases/a11ychecker_1.1.1.zip"
+            },
+            "require": {
+                "ckeditor/balloonpanel": "^4.13.0"
+            },
+            "type": "drupal-library"
+        },
+        {
+            "name": "ckeditor/balloonpanel",
+            "version": "4.13.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://download.ckeditor.com/balloonpanel/releases/balloonpanel_4.13.0.zip"
+            },
+            "type": "drupal-library"
         },
         {
             "name": "clue/stream-filter",
@@ -2358,6 +2379,61 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/allowed_formats"
             }
+        },
+        {
+            "name": "drupal/autocomplete_deluxe",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/autocomplete_deluxe.git",
+                "reference": "a010d764ce0e0c0e90ff680a6ee60a346a3c23f5"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta1+26-dev",
+                    "datestamp": "1572532386",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Edward Chan",
+                    "homepage": "https://www.drupal.org/user/1781334"
+                },
+                {
+                    "name": "edwardchiapet",
+                    "homepage": "https://www.drupal.org/user/2354784"
+                },
+                {
+                    "name": "mpriscella",
+                    "homepage": "https://www.drupal.org/user/2354820"
+                },
+                {
+                    "name": "sepgil",
+                    "homepage": "https://www.drupal.org/user/512828"
+                }
+            ],
+            "description": "Enhanced autocomplete using Jquery UI autocomplete.",
+            "homepage": "https://www.drupal.org/sandbox/edwardchan/2888186",
+            "support": {
+                "source": "https://git.drupalcode.org/project/autocomplete_deluxe",
+                "issues": "https://www.drupal.org/project/issues/2888186"
+            },
+            "time": "2019-11-19T16:28:23+00:00"
         },
         {
             "name": "drupal/backup_migrate",
@@ -8840,6 +8916,48 @@
             "time": "2019-11-08T13:50:10+00:00"
         },
         {
+            "name": "oomphinc/composer-installers-extender",
+            "version": "v1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oomphinc/composer-installers-extender.git",
+                "reference": "ca1c4b16b0905c81d1e77e608f36a2eff1a56f56"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oomphinc/composer-installers-extender/zipball/ca1c4b16b0905c81d1e77e608f36a2eff1a56f56",
+                "reference": "ca1c4b16b0905c81d1e77e608f36a2eff1a56f56",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "composer/installers": "^1.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "OomphInc\\ComposerInstallersExtender\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "OomphInc\\ComposerInstallersExtender\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stephen Beemsterboer",
+                    "email": "stephen@oomphinc.com",
+                    "homepage": "https://github.com/balbuf"
+                }
+            ],
+            "description": "Extend the composer/installers plugin to accept any arbitrary package type.",
+            "homepage": "http://www.oomphinc.com/",
+            "time": "2017-03-31T16:57:39+00:00"
+        },
+        {
             "name": "pantheon-systems/quicksilver-pushback",
             "version": "2.0.1",
             "source": {
@@ -15129,6 +15247,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/address": 20,
+        "drupal/autocomplete_deluxe": 20,
         "drupal/block_field": 15,
         "drupal/claro": 10,
         "drupal/coffee": 10,
