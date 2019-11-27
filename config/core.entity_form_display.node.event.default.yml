@@ -15,6 +15,7 @@ dependencies:
     - node.type.event
   module:
     - address
+    - autocomplete_deluxe
     - datetime
     - field_group
     - media_library
@@ -107,9 +108,20 @@ content:
     third_party_settings: {  }
   field_division:
     weight: 26
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      size: 60
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
+      no_empty_message: 'No terms could be found. Please type in order to add a new term.'
     third_party_settings: {  }
-    type: options_select
+    type: autocomplete_deluxe
     region: content
   field_end_date:
     weight: 3
@@ -144,18 +156,37 @@ content:
     region: content
   field_subject_matter:
     weight: 27
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      size: 60
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
+      no_empty_message: 'No terms could be found. Please type in order to add a new term.'
     third_party_settings: {  }
-    type: options_select
+    type: autocomplete_deluxe
     region: content
   field_tags:
     weight: 28
     settings:
+      limit: '10'
+      min_length: '0'
+      delimiter: ''
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: '1'
+      no_empty_message: 'No terms could be found. Please type in order to add a new term.'
+      not_found_message_allow: 0
       match_operator: CONTAINS
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
       size: 60
-      placeholder: ''
+      selection_handler: default
     third_party_settings: {  }
-    type: entity_reference_autocomplete_tags
+    type: autocomplete_deluxe
     region: content
   langcode:
     type: language_select
