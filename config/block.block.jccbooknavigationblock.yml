@@ -10,7 +10,7 @@ dependencies:
 id: jccbooknavigationblock
 theme: uswds_base_jcc
 region: sidebar_first
-weight: -3
+weight: -4
 provider: null
 plugin: jcc_book_navigation_block
 settings:

@@ -12,7 +12,7 @@ dependencies:
 id: formtype
 theme: uswds_base_jcc
 region: sidebar_first
-weight: -5
+weight: -6
 provider: null
 plugin: 'facet_block:form_type'
 settings:
