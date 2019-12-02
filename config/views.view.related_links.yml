@@ -34,7 +34,7 @@ display:
         type: views_query
         options:
           disable_sql_rewrite: false
-          distinct: false
+          distinct: true
           replica: false
           query_comment: ''
           query_tags: {  }
@@ -107,8 +107,8 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
-          hide_empty: false
-          empty_zero: false
+          hide_empty: true
+          empty_zero: true
           hide_alter_empty: true
           click_sort_column: uri
           type: link
@@ -141,6 +141,43 @@ display:
           expose:
             operator: ''
           group: 1
+        field_link_uri:
+          id: field_link_uri
+          table: node__field_link
+          field: field_link_uri
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: 'not empty'
+          value: ''
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
       sorts:
         created:
           id: created
@@ -224,6 +261,7 @@ display:
       display_extenders: {  }
       display_description: ''
       block_description: 'Related Links'
+      block_hide_empty: true
     cache_metadata:
       max-age: -1
       contexts:
