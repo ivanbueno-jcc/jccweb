@@ -1,0 +1,23 @@
+uuid: 820057db-09d0-41d6-9739-e7f93cbfbffc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link
+    - node.type.book
+  module:
+    - link
+id: node.book.field_link
+field_name: field_link
+entity_type: node
+bundle: book
+label: 'Related Links'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

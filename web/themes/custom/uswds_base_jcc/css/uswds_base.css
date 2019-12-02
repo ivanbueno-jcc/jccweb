@@ -379,3 +379,14 @@ header nav .usa-nav__secondary {
 .webform_embed + h1.page-title {
   display: none;
 }
+
+/* BLOCKS */
+
+/* Related Links */
+[class*='block-views-blockrelated-links-block-'] h2 {
+  color: #565c65;
+  font-size: 1rem;
+  margin-top: 2rem;
+  padding: 1rem 1rem 0 1rem;
+  text-transform: uppercase;
+}

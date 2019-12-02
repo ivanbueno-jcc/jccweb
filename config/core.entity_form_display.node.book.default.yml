@@ -6,10 +6,12 @@ dependencies:
     - field.field.node.book.body
     - field.field.node.book.field_attachments
     - field.field.node.book.field_division
+    - field.field.node.book.field_link
     - field.field.node.book.field_metatag
     - node.type.book
   module:
     - autocomplete_deluxe
+    - link
     - media_library
     - metatag
     - path
@@ -59,6 +61,14 @@ content:
       selection_handler: default
     third_party_settings: {  }
     type: autocomplete_deluxe
+    region: content
+  field_link:
+    weight: 124
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
     region: content
   field_metatag:
     weight: 123
