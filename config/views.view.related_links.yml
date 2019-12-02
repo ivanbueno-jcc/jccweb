@@ -194,7 +194,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: 'Related Links'
+      title: 'Related Content'
       header: {  }
       footer: {  }
       empty: {  }
