@@ -114,6 +114,7 @@
         "drupal/search_api_autocomplete": "^1.2",
         "drupal/search_api_solr": "^3.4",
         "drupal/sendgrid_integration": "1.x-dev",
+        "drupal/simple_sitemap": "^3.4",
         "drupal/siteimprove": "^1.1",
         "drupal/smtp": "1.x-dev",
         "drupal/taxonomy_manager": "^1.0@alpha",
