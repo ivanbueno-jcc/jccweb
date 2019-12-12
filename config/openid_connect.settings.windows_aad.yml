@@ -1,0 +1,9 @@
+enabled: false
+settings:
+  client_id: null
+  client_secret: null
+  authorization_endpoint_wa: 'https://example.com/oauth2/authorize'
+  token_endpoint_wa: 'https://example.com/oauth2/token'
+  userinfo_endpoint_wa: 'https://example.com/oauth2/UserInfo'
+_core:
+  default_config_hash: ZTX5Ch0hlOwoqB9YJC25L-snkhhCMd2Mcv74GJMEnuY
