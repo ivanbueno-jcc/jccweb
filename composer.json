@@ -69,7 +69,6 @@
         "drupal/ckeditor_codemirror": "^2.2",
         "drupal/ckeditor_templates": "^1.1",
         "drupal/ckeditor_templates_ui": "^1.2",
-        "drupal/claro": "^1.0@beta",
         "drupal/coffee": "^1.0@beta",
         "drupal/config_delete": "^1.7",
         "drupal/config_direct_save": "^1.0",
