@@ -2,5 +2,6 @@ ignored_config_entities:
   0: sendgrid_integration.settings
   2: 'webform.webform.*'
   4: uswds_base_jcc.settings
+  6: 'openid_connect.settings.*'
 _core:
   default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
