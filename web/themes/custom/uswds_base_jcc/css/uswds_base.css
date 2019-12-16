@@ -390,3 +390,11 @@ header nav .usa-nav__secondary {
   padding: 1rem 1rem 0 1rem;
   text-transform: uppercase;
 }
+
+/* Views Timeline */
+ul.timeline-list.alternate li.timeline-item.even .timeline-item-wrapper .timeline-marker {
+  left: -5px;
+}
+ul.timeline-list.alternate li.timeline-item.odd .timeline-item-wrapper .timeline-marker {
+  right: -5px;
+}
