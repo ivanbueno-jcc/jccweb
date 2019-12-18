@@ -53,7 +53,7 @@ display:
                 title: 'Sin publicar'
         langcode:
           expose:
-            label: Idioma
+            label: Language
       title: Contenido
       empty:
         area_text_custom:

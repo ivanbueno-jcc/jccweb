@@ -1,8 +1,8 @@
 ignored_config_entities:
-  0: sendgrid_integration.settings
-  2: 'webform.webform.*'
-  4: uswds_base_jcc.settings
-  6: 'openid_connect.settings.*'
-  8: 'geocoder.geocoder_provider.*'
+  - sendgrid_integration.settings
+  - 'webform.webform.*'
+  - uswds_base_jcc.settings
+  - 'openid_connect.settings.*'
+  - 'geocoder.geocoder_provider.*'
 _core:
   default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
