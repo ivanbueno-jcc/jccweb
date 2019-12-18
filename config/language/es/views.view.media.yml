@@ -23,7 +23,7 @@ display:
             last: 'Último »'
       fields:
         media_bulk_form:
-          action_title: Acción
+          action_title: Action
         thumbnail__target_id:
           label: Miniatura
           separator: ', '
@@ -66,7 +66,7 @@ display:
                 title: 'Sin publicar'
         langcode:
           expose:
-            label: Idioma
+            label: Language
       title: Multimedia
       empty:
         area_text_custom:

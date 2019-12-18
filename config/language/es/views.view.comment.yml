@@ -24,7 +24,7 @@ display:
             offset_label: Desplazamiento
       fields:
         comment_bulk_form:
-          action_title: Acción
+          action_title: Action
         subject:
           label: Asunto
           separator: ', '
@@ -52,7 +52,7 @@ display:
             label: 'Nombre del autor'
         langcode:
           expose:
-            label: Idioma
+            label: Language
       title: Comentarios
       empty:
         area_text_custom:
@@ -81,10 +81,10 @@ display:
             label: 'Nombre de autor'
         langcode:
           expose:
-            label: Idioma
+            label: Language
       fields:
         comment_bulk_form:
-          action_title: Acción
+          action_title: Action
         subject:
           label: Asunto
           separator: ', '

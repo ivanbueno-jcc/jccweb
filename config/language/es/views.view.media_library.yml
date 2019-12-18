@@ -21,7 +21,7 @@ display:
             next: ››
       fields:
         media_bulk_form:
-          action_title: Acción
+          action_title: Action
       filters:
         status:
           expose:
@@ -41,6 +41,9 @@ display:
             label: 'Tipos multimedia'
           group_info:
             label: 'Tipos multimedia'
+        langcode:
+          expose:
+            label: Language
       sorts:
         created:
           expose:
@@ -58,9 +61,15 @@ display:
   page:
     display_title: Página
     display_options:
-      menu:
-        title: Multimedia
-        description: 'Permite a los usuarios navegar y administrar elementos de media'
+      fields:
+        media_bulk_form:
+          action_title: Action
+        name:
+          separator: ', '
+        edit_media:
+          text: Edit
+        delete_media:
+          text: Delete
   widget:
     display_title: Control
     display_options:

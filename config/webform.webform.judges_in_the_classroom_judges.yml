@@ -1,6 +1,9 @@
+uuid: eeec4b15-4e92-4893-8f74-24e86e9cefbe
 langcode: en
 status: open
-dependencies: {  }
+dependencies:
+  module:
+    - jcc_judges_in_the_classroom
 open: null
 close: null
 weight: 0
@@ -174,5 +177,21 @@ access:
     roles: {  }
     users: {  }
     permissions: {  }
-handlers: {  }
-uuid: eeec4b15-4e92-4893-8f74-24e86e9cefbe
+handlers:
+  judges_in_the_classroom_profile_matching:
+    id: jcc_jitc
+    label: 'Judges in the Classroom Profile Matching'
+    handler_id: judges_in_the_classroom_profile_matching
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      match_with: teacher
+      debug: false
+      message: null
+      send_from: null
+      from_email: ivan.bueno@jud.ca.gov
+      from_name: test
+      subject: test
+      body: test
+      html: true
