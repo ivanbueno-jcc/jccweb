@@ -1,0 +1,27 @@
+uuid: 569dbc0e-f1bc-456f-9024-5f8894709813
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_paragraph_header
+    - paragraphs.paragraphs_type.reference_block
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    full_html: full_html
+    restricted_html: '0'
+    plain_text: '0'
+id: paragraph.reference_block.field_paragraph_header
+field_name: field_paragraph_header
+entity_type: paragraph
+bundle: reference_block
+label: Header
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

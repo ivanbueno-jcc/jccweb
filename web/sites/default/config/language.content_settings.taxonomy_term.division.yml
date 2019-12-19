@@ -1,0 +1,18 @@
+uuid: d622f4bd-e556-45c4-a2b3-210f9c19c082
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.division
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.division
+target_entity_type_id: taxonomy_term
+target_bundle: division
+default_langcode: site_default
+language_alterable: true

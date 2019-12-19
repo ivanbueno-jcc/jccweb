@@ -1,0 +1,9 @@
+uuid: 9ddebf3b-32ab-4a9a-bd8f-e2c9458bf971
+langcode: en
+status: true
+dependencies: {  }
+id: views_reference_block
+label: 'Reference Block'
+icon_uuid: null
+description: 'Embed any views or custom block.'
+behavior_plugins: {  }

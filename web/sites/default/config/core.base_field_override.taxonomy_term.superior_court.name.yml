@@ -1,0 +1,18 @@
+uuid: cc09db9f-83c2-46be-b417-7be8046dae6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.superior_court
+id: taxonomy_term.superior_court.name
+field_name: name
+entity_type: taxonomy_term
+bundle: superior_court
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,18 @@
+uuid: 9940f95f-1bc5-4223-822f-99b6835dc906
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.universal-nav
+id: menu_link_content.universal-nav.changed
+field_name: changed
+entity_type: menu_link_content
+bundle: universal-nav
+label: Changed
+description: 'The time that the menu link was last edited.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

@@ -1,0 +1,29 @@
+uuid: b0e4521c-23dc-4d5f-8663-da09a4254758
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.tags
+  module:
+    - facets
+    - system
+  theme:
+    - uswds_base_jcc
+id: tags
+theme: uswds_base_jcc
+region: sidebar_first
+weight: -5
+provider: null
+plugin: 'facet_block:tags'
+settings:
+  id: 'facet_block:tags'
+  label: Tags
+  provider: facets
+  label_display: visible
+  block_id: tags
+visibility:
+  request_path:
+    id: request_path
+    pages: "/search\r\n/search/*"
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,27 @@
+uuid: f661ca53-b8a3-49a0-bc0e-85524eb1da4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_paragraph_footer
+    - paragraphs.paragraphs_type.views_reference_block
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    full_html: full_html
+    restricted_html: '0'
+    plain_text: '0'
+id: paragraph.views_reference_block.field_paragraph_footer
+field_name: field_paragraph_footer
+entity_type: paragraph
+bundle: views_reference_block
+label: Footer
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

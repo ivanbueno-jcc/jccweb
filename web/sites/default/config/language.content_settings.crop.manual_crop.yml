@@ -1,0 +1,11 @@
+uuid: fac5a90c-5294-4a09-81b6-a382e4bb8f8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.manual_crop
+id: crop.manual_crop
+target_entity_type_id: crop
+target_bundle: manual_crop
+default_langcode: site_default
+language_alterable: false

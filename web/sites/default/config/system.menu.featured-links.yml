@@ -1,0 +1,8 @@
+uuid: 86d15af7-ae54-4d96-99c2-8a1971304cf0
+langcode: en
+status: true
+dependencies: {  }
+id: featured-links
+label: 'Featured Links'
+description: ''
+locked: false

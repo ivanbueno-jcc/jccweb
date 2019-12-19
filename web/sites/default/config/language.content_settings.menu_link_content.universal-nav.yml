@@ -1,0 +1,18 @@
+uuid: dc395d96-b8fa-482c-8e84-b4fbaefde432
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.universal-nav
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: menu_link_content.universal-nav
+target_entity_type_id: menu_link_content
+target_bundle: universal-nav
+default_langcode: site_default
+language_alterable: true

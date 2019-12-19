@@ -1,0 +1,20 @@
+uuid: bd52ad7d-d34d-4cbb-8f6d-c8f4dc8cd81e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.case_summary
+  module:
+    - path
+id: node.case_summary.path
+field_name: path
+entity_type: node
+bundle: case_summary
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

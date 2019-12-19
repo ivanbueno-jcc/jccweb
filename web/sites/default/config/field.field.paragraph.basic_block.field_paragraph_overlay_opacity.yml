@@ -1,0 +1,23 @@
+uuid: ce31c2e6-18a5-47d4-955f-ea0d55d70e55
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_paragraph_overlay_opacity
+    - paragraphs.paragraphs_type.basic_block
+id: paragraph.basic_block.field_paragraph_overlay_opacity
+field_name: field_paragraph_overlay_opacity
+entity_type: paragraph
+bundle: basic_block
+label: 'Overlay Opacity'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 9
+  prefix: ''
+  suffix: ''
+field_type: integer

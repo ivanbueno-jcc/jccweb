@@ -1,0 +1,27 @@
+uuid: 2210681b-990f-4e11-aad4-918eb42cbfde
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - uswds_base_jcc
+_core:
+  default_config_hash: 80SvMcnI4qRec7fAIjEO4c9tcfh70odOG6prdKFSObI
+id: uswds_base_jcc_account_menu
+theme: uswds_base_jcc
+region: secondary_menu
+weight: -9
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

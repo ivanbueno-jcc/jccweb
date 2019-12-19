@@ -1,0 +1,250 @@
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 9
+template: false
+archive: false
+id: cip_complaint_form
+title: 'CIP Complaint Form'
+description: ''
+category: ''
+elements: "section_i_contact_information:\n  '#type': webform_wizard_page\n  '#title': 'Section I: Contact Information'\n  container_01:\n    '#type': container\n    name:\n      '#type': details\n      '#title': Name\n      '#open': true\n      name_of_complainant:\n        '#type': textfield\n        '#title': 'Name of Complainant'\n        '#placeholder': 'Enter your First, Middle, Last name.'\n        '#required': true\n      mark_this_if_you_re_a_representative_of_another_person_making_th:\n        '#type': checkbox\n        '#title': 'Mark this if you''re a representative of another person making the complaint.'\n      representative_name:\n        '#type': textfield\n        '#title': 'Representative Name'\n        '#placeholder': 'Enter your First, Middle, Last name.'\n        '#states':\n          visible-slide:\n            ':input[name=\"mark_this_if_you_re_a_representative_of_another_person_making_th\"]':\n              checked: true\n        '#required': true\n      mark_this_if_you_re_representing_a_california_state_court_or_ent:\n        '#type': checkbox\n        '#title': 'Mark this if you''re representing a California state court or entity (state, federal agency, or business).'\n      county_name:\n        '#type': textfield\n        '#title': 'Name of court or entity'\n        '#states':\n          visible-slide:\n            ':input[name=\"mark_this_if_you_re_representing_a_california_state_court_or_ent\"]':\n              checked: true\n        '#required': true\n    container:\n      '#type': details\n      '#title': 'Address, Phone, and Email'\n      '#open': true\n      flexbox:\n        '#type': webform_flexbox\n        street_address:\n          '#type': textfield\n          '#title': 'Street Address'\n        city_state_zip_code:\n          '#type': textfield\n          '#title': 'City, State, Zip Code'\n      flexbox_01:\n        '#type': webform_flexbox\n        email:\n          '#type': email\n          '#title': Email\n        phone:\n          '#type': textfield\n          '#title': Phone\n          '#input_mask': '(999) 999-9999'\n    do_you_need_us_to_communicate_with_you_in_a_language_other_than_:\n      '#type': radios\n      '#title': 'Do you need us to communicate with you in a language other than English?'\n      '#options': yes_no\n      '#options_display': side_by_side\n    your_primary_language:\n      '#type': textfield\n      '#title': 'Your primary language'\n      '#states':\n        visible-slide:\n          ':input[name=\"do_you_need_us_to_communicate_with_you_in_a_language_other_than_\"]':\n            value: 'Yes'\nsection_ii_information_about_the_court_interpreter:\n  '#type': webform_wizard_page\n  '#title': 'Section II: Information About the Court Interpreter'\n  interpreter_name:\n    '#type': textfield\n    '#title': 'Interpreter''s Name'\n  interpreter_badge_number:\n    '#type': textfield\n    '#title': 'Interpreter''s Badge Number'\n    '#description': '(if known)'\nsection_iii_information_about_the_incident:\n  '#type': webform_wizard_page\n  '#title': 'Section III: Information about the Incident'\n  date_and_time_of_the_incident:\n    '#type': datetime\n    '#title': 'Date and Time of the Incident'\n    '#date_time_format': 'g:i:s A'\n    '#date_time_step': '60'\n  flexbox_02:\n    '#type': webform_flexbox\n    where_did_the_incident_take_place_:\n      '#type': textfield\n      '#title': 'Where did the incident take place?'\n    incident_street_address:\n      '#type': textfield\n      '#title': 'Street Address'\n      '#description': '(if known)'\n    incident_city_state_zip_code:\n      '#type': textfield\n      '#title': 'City, State, Zip Code'\n  did_the_interpreter_s_conduct_happen_as_part_of_your_court_case_:\n    '#type': radios\n    '#title': 'Did the interpreter''s conduct happen as part of your court case?'\n    '#options': yes_no\n    '#options_display': side_by_side\n  if_yes_what_is_your_court_case_number_if_known_:\n    '#type': textfield\n    '#title': 'What is your court case number?'\n    '#description': '(if known)'\n    '#states':\n      visible-slide:\n        ':input[name=\"did_the_interpreter_s_conduct_happen_as_part_of_your_court_case_\"]':\n          value: 'Yes'\nsection_iv_what_happened_:\n  '#type': webform_wizard_page\n  '#title': 'Section IV: What happened?'\n  what_happened_text:\n    '#type': processed_text\n    '#text': |\n      <div class=\"usa-alert usa-alert--info\">\n      <div class=\"usa-alert__body\">\n      <h3 class=\"usa-alert__heading\">Describe the incident</h3>\n      \n      <p class=\"usa-alert__text\">In your own words and in as much detail as you can, describe the conduct of the interpreter that requires a review of the interpreter's credential/license under the conditions described in the <a href=\"https://www.courts.ca.gov/documents/CIP_CRProcedures.pdf\">California Court Interpreter Credential Review Procedures</a>:</p>\n      </div>\n      </div>\n      \n    '#format': full_html\n  what_happened_:\n    '#type': textarea\n    '#title': 'What happened?'\n  were_there_any_witnesses_to_the_incident_:\n    '#type': radios\n    '#title': 'Were there any witnesses to the incident?'\n    '#options': yes_no\n    '#options_display': side_by_side\n  witness:\n    '#type': webform_custom_composite\n    '#title': Witness\n    '#states':\n      visible-slide:\n        ':input[name=\"were_there_any_witnesses_to_the_incident_\"]':\n          value: 'Yes'\n    '#multiple__min_items': '1'\n    '#multiple__empty_items': '2'\n    '#multiple__sorting': false\n    '#multiple__add_more': false\n    '#multiple__add_more_input_label': 'more witnesses'\n    '#element':\n      witness_name:\n        '#type': textfield\n        '#title': 'Witness Name'\n      witness_phone:\n        '#type': textfield\n        '#title': Phone\n      witness_other_contact_info:\n        '#type': textfield\n        '#title': 'Other contact information'\n        '#placeholder': 'e.g. email, address, etc.'\n  documents:\n    '#type': details\n    '#title': Documents\n    '#open': true\n    '#attributes':\n      class:\n        - margin-top-2\n    '#summary_attributes':\n      class:\n        - margin-top-2\n    please_attach_any_documents_or_other_evidence_you_have_to_suppor:\n      '#type': webform_document_file\n      '#title': 'Please attach any documents or other evidence you have to support your request.'\n      '#multiple': true\n      '#description': 'Allowed types: txt rtf pdf doc docx odt ppt pptx odp xls xlsx ods.'\n      '#file_help': none\n      '#button': true\n      '#button__title': 'Upload document'\n      '#button__attributes':\n        class:\n          - 'usa-button usa-button--accent-cool'\nsection_v_date_and_signature:\n  '#type': webform_wizard_page\n  '#title': 'Section V: Date and Signature'\n  signature_declaration:\n    '#type': processed_text\n    '#text': |\n      <div class=\"usa-alert usa-alert--info\">\n      <div class=\"usa-alert__body\">\n      <p class=\"usa-alert__text\">I declare under penalty of perjury, under the laws of the State of California that the information I provided is true and correct to the best of my knowledge and belief.</p>\n      </div>\n      </div>\n      \n    '#format': full_html\n  signature_date:\n    '#type': date\n    '#title': 'signature date'\n  your_name:\n    '#type': webform_name\n    '#title': 'Your Name'\n    '#title__access': false\n    '#first__title': 'Print Name'\n    '#middle__access': false\n    '#last__access': false\n    '#suffix__access': false\n    '#degree__access': false\n  signature:\n    '#type': webform_signature\n    '#title': signature\n  send_a_copy_to_my_email_:\n    '#type': checkbox\n    '#title': 'Email me a copy of this submission'\n  submitters_email:\n    '#type': textfield\n    '#title': Email\n    '#input_mask': '''alias'': ''email'''\n    '#states':\n      visible-slide:\n        ':input[name=\"send_a_copy_to_my_email_\"]':\n          checked: true\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#wizard_prev__label': '<'\n  '#wizard_next__label': Continue"
+css: '.webform_embed + h1.page-title {display: none;}'
+javascript: "jQuery(\"body\").on(\"change\", \":input[name='would_you_like_to_submit_a_complaint_']\", function () {\r\n  jQuery(\":input[name='would_you_like_to_submit_a_complaint_']:checked\").val() == 'mail' ? \r\n    jQuery(\".webform-button--next\").fadeOut(\"fast\") :\r\n    jQuery(\".webform-button--next\").fadeIn(\"fast\");\r\n});"
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  ajax_progress_type: ''
+  ajax_effect: ''
+  ajax_speed: null
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  page_admin_theme: false
+  form_title: source_entity_webform
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: false
+  form_confidential: false
+  form_confidential_message: ''
+  form_remote_addr: true
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: true
+  form_disable_back: false
+  form_submit_back: true
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace:
+    webform_routes: {  }
+    node_routes: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: true
+  wizard_progress_states: false
+  wizard_start_label: ''
+  wizard_preview_link: true
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: name
+  preview: 2
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: message
+  confirmation_title: ''
+  confirmation_message: 'Thank you for your submission.&nbsp; We will review it as soon as we can.'
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_view: false
+  token_update: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email:
+    id: email
+    label: Email
+    handler_id: email
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:submitters_email:raw]'
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: 'CIP Complaint '
+      body: "<p>Submitted on [webform_submission:created]</p>\r\n\r\n<p>Submitted values are:</p>\r\n[webform_submission:values]"
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: true
+      attachments: true
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
+      parameters: {  }
+  email_1:
+    id: email
+    label: Email
+    handler_id: email_1
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: judicialrecipient@asdasdkajsdasdasd.com
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: 'CIP Complaint '
+      body: "<p>Submitted on [webform_submission:created]</p>\r\n\r\n<p>Submitted values are:</p>\r\n[webform_submission:values]"
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: true
+      attachments: true
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
+      parameters: {  }
+uuid: b77ed2e8-db6c-47bd-9367-793f3f464329

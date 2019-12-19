@@ -1,0 +1,18 @@
+uuid: 52ca5b12-e357-46b8-93cb-0317402a4da3
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.devel
+id: menu_link_content.devel.view_mode
+field_name: view_mode
+entity_type: menu_link_content
+bundle: devel
+label: 'View mode'
+description: 'Per item view mode selector.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

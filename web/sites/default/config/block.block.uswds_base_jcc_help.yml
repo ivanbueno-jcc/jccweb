@@ -1,0 +1,22 @@
+uuid: 53e304da-2682-4c34-bec0-277d3bccb3bb
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - uswds_base_jcc
+_core:
+  default_config_hash: hT47jhY_CWiXL7lp2nvwm9bB-M_bpSa4Xo859wmkWXM
+id: uswds_base_jcc_help
+theme: uswds_base_jcc
+region: help
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

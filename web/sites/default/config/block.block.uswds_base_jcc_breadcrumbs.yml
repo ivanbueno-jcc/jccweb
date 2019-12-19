@@ -1,0 +1,22 @@
+uuid: 68533cce-e15b-4162-942b-2f7d73c92262
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - uswds_base_jcc
+_core:
+  default_config_hash: bTXo9NDq0dmygDSjJkjpximj7ZmhrnJnMinJHA7wyqQ
+id: uswds_base_jcc_breadcrumbs
+theme: uswds_base_jcc
+region: breadcrumb
+weight: -100
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

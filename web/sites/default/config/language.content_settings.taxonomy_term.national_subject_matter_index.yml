@@ -1,0 +1,18 @@
+uuid: c55a4e46-8a4f-4d4f-9fdc-0cad2f9022e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.national_subject_matter_index
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.national_subject_matter_index
+target_entity_type_id: taxonomy_term
+target_bundle: national_subject_matter_index
+default_langcode: site_default
+language_alterable: true

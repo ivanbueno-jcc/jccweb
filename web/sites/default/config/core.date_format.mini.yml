@@ -1,0 +1,8 @@
+uuid: c3bffbf0-e406-4975-8537-378e729dddf5
+langcode: en
+status: true
+dependencies: {  }
+id: mini
+label: Mini
+locked: false
+pattern: 'M d, Y'

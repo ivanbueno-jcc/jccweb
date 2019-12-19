@@ -1,0 +1,12 @@
+uuid: b68aeeac-6495-4cc6-8b5f-7f3f490a2fa6
+langcode: en
+status: true
+dependencies: {  }
+id: table
+label: Table
+image: ''
+description: 'A table shows tabular data in columns and rows.'
+html:
+  value: "<table class=\"usa-table\">\r\n\t<caption>Bordered table</caption>\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th scope=\"col\">Document title</th>\r\n\t\t\t<th scope=\"col\">Description</th>\r\n\t\t\t<th scope=\"col\">Year</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<th scope=\"row\">Declaration of Independence</th>\r\n\t\t\t<td>Statement adopted by the Continental Congress declaring independence from the British Empire.</td>\r\n\t\t\t<td>1776</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<th scope=\"row\">Bill of Rights</th>\r\n\t\t\t<td>The first ten amendments of the U.S. Constitution guaranteeing rights and freedoms.</td>\r\n\t\t\t<td>1791</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<th scope=\"row\">Declaration of Sentiments</th>\r\n\t\t\t<td>A document written during the Seneca Falls Convention outlining the rights that American women should be entitled to as citizens.</td>\r\n\t\t\t<td>1848</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<th scope=\"row\">Emancipation Proclamation</th>\r\n\t\t\t<td>An executive order granting freedom to slaves in designated southern states.</td>\r\n\t\t\t<td>1863</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n"
+  format: full_html
+weight: 11

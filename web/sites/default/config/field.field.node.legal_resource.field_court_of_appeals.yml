@@ -1,0 +1,29 @@
+uuid: b8941ffb-e606-4ee7-9328-01aa1e96a980
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_court_of_appeals
+    - node.type.legal_resource
+    - taxonomy.vocabulary.court_of_appeals
+id: node.legal_resource.field_court_of_appeals
+field_name: field_court_of_appeals
+entity_type: node
+bundle: legal_resource
+label: 'Court of Appeals'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      court_of_appeals: court_of_appeals
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

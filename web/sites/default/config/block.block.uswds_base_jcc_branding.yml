@@ -1,0 +1,25 @@
+uuid: f3d966d1-e626-4241-9501-92026a722390
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - uswds_base_jcc
+_core:
+  default_config_hash: 9mGLuqnMSjr1V24LT9tJComDCt79fqnFcfqJ0WojB74
+id: uswds_base_jcc_branding
+theme: uswds_base_jcc
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

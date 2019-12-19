@@ -1,0 +1,58 @@
+uuid: 97b317d1-bd84-4142-b887-bb9f347e3ecc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.form.body
+    - field.field.node.form.field_attachments
+    - field.field.node.form.field_form_type
+    - field.field.node.form.field_link
+    - node.type.form
+  module:
+    - jcc_misc
+    - link
+    - text
+    - user
+id: node.form.default
+targetEntityType: node
+bundle: form
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_attachments:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: media_url
+    region: content
+  field_form_type:
+    weight: 2
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_link:
+    weight: 3
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden:
+  langcode: true
+  links: true
+  search_api_excerpt: true

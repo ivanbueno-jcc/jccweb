@@ -1,0 +1,12 @@
+uuid: 5f00a539-2ca4-479f-9e22-6364e1bf0537
+langcode: en
+status: true
+dependencies: {  }
+id: accordion
+label: Accordion
+image: ''
+description: 'A list of headers that hide or reveal additional content when selected'
+html:
+  value: "<div class=\"usa-accordion\"><!-- Use the accurate heading level to maintain the document outline -->\r\n<h2 class=\"usa-accordion__heading\"><button aria-controls=\"a1\" aria-expanded=\"true\" class=\"usa-accordion__button\">First Amendment</button></h2>\r\n\r\n<div class=\"usa-accordion__content usa-prose\" hidden=\"\" id=\"a1\">\r\n<p>Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.</p>\r\n</div>\r\n<!-- Use the accurate heading level to maintain the document outline -->\r\n\r\n<h2 class=\"usa-accordion__heading\"><button aria-controls=\"a2\" aria-expanded=\"false\" class=\"usa-accordion__button\">Second Amendment</button></h2>\r\n\r\n<div class=\"usa-accordion__content usa-prose\" hidden=\"\" id=\"a2\">\r\n<p>A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.</p>\r\n</div>\r\n</div>\r\n"
+  format: full_html
+weight: 10

@@ -1,0 +1,27 @@
+definitions:
+  contact__site_page:
+    menu_name: footer
+    parent: ''
+    weight: -48
+    expanded: true
+    enabled: false
+  standard__front_page:
+    weight: -49
+    menu_name: main
+    parent: ''
+    expanded: true
+    enabled: false
+  user__page:
+    enabled: false
+    menu_name: account
+    parent: ''
+    expanded: false
+    weight: -49
+  user__logout:
+    enabled: false
+    menu_name: account
+    parent: ''
+    weight: -48
+    expanded: false
+_core:
+  default_config_hash: o4bYR9ZupWb3AsOIizTUG4g-nu1mdJqA59UB7QT-ifQ

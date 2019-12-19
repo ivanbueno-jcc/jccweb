@@ -1,0 +1,23 @@
+uuid: 3d0d10c5-1d1c-4a2e-a443-039a03a82de1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hide_header
+    - node.type.landing_page
+id: node.landing_page.field_hide_header
+field_name: field_hide_header
+entity_type: node
+bundle: landing_page
+label: 'Hide header'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,10 @@
+uuid: 214e8202-6adb-4e60-9eee-58cd817a84a9
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.node_thumbnail
+label: 'Node Thumbnail'
+targetEntityType: node
+cache: true

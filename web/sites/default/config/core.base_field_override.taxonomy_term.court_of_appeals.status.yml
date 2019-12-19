@@ -1,0 +1,22 @@
+uuid: 07125f00-d14d-4f9a-9502-fcc7623409d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.court_of_appeals
+id: taxonomy_term.court_of_appeals.status
+field_name: status
+entity_type: taxonomy_term
+bundle: court_of_appeals
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

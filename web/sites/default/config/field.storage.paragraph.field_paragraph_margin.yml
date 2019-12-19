@@ -1,0 +1,489 @@
+uuid: 100b50d2-2ea6-462d-8edb-b3c1d58ef181
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_paragraph_margin
+field_name: field_paragraph_margin
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: margin-0
+      label: margin-0
+    -
+      value: margin-1px
+      label: margin-1px
+    -
+      value: margin-2px
+      label: margin-2px
+    -
+      value: margin-05
+      label: margin-05
+    -
+      value: margin-1
+      label: margin-1
+    -
+      value: margin-105
+      label: margin-105
+    -
+      value: margin-2
+      label: margin-2
+    -
+      value: margin-205
+      label: margin-205
+    -
+      value: margin-3
+      label: margin-3
+    -
+      value: margin-4
+      label: margin-4
+    -
+      value: margin-5
+      label: margin-5
+    -
+      value: margin-6
+      label: margin-6
+    -
+      value: margin-7
+      label: margin-7
+    -
+      value: margin-8
+      label: margin-8
+    -
+      value: margin-9
+      label: margin-9
+    -
+      value: margin-bottom-neg-3
+      label: margin-bottom-neg-3
+    -
+      value: margin-bottom-neg-205
+      label: margin-bottom-neg-205
+    -
+      value: margin-bottom-neg-2
+      label: margin-bottom-neg-2
+    -
+      value: margin-bottom-neg-105
+      label: margin-bottom-neg-105
+    -
+      value: margin-bottom-neg-1
+      label: margin-bottom-neg-1
+    -
+      value: margin-bottom-neg-05
+      label: margin-bottom-neg-05
+    -
+      value: margin-bottom-neg-2px
+      label: margin-bottom-neg-2px
+    -
+      value: margin-bottom-neg-1px
+      label: margin-bottom-neg-1px
+    -
+      value: margin-bottom-0
+      label: margin-bottom-0
+    -
+      value: margin-bottom-1px
+      label: margin-bottom-1px
+    -
+      value: margin-bottom-2px
+      label: margin-bottom-2px
+    -
+      value: margin-bottom-05
+      label: margin-bottom-05
+    -
+      value: margin-bottom-1
+      label: margin-bottom-1
+    -
+      value: margin-bottom-105
+      label: margin-bottom-105
+    -
+      value: margin-bottom-2
+      label: margin-bottom-2
+    -
+      value: margin-bottom-205
+      label: margin-bottom-205
+    -
+      value: margin-bottom-3
+      label: margin-bottom-3
+    -
+      value: margin-bottom-4
+      label: margin-bottom-4
+    -
+      value: margin-bottom-5
+      label: margin-bottom-5
+    -
+      value: margin-bottom-6
+      label: margin-bottom-6
+    -
+      value: margin-bottom-7
+      label: margin-bottom-7
+    -
+      value: margin-bottom-8
+      label: margin-bottom-8
+    -
+      value: margin-bottom-9
+      label: margin-bottom-9
+    -
+      value: margin-top-neg-3
+      label: margin-top-neg-3
+    -
+      value: margin-top-neg-205
+      label: margin-top-neg-205
+    -
+      value: margin-top-neg-2
+      label: margin-top-neg-2
+    -
+      value: margin-top-neg-105
+      label: margin-top-neg-105
+    -
+      value: margin-top-neg-1
+      label: margin-top-neg-1
+    -
+      value: margin-top-neg-05
+      label: margin-top-neg-05
+    -
+      value: margin-top-neg-2px
+      label: margin-top-neg-2px
+    -
+      value: margin-top-neg-1px
+      label: margin-top-neg-1px
+    -
+      value: margin-top-0
+      label: margin-top-0
+    -
+      value: margin-top-1px
+      label: margin-top-1px
+    -
+      value: margin-top-2px
+      label: margin-top-2px
+    -
+      value: margin-top-05
+      label: margin-top-05
+    -
+      value: margin-top-1
+      label: margin-top-1
+    -
+      value: margin-top-105
+      label: margin-top-105
+    -
+      value: margin-top-2
+      label: margin-top-2
+    -
+      value: margin-top-205
+      label: margin-top-205
+    -
+      value: margin-top-3
+      label: margin-top-3
+    -
+      value: margin-top-4
+      label: margin-top-4
+    -
+      value: margin-top-5
+      label: margin-top-5
+    -
+      value: margin-top-6
+      label: margin-top-6
+    -
+      value: margin-top-7
+      label: margin-top-7
+    -
+      value: margin-top-8
+      label: margin-top-8
+    -
+      value: margin-top-9
+      label: margin-top-9
+    -
+      value: margin-left-neg-3
+      label: margin-left-neg-3
+    -
+      value: margin-left-neg-205
+      label: margin-left-neg-205
+    -
+      value: margin-left-neg-2
+      label: margin-left-neg-2
+    -
+      value: margin-left-neg-105
+      label: margin-left-neg-105
+    -
+      value: margin-left-neg-1
+      label: margin-left-neg-1
+    -
+      value: margin-left-neg-05
+      label: margin-left-neg-05
+    -
+      value: margin-left-neg-2px
+      label: margin-left-neg-2px
+    -
+      value: margin-left-neg-1px
+      label: margin-left-neg-1px
+    -
+      value: margin-left-0
+      label: margin-left-0
+    -
+      value: margin-left-1px
+      label: margin-left-1px
+    -
+      value: margin-left-2px
+      label: margin-left-2px
+    -
+      value: margin-left-05
+      label: margin-left-05
+    -
+      value: margin-left-1
+      label: margin-left-1
+    -
+      value: margin-left-105
+      label: margin-left-105
+    -
+      value: margin-left-2
+      label: margin-left-2
+    -
+      value: margin-left-205
+      label: margin-left-205
+    -
+      value: margin-left-3
+      label: margin-left-3
+    -
+      value: margin-left-4
+      label: margin-left-4
+    -
+      value: margin-left-5
+      label: margin-left-5
+    -
+      value: margin-left-6
+      label: margin-left-6
+    -
+      value: margin-left-7
+      label: margin-left-7
+    -
+      value: margin-left-8
+      label: margin-left-8
+    -
+      value: margin-left-9
+      label: margin-left-9
+    -
+      value: margin-left-auto
+      label: margin-left-auto
+    -
+      value: margin-right-neg-3
+      label: margin-right-neg-3
+    -
+      value: margin-right-neg-205
+      label: margin-right-neg-205
+    -
+      value: margin-right-neg-2
+      label: margin-right-neg-2
+    -
+      value: margin-right-neg-105
+      label: margin-right-neg-105
+    -
+      value: margin-right-neg-1
+      label: margin-right-neg-1
+    -
+      value: margin-right-neg-05
+      label: margin-right-neg-05
+    -
+      value: margin-right-neg-2px
+      label: margin-right-neg-2px
+    -
+      value: margin-right-neg-1px
+      label: margin-right-neg-1px
+    -
+      value: margin-right-0
+      label: margin-right-0
+    -
+      value: margin-right-1px
+      label: margin-right-1px
+    -
+      value: margin-right-2px
+      label: margin-right-2px
+    -
+      value: margin-right-05
+      label: margin-right-05
+    -
+      value: margin-right-1
+      label: margin-right-1
+    -
+      value: margin-right-105
+      label: margin-right-105
+    -
+      value: margin-right-2
+      label: margin-right-2
+    -
+      value: margin-right-205
+      label: margin-right-205
+    -
+      value: margin-right-3
+      label: margin-right-3
+    -
+      value: margin-right-4
+      label: margin-right-4
+    -
+      value: margin-right-5
+      label: margin-right-5
+    -
+      value: margin-right-6
+      label: margin-right-6
+    -
+      value: margin-right-7
+      label: margin-right-7
+    -
+      value: margin-right-8
+      label: margin-right-8
+    -
+      value: margin-right-9
+      label: margin-right-9
+    -
+      value: margin-right-auto
+      label: margin-right-auto
+    -
+      value: margin-x-neg-3
+      label: margin-x-neg-3
+    -
+      value: margin-x-neg-205
+      label: margin-x-neg-205
+    -
+      value: margin-x-neg-2
+      label: margin-x-neg-2
+    -
+      value: margin-x-neg-105
+      label: margin-x-neg-105
+    -
+      value: margin-x-neg-1
+      label: margin-x-neg-1
+    -
+      value: margin-x-neg-05
+      label: margin-x-neg-05
+    -
+      value: margin-x-neg-2px
+      label: margin-x-neg-2px
+    -
+      value: margin-x-neg-1px
+      label: margin-x-neg-1px
+    -
+      value: margin-x-0
+      label: margin-x-0
+    -
+      value: margin-x-1px
+      label: margin-x-1px
+    -
+      value: margin-x-2px
+      label: margin-x-2px
+    -
+      value: margin-x-05
+      label: margin-x-05
+    -
+      value: margin-x-1
+      label: margin-x-1
+    -
+      value: margin-x-105
+      label: margin-x-105
+    -
+      value: margin-x-2
+      label: margin-x-2
+    -
+      value: margin-x-205
+      label: margin-x-205
+    -
+      value: margin-x-3
+      label: margin-x-3
+    -
+      value: margin-x-4
+      label: margin-x-4
+    -
+      value: margin-x-5
+      label: margin-x-5
+    -
+      value: margin-x-6
+      label: margin-x-6
+    -
+      value: margin-x-7
+      label: margin-x-7
+    -
+      value: margin-x-8
+      label: margin-x-8
+    -
+      value: margin-x-9
+      label: margin-x-9
+    -
+      value: margin-x-auto
+      label: margin-x-auto
+    -
+      value: margin-y-neg-3
+      label: margin-y-neg-3
+    -
+      value: margin-y-neg-205
+      label: margin-y-neg-205
+    -
+      value: margin-y-neg-2
+      label: margin-y-neg-2
+    -
+      value: margin-y-neg-105
+      label: margin-y-neg-105
+    -
+      value: margin-y-neg-1
+      label: margin-y-neg-1
+    -
+      value: margin-y-neg-05
+      label: margin-y-neg-05
+    -
+      value: margin-y-neg-2px
+      label: margin-y-neg-2px
+    -
+      value: margin-y-neg-1px
+      label: margin-y-neg-1px
+    -
+      value: margin-y-0
+      label: margin-y-0
+    -
+      value: margin-y-1px
+      label: margin-y-1px
+    -
+      value: margin-y-2px
+      label: margin-y-2px
+    -
+      value: margin-y-05
+      label: margin-y-05
+    -
+      value: margin-y-1
+      label: margin-y-1
+    -
+      value: margin-y-105
+      label: margin-y-105
+    -
+      value: margin-y-2
+      label: margin-y-2
+    -
+      value: margin-y-205
+      label: margin-y-205
+    -
+      value: margin-y-3
+      label: margin-y-3
+    -
+      value: margin-y-4
+      label: margin-y-4
+    -
+      value: margin-y-5
+      label: margin-y-5
+    -
+      value: margin-y-6
+      label: margin-y-6
+    -
+      value: margin-y-7
+      label: margin-y-7
+    -
+      value: margin-y-8
+      label: margin-y-8
+    -
+      value: margin-y-9
+      label: margin-y-9
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
