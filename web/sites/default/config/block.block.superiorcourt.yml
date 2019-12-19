@@ -1,0 +1,29 @@
+uuid: 111a45b7-873d-4fbb-a2d0-7de6b2d20451
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.superior_court
+  module:
+    - facets
+    - system
+  theme:
+    - uswds_base_jcc
+id: superiorcourt
+theme: uswds_base_jcc
+region: sidebar_first
+weight: -9
+provider: null
+plugin: 'facet_block:superior_court'
+settings:
+  id: 'facet_block:superior_court'
+  label: 'Superior Court'
+  provider: facets
+  label_display: visible
+  block_id: superiorcourt
+visibility:
+  request_path:
+    id: request_path
+    pages: "/search\r\n/search/*"
+    negate: false
+    context_mapping: {  }

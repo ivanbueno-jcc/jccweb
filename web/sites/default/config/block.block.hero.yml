@@ -1,0 +1,25 @@
+uuid: 1adf446e-8a39-4ef8-a71b-2882340efb20
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:06502b42-1800-4d7b-be33-0b2476ef9f16'
+  module:
+    - block_content
+  theme:
+    - uswds_base
+id: hero
+theme: uswds_base
+region: hero
+weight: 0
+provider: null
+plugin: 'block_content:06502b42-1800-4d7b-be33-0b2476ef9f16'
+settings:
+  id: 'block_content:06502b42-1800-4d7b-be33-0b2476ef9f16'
+  label: Hero
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,12 @@
+apikey: ''
+test_defaults:
+  to: ivan.bueno@jud.ca.gov
+  subject: 'Test Email from SendGrid Module'
+  body:
+    value: 'Test Message for SendGrid #3.'
+    format: plain_text
+  from_name: 'Judicial Council of California'
+  to_name: Ivan
+  reply_to: ''
+_core:
+  default_config_hash: g4qz7cPnloXFwtnLYfIKI2VS0gf_UFOz_I2uQiiulC8

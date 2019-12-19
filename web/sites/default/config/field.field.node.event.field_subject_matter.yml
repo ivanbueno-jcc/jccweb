@@ -1,0 +1,29 @@
+uuid: dfa1041a-6575-40f7-a422-e3492612a2eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subject_matter
+    - node.type.event
+    - taxonomy.vocabulary.national_subject_matter_index
+id: node.event.field_subject_matter
+field_name: field_subject_matter
+entity_type: node
+bundle: event
+label: 'Subject Matter'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      national_subject_matter_index: national_subject_matter_index
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

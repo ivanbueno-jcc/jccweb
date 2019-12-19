@@ -1,0 +1,180 @@
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: judges_in_the_classroom_teachers
+title: 'Judges in the Classroom - Teachers'
+description: 'Request a judge to visit a classroom.'
+category: ''
+elements: "'#attributes':\n  class:\n    - 'padding-3 radius-md bg-white shadow-2 border border-base-lighter'\ncontact_info:\n  '#type': webform_wizard_page\n  '#title': 'Contact Info'\n  teacher_name:\n    '#type': textfield\n    '#title': 'Teacher Name'\n    '#required': true\n  email:\n    '#type': email\n    '#title': Email\n    '#required': true\n  day_phone:\n    '#type': textfield\n    '#title': 'Day Phone'\n    '#input_mask': '(999) 999-9999'\n    '#required': true\nschool_location:\n  '#type': webform_wizard_page\n  '#title': 'School Location'\n  county:\n    '#type': select\n    '#title': County\n    '#options': county\n    '#required': true\n  school_name:\n    '#type': textfield\n    '#title': 'School Name'\n    '#required': true\n  school_address:\n    '#type': textfield\n    '#title': 'School Address'\n    '#required': true\nclass_info:\n  '#type': webform_wizard_page\n  '#title': 'Class Details'\n  grade_level:\n    '#type': radios\n    '#title': 'Grade Level'\n    '#options':\n      Elementary: Elementary\n      'Middle School': 'Middle School'\n      'High School': 'High School'\n    '#required': true\n  number_of_students:\n    '#type': number\n    '#title': 'Number of students'\n    '#min': '1'\n  subject:\n    '#type': textfield\n    '#title': Subject\n  additional_information_about_students:\n    '#type': textarea\n    '#title': 'Additional information about students'\n  setting_type_of_event:\n    '#type': webform_radios_other\n    '#title': 'Setting / Type of Event'\n    '#options':\n      Classroom: Classroom\n    '#other__option_label': Other\n    '#other__placeholder': 'Describe the type of event'\n  classroom_technology:\n    '#type': webform_checkboxes_other\n    '#title': 'Classroom Technology'\n    '#options':\n      Powerpoint: Powerpoint\n      Video: Video\n    '#other__placeholder': 'Enter other information'\nlesson_plan:\n  '#type': webform_wizard_page\n  '#title': 'Lesson and Schedule'\n  presentation:\n    '#type': webform_radios_other\n    '#title': Presentation\n    '#options':\n      'Lesson from Judges in the Classroom': 'Lesson from Judges in the Classroom -- 50 minutes.  Consult the lesson plan below.'\n    '#other__option_label': 'Other lesson of your choosing'\n    '#other__description': 'Visit <a href=\"https://www.mydigitalchalkboard.org/\">My Digital Chalkboard</a> for lesson ideas.'\n  preferred_datetime:\n    '#type': datetime\n    '#title': 'Preferred Days and Times'\n    '#multiple': 6\n    '#description': 'Choose in 1 hour blocks, between 8am and 3pm, at least 6 weeks from today.'\n    '#help': 'Choose in 1 hour blocks, between 8am and 3pm, at least 6 weeks from today.'\n    '#required': true\n    '#multiple__header_label': 'Date and Start Time'\n    '#multiple__min_items': '1'\n    '#multiple__empty_items': '6'\n    '#multiple__sorting': false\n    '#multiple__operations': false\n    '#multiple__add_more': false\n    '#date_date_min': '+6 weeks'\n    '#date_days':\n      - '1'\n      - '2'\n      - '3'\n      - '4'\n      - '5'\n    '#date_year_range': '0:1'\n    '#date_time_format': 'g:i A'\n    '#date_time_step': '1800'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#wizard_prev__label': '<'\n  '#wizard_next__label': Next"
+css: ''
+javascript: ''
+settings:
+  ajax: true
+  ajax_scroll_top: form
+  ajax_progress_type: fullscreen
+  ajax_effect: fade
+  ajax_speed: 500
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  page_admin_theme: false
+  form_title: source_entity_webform
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: false
+  form_confidential: false
+  form_confidential_message: ''
+  form_remote_addr: true
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: true
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace:
+    webform_routes: {  }
+    node_routes: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_progress_states: false
+  wizard_start_label: ''
+  wizard_preview_link: true
+  wizard_confirmation: false
+  wizard_confirmation_label: ''
+  wizard_track: name
+  preview: 2
+  preview_label: Review
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: message
+  confirmation_title: ''
+  confirmation_message: 'Thanks for your submission.&nbsp; We will review your details.&nbsp; For questions, email us at <a href="mailto:JudicialOutreach@jud.ca.gov">JudicialOutreach@jud.ca.gov</a>.'
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_view: false
+  token_update: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers: {  }
+uuid: 70eb65ee-2b7a-4ad3-a1d6-79313a6caae3

@@ -1,0 +1,21 @@
+uuid: 5cc886cc-f698-48b0-846a-d02d7f1bcfe6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.menu_link_content.field_icon
+    - system.menu.main
+  module:
+    - fontawesome
+id: menu_link_content.main.field_icon
+field_name: field_icon
+entity_type: menu_link_content
+bundle: main
+label: icon
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: fontawesome_icon

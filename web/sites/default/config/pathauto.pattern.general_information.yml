@@ -1,0 +1,24 @@
+uuid: 4d47505d-6350-49da-8d36-fd9c4a1cc62b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: general_information
+label: 'General Information'
+type: 'canonical_entities:node'
+pattern: 'general-information/[node:content-type]/[node:title]'
+selection_criteria:
+  f237d045-006d-422b-9447-09ba14b603a0:
+    id: node_type
+    bundles:
+      event: event
+      location: location
+      news: news
+    negate: false
+    context_mapping:
+      node: node
+    uuid: f237d045-006d-422b-9447-09ba14b603a0
+selection_logic: and
+weight: -5
+relationships: {  }

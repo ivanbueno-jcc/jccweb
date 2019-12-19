@@ -1,0 +1,22 @@
+uuid: 2db9bec6-4746-44a9-bf0c-221c08da9d3c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.legal_resource
+id: node.legal_resource.status
+field_name: status
+entity_type: node
+bundle: legal_resource
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

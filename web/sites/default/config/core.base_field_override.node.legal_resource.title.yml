@@ -1,0 +1,18 @@
+uuid: e0d98f49-2124-487b-aa88-6b70c99ebc99
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.legal_resource
+id: node.legal_resource.title
+field_name: title
+entity_type: node
+bundle: legal_resource
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

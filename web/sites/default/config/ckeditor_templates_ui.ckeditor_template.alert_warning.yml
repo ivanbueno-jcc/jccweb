@@ -1,0 +1,12 @@
+uuid: 55ec2fc4-5d72-4ed9-83fe-549eea7b7efd
+langcode: en
+status: true
+dependencies: {  }
+id: alert_warning
+label: 'Alert Warning'
+image: ''
+description: 'An alert keeps users informed of important and sometimes time-sensitive changes.'
+html:
+  value: "<div class=\"usa-alert usa-alert--warning\">\r\n<div class=\"usa-alert__body\">\r\n<h3 class=\"usa-alert__heading\">Warning status</h3>\r\n\r\n<p class=\"usa-alert__text\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>\r\n</div>\r\n</div>\r\n"
+  format: full_html
+weight: 6

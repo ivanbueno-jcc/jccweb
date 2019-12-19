@@ -1,0 +1,22 @@
+uuid: 585ff4d2-09a1-4e9a-b6ce-4b63fe68fe80
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.legal_resource
+id: node.legal_resource.sticky
+field_name: sticky
+entity_type: node
+bundle: legal_resource
+label: 'Sticky at top of lists'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

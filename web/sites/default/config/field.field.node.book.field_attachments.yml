@@ -1,0 +1,32 @@
+uuid: 95dd80da-7fc4-4c7f-a0f3-20f2711e4ddf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_attachments
+    - media.type.audio
+    - media.type.file
+    - media.type.image
+    - node.type.book
+id: node.book.field_attachments
+field_name: field_attachments
+entity_type: node
+bundle: book
+label: Attachments
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      audio: audio
+      file: file
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: audio
+field_type: entity_reference

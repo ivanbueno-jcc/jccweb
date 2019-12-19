@@ -1,0 +1,22 @@
+uuid: 23a9678c-2ef2-4b2d-9ccd-e380a36e01e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.asset_browser
+  module:
+    - entity_embed
+    - media
+label: Assets
+id: assets
+type_id: entity
+type_settings:
+  entity_type: media
+  bundles: {  }
+  display_plugins: {  }
+  entity_browser: asset_browser
+  entity_browser_settings:
+    display_review: false
+icon:
+  data: iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAABHElEQVR4Ae3TJaDVYABA4Q93d+9YQtuTiDvrnY675FdpeEMqBafgnnCHBgX9udjSfDjvnHvnO3N/IJ1NtliU6XLNekthvus+CDm+tFkvCfR3XCjkM80SGOaRUNDlEhjuiVDQSEx3wxt2rx6Y71nD+dUDUbygPfBTA6/c9b5c4KO38VfxwU6tLpYLvLDe2W/TR43DHA+LB97aoavZngqumwm6WOF10cAhI9DZKncsAdBLm7dFAjdMBQzRrDsxoxzJD7wQSWeS8+mBYe4JXjpkX6oH3BJ8sCQp0NMeoZDXTEoKMMFu9zzJ9LET5umUHKCnYYbn2F8HEgJVWS40bLNElON83SXQ7LlQyCeGS6CXzV7UCdBbs+WiQpfwh/EJf8PzC7fHMVEAAAAASUVORK5CYII=
+  uri: 'public://embed_buttons/media_embed_icon.png'

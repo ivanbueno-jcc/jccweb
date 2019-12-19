@@ -1,0 +1,10 @@
+uuid: 3f3e3d79-7565-4a6e-8109-3205b82ff444
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.paragraph
+label: Paragraph
+targetEntityType: media
+cache: true

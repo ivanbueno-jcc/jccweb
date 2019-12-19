@@ -1,0 +1,180 @@
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: clean_your_record
+title: 'Clean Your Record'
+description: 'Wayfinding question and answer for expungement'
+category: ''
+elements: "goals:\n  '#type': webform_wizard_page\n  '#title': Goals\n  what_are_the_primary_reasons_for_getting_your_record_cleared_:\n    '#type': checkboxes\n    '#title': 'What are the primary reasons for getting your record cleared?'\n    '#options':\n      new_job: 'Applying for a new job or housing'\n      gun_rights: 'Restoring my gun rights'\n      sex_offender: 'Eliminate a requirement to register as a sex offender'\n      other: Other\n  primary_reasons:\n    '#type': processed_text\n    '#states':\n      visible-slide:\n        - ':input[name=\"what_are_the_primary_reasons_for_getting_your_record_cleared_[new_job]\"]':\n            checked: true\n        - or\n        - ':input[name=\"what_are_the_primary_reasons_for_getting_your_record_cleared_[gun_rights]\"]':\n            checked: true\n        - or\n        - ':input[name=\"what_are_the_primary_reasons_for_getting_your_record_cleared_[sex_offender]\"]':\n            checked: true\n        - or\n        - ':input[name=\"what_are_the_primary_reasons_for_getting_your_record_cleared_[prior_conviction]\"]':\n            checked: true\n    '#text': |\n      <div class=\"usa-alert usa-alert--warning\">\n      <div class=\"usa-alert__body\">\n      <h3 class=\"usa-alert__heading\">Keep in mind</h3>\n      \n      <p class=\"usa-alert__text\">Before continuing, we want you to&nbsp;understand what record cleaning can and cannot accomplish.</p>\n      </div>\n      </div>\n      \n    '#format': full_html\n  primary_reasons_job_housing:\n    '#type': processed_text\n    '#states':\n      visible-slide:\n        ':input[name=\"what_are_the_primary_reasons_for_getting_your_record_cleared_[new_job]\"]':\n          checked: true\n    '#text': |\n      <div class=\"usa-alert bg-lightyellow\">\n      <div class=\"usa-alert__body\">\n      <h3 class=\"usa-alert__heading\">Housing &amp; Jobs</h3>\n      \n      <p class=\"usa-alert__text\">The record cleaning process can take several months. &nbsp;Consider record cleaning as a solution to help in your next job or housing search, not your current one.</p>\n      </div>\n      </div>\n      \n    '#format': full_html\n  primary_reasons_gun_rights:\n    '#type': processed_text\n    '#states':\n      visible-slide:\n        ':input[name=\"what_are_the_primary_reasons_for_getting_your_record_cleared_[gun_rights]\"]':\n          checked: true\n    '#text': |\n      <div class=\"usa-alert bg-lightyellow\">\n      <div class=\"usa-alert__body\">\n      <h3 class=\"usa-alert__heading\">Restoring Gun Rights</h3>\n      \n      <p>Both federal law and California law prohibit people with felonies from having guns. There are&nbsp;two possible options to restore gun rights through record cleaning:</p>\n      \n      <ul class=\"bullets\">\n      \t<li>Reduce your felony charge to a misdemeanor. However, some misdemeanors still have guns bans.</li>\n      \t<li>Get a <a href=\"https://www.gov.ca.gov/clemency/\" target=\"_blank\">pardon from the Governor of California</a>.</li>\n      </ul>\n      \n      <p>If you want more information about what you can expect, review this flyer on gun rights.</p>\n      </div>\n      </div>\n      \n    '#format': full_html\n  primary_reasons_sex_offender:\n    '#type': processed_text\n    '#states':\n      visible-slide:\n        ':input[name=\"what_are_the_primary_reasons_for_getting_your_record_cleared_[sex_offender]\"]':\n          checked: true\n    '#text': |\n      <div class=\"usa-alert bg-lightyellow\">\n      <div class=\"usa-alert__body\">\n      <h3 class=\"usa-alert__heading\">Sex Offender Registration</h3>\n      \n      <p>Except for a governor's pardon, record cleaning does not end a sex offender registration requirement.&nbsp;&nbsp;Starting in 2021, some sex offender registrants will be eligible to apply to get off the registry. &nbsp;</p>\n      \n      <p>For more information about the new \"tier-based system\" visit our <a href=\"http://jccweb2.jud.ca.gov/42751.htm\" target=\"“_parent”\">Sex Offender Registration page</a>. &nbsp;</p>\n      </div>\n      </div>\n      \n    '#format': full_html\n  are_you_trying_to_clean_an_adult_criminal_record_in_california_:\n    '#type': radios\n    '#title': 'Are you trying to clean an adult criminal record?'\n    '#options': yes_no\n    '#states':\n      visible-slide:\n        - ':input[name=\"what_are_the_primary_reasons_for_getting_your_record_cleared_[new_job]\"]':\n            checked: true\n        - or\n        - ':input[name=\"what_are_the_primary_reasons_for_getting_your_record_cleared_[housing]\"]':\n            checked: true\n        - or\n        - ':input[name=\"what_are_the_primary_reasons_for_getting_your_record_cleared_[gun_rights]\"]':\n            checked: true\n        - or\n        - ':input[name=\"what_are_the_primary_reasons_for_getting_your_record_cleared_[sex_offender]\"]':\n            checked: true\n        - or\n        - ':input[name=\"what_are_the_primary_reasons_for_getting_your_record_cleared_[prior_conviction]\"]':\n            checked: true\n        - or\n        - ':input[name=\"what_are_the_primary_reasons_for_getting_your_record_cleared_[other]\"]':\n            checked: true\n  criminal_record:\n    '#type': processed_text\n    '#states':\n      visible-slide:\n        ':input[name=\"are_you_trying_to_clean_an_adult_criminal_record_in_california_\"]':\n          value: 'No'\n    '#text': |\n      <div class=\"usa-alert usa-alert--error\" role=\"alert\">\n      <div class=\"usa-alert__body\">\n      <h3 class=\"usa-alert__heading\">Stop</h3>\n      \n      <p class=\"usa-alert__text\">For California Juvenile Cases, read more about <a class=\"type--underline\" href=\"http://jccweb2.jud.ca.gov/28120.htm\" target=\"_parent\">Sealing Juvenile Records</a>.</p>\n      </div>\n      </div>\n      \n    '#format': full_html\n  did_you_receive_the_conviction_in_california_:\n    '#type': radios\n    '#title': 'Did you receive the conviction in California?'\n    '#options': yes_no\n    '#states':\n      visible-slide:\n        ':input[name=\"are_you_trying_to_clean_an_adult_criminal_record_in_california_\"]':\n          value: 'Yes'\n  california_conviction:\n    '#type': processed_text\n    '#states':\n      visible-slide:\n        ':input[name=\"did_you_receive_the_conviction_in_california_\"]':\n          value: 'No'\n    '#text': |\n      <div class=\"usa-alert usa-alert--error\" role=\"alert\">\n      <div class=\"usa-alert__body\">\n      <h3 class=\"usa-alert__heading\">Stop</h3>\n      \n      <p class=\"usa-alert__text\">For cleaning your record in other states, you may find useful information at <a class=\"type--underline\" href=\"https://cleanslateclearinghouse.org/\" target=\"_parent\">Clean Slate Clearing House</a>.</p>\n      </div>\n      </div>\n      \n    '#format': full_html\n  have_you_ever_been_a_victim_of_sex_human_trafficking_:\n    '#type': radios\n    '#title': 'Have you been a victim of sex/human trafficking?'\n    '#options': yes_no\n    '#states':\n      visible-slide:\n        ':input[name=\"did_you_receive_the_conviction_in_california_\"]':\n          value: 'Yes'\n  human_trafficking:\n    '#type': processed_text\n    '#states':\n      visible-slide:\n        ':input[name=\"have_you_ever_been_a_victim_of_sex_human_trafficking_\"]':\n          value: 'Yes'\n    '#text': |\n      <div class=\"usa-alert usa-alert--error\" role=\"alert\">\n      <div class=\"usa-alert__body\">\n      <h3 class=\"usa-alert__heading\">Stop</h3>\n      \n      <p>You may be able to get a special form of relief if you were arrested or convicted of any nonviolent offenses while you were a victim of human/sex trafficking.&nbsp;</p>\n      \n      <p>Visit our&nbsp;<a class=\"type--underline\" href=\"http://jccweb2.jud.ca.gov/42530.htm\" target=\"_parent\">Relief for Human/Sex Trafficking Victims</a>&nbsp;page to learn more about your options, including how to contact attorneys who have worked&nbsp;with trafficking survivors.</p>\n      </div>\n      </div>\n      \n    '#format': full_html\npath:\n  '#type': webform_wizard_page\n  '#title': Path\n  arrest_record_details:\n    '#type': processed_text\n    '#text': |\n      <div class=\"usa-alert usa-alert--info\">\n      <div class=\"usa-alert__body\">\n      <h3 class=\"usa-alert__heading\">To clean your record, you will need to know the following details about your case:</h3>\n      \n      <ul class=\"bullets\">\n      \t<li><span class=\"type--bold\">Case number</span></li>\n      \t<li><span class=\"type--bold\">Date</span> of conviction or date of arrest (if not convicted)</li>\n      \t<li><span class=\"type--bold\">Code</span> section of the conviction or arrest (if not convicted)</li>\n      \t<li><span class=\"type--bold\">County</span> where you were convicted or arrested (if not convicted)</li>\n      </ul>\n      \n      <p>This information can be found on your criminal record or RAP Sheet, which stands for Record of Arrest or Prosecution.</p>\n      </div>\n      </div>\n      \n    '#format': full_html\n  do_you_have_all_of_the_details_listed_above_for_the_arrest_or_co:\n    '#type': radios\n    '#title': 'Do you have all of the details listed above for the arrest or conviction you want to clean?'\n    '#options': yes_no\n  arrest_record:\n    '#type': processed_text\n    '#states':\n      visible-slide:\n        ':input[name=\"do_you_have_all_of_the_details_listed_above_for_the_arrest_or_co\"]':\n          value: 'No'\n    '#text': |\n      <div class=\"usa-alert usa-alert--error\" role=\"alert\">\n      <div class=\"usa-alert__body\">\n      <h3 class=\"usa-alert__heading\">Stop</h3>\n      \n      <p class=\"lead\">Get your criminal record information.</p>\n      \n      <p>There are three ways to get your criminal record information:</p>\n      \n      <ul class=\"bullets ml5 mr8\">\n      \t<li>Use the papers you received in court when you were convicted or arrested (if not convicted).</li>\n      \t<li>The superior court keeps records of its cases. You can go to the clerk's office to request a copy of your case. Some courts now offer electronic access so that you can review records online. <strong><a class=\"type--underline\" href=\"https://www.courts.ca.gov/find-my-court.htm\" target=\"_parent\">Find the right court</a></strong>.</li>\n      \t<li><strong>Get your RAP sheet</strong>. The Record of Arrest and Prosection (RAP) Sheet will show your most complete criminal history on file.&nbsp; The RAP sheet has details that will help you determine which type of record cleaning to request. You will need to be fingerprinted and it may take several weeks for your record to arrive. Visit&nbsp;<strong><a class=\"type--underline\" href=\"https://oag.ca.gov/fingerprints/record-review target=\"_parent\">The California Department of Justice</a> for steps on how to request your records</strong>.</li>\n      </ul>\n      \n      <p>Once you get your criminal record information, you'll be able to continue with the record cleaning process.</p>\n      </div>\n      </div>\n      \n    '#format': full_html\n  does_your_case_involve_sidewalk_vending_or_unlawfully_selling_go:\n    '#type': radios\n    '#title': 'Does your case involve sidewalk vending, or unlawfully selling goods on the sidewalk?'\n    '#options': yes_no\n    '#states':\n      visible-slide:\n        ':input[name=\"do_you_have_all_of_the_details_listed_above_for_the_arrest_or_co\"]':\n          value: 'Yes'\n  sidewalk_vending:\n    '#type': processed_text\n    '#states':\n      visible-slide:\n        ':input[name=\"does_your_case_involve_sidewalk_vending_or_unlawfully_selling_go\"]':\n          value: 'Yes'\n    '#text': |\n      <div class=\"usa-alert usa-alert--error\" role=\"alert\">\n      <div class=\"usa-alert__body\">\n      <h3 class=\"usa-alert__heading\">Stop</h3>\n      \n      <p class=\"usa-alert__text\">If you have a conviction under a city ordinance for unlawfully selling goods on the sidewalk, you can request dismissal of the conviction under Government Code § 51039(g). Check with the court where you were convicted or arrested for sidewalk vending to see if a form is available for this type of relief. <a class=\"type--underline\" href=\"https://www.courts.ca.gov/find-my-court.htm\" target=\"_parent\">Find the Right Court</a>.</p>\n      </div>\n      </div>\n      \n    '#format': full_html\n  does_your_case_involve_marijuana_convictions_:\n    '#type': radios\n    '#title': 'Does your case involve marijuana convictions?'\n    '#options': yes_no\n    '#states':\n      visible-slide:\n        ':input[name=\"does_your_case_involve_sidewalk_vending_or_unlawfully_selling_go\"]':\n          checked: true\n  marijuana_convictions:\n    '#type': processed_text\n    '#states':\n      visible-slide:\n        ':input[name=\"does_your_case_involve_marijuana_convictions_\"]':\n          value: 'Yes'\n    '#text': |\n      <div class=\"usa-alert usa-alert--warning\">\n      <div class=\"usa-alert__body\">\n      <h3 class=\"usa-alert__heading\">Marijuana Convictions</h3>\n      \n      <p>Note that courts are now required to reduce eligible marijuana convictions automatically and purge certain records. Therefore, it may not be necessary for you to file for this type of relief. Check first with the court to find out the status of your marijuana conviction.</p>\n      \n      <p>For specific forms and details, learn more on our <a class=\"type--underline\" href=\"http://jccweb2.jud.ca.gov/42535.htm\" target=\"_parent\">Marijuana Conviction Relief (Prop 64)</a> page.</p>\n      </div>\n      </div>\n      \n    '#format': full_html\n  based_on_the_criminal_record_information_or_rap_sheet_you_have_c:\n    '#type': radios\n    '#title': 'Based on your criminal record information or RAP Sheet, choose one of the options below:'\n    '#options':\n      arrested_no_conviction: 'I was arrested, but it did not result in a conviction.'\n      infraction: 'I was convicted of an infraction.'\n      misdemeanor: 'I was convicted of a misdemeanor.'\n      felony: 'I was convicted of a felony.'\n    '#states':\n      visible-slide:\n        ':input[name=\"does_your_case_involve_marijuana_convictions_\"]':\n          checked: true\n  action_arrested:\n    '#type': processed_text\n    '#states':\n      visible-slide:\n        ':input[name=\"based_on_the_criminal_record_information_or_rap_sheet_you_have_c\"]':\n          value: arrested_no_conviction\n    '#text': |\n      <div class=\"usa-alert usa-alert--info\">\n      <div class=\"usa-alert__body\">\n      <h3 class=\"usa-alert__heading\">Cleaning an arrest that did not result in a conviction</h3>\n      \n      <p>If you were arrested but not convicted because:</p>\n      \n      <ul class=\"bullets text-left\">\n      \t<li>No charges were filed;</li>\n      \t<li>The case was dismissed in court; or,</li>\n      \t<li>You were found not guilty at trial</li>\n      </ul>\n      \n      <hr />\n      <p>You may be able to <em>seal the records</em> under <a class=\"type--underline\" href=\"https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=851.91.&amp;lawCode=PEN\" target=\"_parent\">Pen. Code, § 851.91.</a></p>\n      \n      <p>Learn more about <a class=\"type--underline\" href=\"http://jccweb2.jud.ca.gov/42539.htm\" target=\"_parent\">Arrests With No Convictions</a>.</p>\n      </div>\n      </div>\n      \n    '#format': full_html\n  action_infraction:\n    '#type': processed_text\n    '#states':\n      visible-slide:\n        ':input[name=\"based_on_the_criminal_record_information_or_rap_sheet_you_have_c\"]':\n          value: infraction\n    '#text': |\n      <div class=\"usa-alert usa-alert--info\">\n      <div class=\"usa-alert__body\">\n      <h3 class=\"usa-alert__heading\">Cleaning an infraction</h3>\n      \n      <p class=\"text-left\">If you were found guilty of an infraction, you can ask the judge for a dismissal IF:</p>\n      \n      <ul class=\"bullets text-left\">\n      \t<li>At least one year has passed since the conviction date;</li>\n      \t<li>The infraction is not a Vehicle Code infraction;</li>\n      \t<li>You do not have any pending cases; AND</li>\n      \t<li>You are not on any probation or parole in any other case</li>\n      </ul>\n      \n      <p class=\"text-left\">To request this type of dismissal, use <a href=\"http://www.courts.ca.gov/documents/cr180.pdf\" target=\"_parent\">Form CR-180</a>. And submit the order (<a href=\"http://www.courts.ca.gov/documents/cr181.pdf\" target=\"_parent\">Form CR-181</a>) for the judge to sign.</p>\n      \n      <hr />\n      <p class=\"text-left\">The judge can decide <span class=\"type--bold\">not</span> to dismiss the infraction <span class=\"type--bold\">IF:</span></p>\n      \n      <ul class=\"bullets text-left\">\n      \t<li>You did not complete the sentence (for example, if you still owe a fine or community service hours) OR</li>\n      \t<li>You have not lived \"an honest and upright life\" and if you have not \"conformed to and obeyed the laws of the land\"</li>\n      </ul>\n      </div>\n      </div>\n      \n    '#format': full_html\n  action_misdemeanor:\n    '#type': processed_text\n    '#states':\n      visible-slide:\n        ':input[name=\"based_on_the_criminal_record_information_or_rap_sheet_you_have_c\"]':\n          value: misdemeanor\n    '#text': |\n      <div class=\"usa-alert usa-alert--info\">\n      <div class=\"usa-alert__body\">\n      <h3 class=\"usa-alert__heading\">Cleaning a misdemeanor conviction</h3>\n      \n      <p class=\"text-left\">You can ask the court to dismiss your conviction IF:</p>\n      \n      <ul class=\"text-left bullets\">\n      \t<li>You have no new cases pending AND</li>\n      \t<li>You are not on probation or parole in any other case.</li>\n      </ul>\n      \n      <p class=\"text-left\">Learn more about <strong><a href=\"http://jccweb2.jud.ca.gov/42699.htm\" target=\"_parent\">Record Clearance: Misdemeanors</a></strong></p>\n      </div>\n      </div>\n      \n    '#format': full_html\n  action_felony:\n    '#type': processed_text\n    '#states':\n      visible-slide:\n        ':input[name=\"based_on_the_criminal_record_information_or_rap_sheet_you_have_c\"]':\n          value: felony\n    '#text': |\n      <div class=\"usa-alert usa-alert--info\">\n      <div class=\"usa-alert__body\">\n      <h3 class=\"usa-alert__heading\">Cleaning a felony conviction</h3>\n      \n      <p class=\"usa-alert__text\">The path to cleaning felony convictions vary. There may also be a special relief for certain convictions under on Proposition 47. Learn more to see requirements for cleaning a felony conviction and see which path is right for you on our <a class=\"type--underline\" href=\"http://jccweb2.jud.ca.gov/42537.htm\" target=\"_parent\">Record Clearance: Felony Convictions and Prop 47</a> page.</p>\n      </div>\n      </div>\n      \n    '#format': full_html\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit_hide': true\n  '#wizard_prev__label': '<'\n  '#wizard_next__label': Continue"
+css: ".nav-container, .form-type-managed-file .help-block, .form-type-webform-image-file .help-block, .webform_embed + h1.page-title {display: none !important;}\r\n.form-actions .button, .webform-multiple-add button {width: auto !important; padding: 15px 30px !important; margin-right: 5px;  margin-left: 5px; margin-top: 25px;}\r\ndiv.form-type-radio, div.form-type-checkbox {display: block !important; margin-top: .5rem;}\r\n.form-type-radio label, .form-type-checkbox label {\r\n    display: inline-block;\r\n    border-radius: 5px;\r\n    padding: 5px 40px !important;\r\n    margin: 2px;\r\n    font-size: 1.2rem !important;\r\n    color: #162e51 !important;\r\n}\r\n.form-item .fieldset-legend, .form-item label {font-size: 1.4rem;}\r\n.form-composite legend {font-weight: normal;}\r\n.form-type-processed-text {max-width: inherit !important;}\r\nfieldset.fieldgroup {}\r\n.form-type-managed-file input.form-control, .form-type-webform-image-file input.form-control {height: auto !important;}\r\n.form-managed-file .file > span {color: #444 !important; background-color: transparent !important;}\r\n.form-managed-file .form-type-checkbox label {border-width: 0px !important;}\r\nbutton.form-submit {background-color: #F4AC3B !important; color: #402904 !important; border: 1px solid #F4AC3B;}\r\nul li.unmarg {margin: 0 !important;}\r\n#edit-primary-reasons-job-housing, #edit-primary-reasons-gun-rights, #edit-primary-reasons-sex-offender, #edit-primary-reasons-prior-conviction {margin-top: 0 !important;}"
+javascript: "jQuery(\"body\").on(\"change\", \":input[name='have_you_ever_been_a_victim_of_sex_human_trafficking_']\", function () {\r\n  jQuery(\":input[name='have_you_ever_been_a_victim_of_sex_human_trafficking_']:checked\").val() == 'No' ? \r\n    jQuery(\".webform-button--next\").fadeIn(\"fast\") :\r\n    jQuery(\".webform-button--next\").fadeOut(\"fast\");\r\n});\r\n"
+settings:
+  ajax: true
+  ajax_scroll_top: form
+  ajax_progress_type: fullscreen
+  ajax_effect: fade
+  ajax_speed: 500
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  page_admin_theme: false
+  form_title: source_entity_webform
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: false
+  form_confidential: false
+  form_confidential_message: ''
+  form_remote_addr: true
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace:
+    webform_routes: {  }
+    node_routes: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: false
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_progress_states: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: false
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: inline
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_view: false
+  token_update: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers: {  }
+uuid: f22ba50b-4cb1-4b57-bf81-72ad1499d069

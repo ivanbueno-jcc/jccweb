@@ -1,0 +1,29 @@
+uuid: d2869126-9e98-43f4-975f-661ca216ae9e
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - jcc_book_navigation
+  theme:
+    - uswds_base_jcc
+id: jccbooknavigationblock
+theme: uswds_base_jcc
+region: sidebar_first
+weight: -4
+provider: null
+plugin: jcc_book_navigation_block
+settings:
+  id: jcc_book_navigation_block
+  label: 'JCC Book Navigation Block'
+  provider: jcc_book_navigation
+  label_display: '0'
+  block_mode: 'book pages'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      book: book
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

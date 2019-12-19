@@ -1,0 +1,17 @@
+uuid: 535052e0-cba2-4f57-bb62-9b292ed3e776
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.manual_crop
+  module:
+    - crop
+name: manual_crop
+label: 'Manual Crop'
+effects:
+  da89365f-9837-45a0-a322-2713da2fbce0:
+    uuid: da89365f-9837-45a0-a322-2713da2fbce0
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: manual_crop

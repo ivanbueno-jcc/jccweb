@@ -1,0 +1,18 @@
+uuid: 8a6d15ff-b16b-4853-8baf-9596b907ec5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.form
+id: node.form.metatag
+field_name: metatag
+entity_type: node
+bundle: form
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

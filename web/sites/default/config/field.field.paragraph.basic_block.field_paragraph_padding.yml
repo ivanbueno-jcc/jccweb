@@ -1,0 +1,23 @@
+uuid: cdc866f9-d54d-4350-9175-559e2786e298
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_paragraph_padding
+    - paragraphs.paragraphs_type.basic_block
+  module:
+    - options
+id: paragraph.basic_block.field_paragraph_padding
+field_name: field_paragraph_padding
+entity_type: paragraph
+bundle: basic_block
+label: Padding
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: padding-6
+default_value_callback: ''
+settings: {  }
+field_type: list_string

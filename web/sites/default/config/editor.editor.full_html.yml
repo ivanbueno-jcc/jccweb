@@ -1,0 +1,99 @@
+uuid: cdf4c99e-49b0-496a-80ce-1b375812ad42
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+  module:
+    - ckeditor
+_core:
+  default_config_hash: 967ijj7p6i7rwrYl7r08WQFeCY_c23YAh0h8u-w_CXM
+format: full_html
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - Bold
+            - Italic
+            - Strike
+            - Superscript
+            - Subscript
+            - '-'
+            - RemoveFormat
+        -
+          name: Linking
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Media
+          items:
+            - assets
+            - node
+            - Blockquote
+            - Table
+            - HorizontalRule
+        -
+          name: 'Block Formatting'
+          items:
+            - Format
+        -
+          name: Tokens
+          items:
+            - DrupalFontAwesome
+            - tokenbrowser
+        -
+          name: Tools
+          items:
+            - ShowBlocks
+            - Templates
+            - Source
+        -
+          name: Extra
+          items:
+            - A11ychecker
+            - Maximize
+  plugins:
+    language:
+      language_list: un
+    stylescombo:
+      styles: ''
+    codemirror:
+      enable: true
+      startupMode: wysiwyg
+      mode: application/x-httpd-php
+      theme: solarized
+      options:
+        lineNumbers: true
+        lineWrapping: true
+        matchBrackets: true
+        autoCloseTags: true
+        autoCloseBrackets: true
+        enableSearchTools: true
+        enableCodeFolding: true
+        enableCodeFormatting: true
+        autoFormatOnStart: true
+        autoFormatOnModeChange: true
+        autoFormatOnUncomment: true
+    templates:
+      template_path: ''
+      replace_content: 0
+    tokenbrowser:
+      token_types: {  }
+image_upload:
+  status: true
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

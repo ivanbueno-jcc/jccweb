@@ -1,0 +1,162 @@
+uuid: e2fa70b4-a387-4f85-bfbc-b1aa7102028e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.case_summary.body
+    - field.field.node.case_summary.field_court_of_appeals
+    - field.field.node.case_summary.field_subject_matter
+    - field.field.node.case_summary.field_superior_court
+    - field.field.node.case_summary.field_tags
+    - node.type.case_summary
+  module:
+    - autocomplete_deluxe
+    - path
+    - text
+id: node.case_summary.default
+targetEntityType: node
+bundle: case_summary
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 121
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_court_of_appeals:
+    weight: 124
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
+      no_empty_message: 'No terms could be found. Please type in order to add a new term.'
+    third_party_settings: {  }
+    type: autocomplete_deluxe
+    region: content
+  field_subject_matter:
+    weight: 123
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
+      no_empty_message: 'No terms could be found. Please type in order to add a new term.'
+    third_party_settings: {  }
+    type: autocomplete_deluxe
+    region: content
+  field_superior_court:
+    weight: 125
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
+      no_empty_message: 'No terms could be found. Please type in order to add a new term.'
+    third_party_settings: {  }
+    type: autocomplete_deluxe
+    region: content
+  field_tags:
+    weight: 122
+    settings:
+      limit: '10'
+      min_length: '0'
+      delimiter: ''
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: '1'
+      no_empty_message: 'No terms could be found. Please type in order to add a new term.'
+      not_found_message_allow: 0
+      match_operator: CONTAINS
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      size: 60
+      selection_handler: default
+    third_party_settings: {  }
+    type: autocomplete_deluxe
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 15
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 120
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 16
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

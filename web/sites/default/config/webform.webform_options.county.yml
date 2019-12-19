@@ -1,0 +1,9 @@
+uuid: 82ac182e-650c-4898-a421-6f8bbf2a82ad
+langcode: en
+status: true
+dependencies: {  }
+id: county
+label: County
+category: Geographic
+likert: false
+options: "Alameda: Alameda\nAlpine: Alpine\nAmador: Amador\nButte: Butte\nCalaveras: Calaveras\nColusa: Colusa\n'Contra Costa': 'Contra Costa'\n'Del Norte': 'Del Norte'\n'El Dorado': 'El Dorado'\nFresno: Fresno\nGlenn: Glenn\nHumboldt: Humboldt\nImperial: Imperial\nInyo: Inyo\nKern: Kern\nKings: Kings\nLake: Lake\nLassen: Lassen\n'Los Angeles': 'Los Angeles'\nMadera: Madera\nMarin: Marin\nMariposa: Mariposa\nMendocino: Mendocino\nMerced: Merced\nModoc: Modoc\nMono: Mono\nMonterey: Monterey\nNapa: Napa\nNevada: Nevada\nOrange: Orange\nPlacer: Placer\nPlumas: Plumas\nRiverside: Riverside\nSacramento: Sacramento\n'San Benito': 'San Benito'\n'San Bernardino': 'San Bernardino'\n'San Diego': 'San Diego'\n'San Francisco': 'San Francisco'\n'San Joaquin': 'San Joaquin'\n'San Luis Obispo': 'San Luis Obispo'\n'San Mateo': 'San Mateo'\n'Santa Barbara': 'Santa Barbara'\n'Santa Clara': 'Santa Clara'\n'Santa Cruz': 'Santa Cruz'\nShasta: Shasta\nSierra: Sierra\nSiskiyou: Siskiyou\nSolano: Solano\nSonoma: Sonoma\nStanislaus: Stanislaus\nSutter: Sutter\nTehama: Tehama\nTrinity: Trinity\nTulare: Tulare\nTuolumne: Tuolumne\nVentura: Ventura\nYolo: Yolo\nYuba: Yuba\n"

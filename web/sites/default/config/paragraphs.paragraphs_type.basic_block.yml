@@ -1,0 +1,9 @@
+uuid: 76e0e5cf-45da-473b-a368-9718177724f6
+langcode: en
+status: true
+dependencies: {  }
+id: basic_block
+label: 'Basic Block'
+icon_uuid: null
+description: 'Basic block with various settings, like bg color, image, padding, id, extra classes.'
+behavior_plugins: {  }

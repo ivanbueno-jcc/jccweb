@@ -1,0 +1,29 @@
+uuid: 8dfeff56-fc6c-4c85-a559-5401281affa0
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.form_type
+  module:
+    - facets
+    - system
+  theme:
+    - uswds_base_jcc
+id: formtype
+theme: uswds_base_jcc
+region: sidebar_first
+weight: -6
+provider: null
+plugin: 'facet_block:form_type'
+settings:
+  id: 'facet_block:form_type'
+  label: 'Form Type'
+  provider: facets
+  label_display: visible
+  block_id: formtype
+visibility:
+  request_path:
+    id: request_path
+    pages: "/search\r\n/search/*"
+    negate: false
+    context_mapping: {  }
