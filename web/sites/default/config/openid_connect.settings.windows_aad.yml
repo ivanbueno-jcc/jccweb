@@ -2,7 +2,7 @@ enabled: windows_aad
 settings:
   redirect_url: ''
   client_id: 6c4a1bf4-c43d-476a-9a98-9e51100b2dc0
-  client_secret: 'sE-eSn.DGK0t:rBY7@vhgMXzOeRUo7s8'
+  client_secret: 'a'
   authorization_endpoint_wa: 'https://login.microsoftonline.com/de6f380d-32b0-49ed-9436-cc02c65b7280/oauth2/authorize'
   token_endpoint_wa: 'https://login.microsoftonline.com/de6f380d-32b0-49ed-9436-cc02c65b7280/oauth2/token'
   userinfo_endpoint_wa: 'https://login.microsoftonline.com/de6f380d-32b0-49ed-9436-cc02c65b7280/openid/userinfo'
