@@ -144,6 +144,8 @@ class JudgesInTheClassroom {
             'name' => $judge_pref->name,
             'email' => $judge_pref->email,
             'court_name' => $judge_pref->court_name,
+            'day' => $judge_pref->day,
+            'hour' => $hour,
           ];
         }
       }
