@@ -11,6 +11,16 @@ use Drupal\webform\Entity\WebformOptions;
 class JudgesInTheClassroom {
 
   /**
+   * Return the type of profile.
+   */
+  const JUDGE = 'judge';
+
+  /**
+   * Return the type of profile.
+   */
+  const TEACHER = 'teacher';
+
+  /**
    * The database connection.
    *
    * @var \Drupal\Core\Database\Connection
@@ -134,6 +144,8 @@ class JudgesInTheClassroom {
             'name' => $judge_pref->name,
             'email' => $judge_pref->email,
             'court_name' => $judge_pref->court_name,
+            'day' => $judge_pref->day,
+            'hour' => $hour,
           ];
         }
       }
@@ -176,7 +188,15 @@ class JudgesInTheClassroom {
       $teachers = $query->fetchAll();
 
       foreach ($teachers as $t) {
-        $this->teacherRequests[$t->county][$t->sid][] = $t;
+        $this->teacherRequests[$t->county][$t->preferred_day][$t->preferred_hour][] = [
+          'sid' => $t->sid,
+          'preferred_date' => $t->preferred_date,
+          'teacher_name' => $t->teacher_name,
+          'email' => $t->email,
+          'phone' => $t->phone,
+          'school_name' => $t->school_name,
+          'grade_level' => $t->grade_level,
+        ];
       }
     }
 
@@ -188,23 +208,26 @@ class JudgesInTheClassroom {
    *
    * @param string $county
    *   County.
-   * @param int $day
+   * @param string $day
    *   Day.
-   * @param int $hour
+   * @param string $hour
    *   Hour.
+   * @param string $type
+   *   TYpe.
    *
    * @return bool|mixed
    *   Judge matches.
    */
-  public function getMatches(string $county, int $day, int $hour = NULL) {
-    $judges = $this->getJudges();
+  public function getMatches(string $county, string $day, string $hour = NULL, string $type = self::JUDGE) {
+
+    $profiles = $type == self::JUDGE ? $this->getJudges() : $this->getTeachers();
     $matches = FALSE;
 
     if ($hour) {
-      $matches = isset($judges[$county][$day][$hour]) ? $judges[$county][$day][$hour] : FALSE;
+      $matches = isset($profiles[$county][$day][$hour]) ? $profiles[$county][$day][$hour] : FALSE;
     }
     else {
-      $matches = isset($judges[$county][$day]) ? $judges[$county][$day] : FALSE;
+      $matches = isset($profiles[$county][$day]) ? $profiles[$county][$day] : FALSE;
     }
 
     return $matches;

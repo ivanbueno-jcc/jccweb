@@ -5,6 +5,7 @@ namespace Drupal\jcc_judges_in_the_classroom\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\jcc_judges_in_the_classroom\Service\JudgesInTheClassroom;
 
 /**
  * Class JitcOverview.
@@ -29,44 +30,48 @@ class JitcOverview extends FormBase {
     $judges_in_the_classroom = \Drupal::service('jcc.jitc');
 
     $visits = $judges_in_the_classroom->getTeachers();
+
     $counties_rows = [];
 
-    foreach ($visits as $county => $requests) {
+    foreach ($visits as $county => $days) {
       $teacher_name = '';
       $school_name = '';
       $request_rows = [];
 
-      foreach ($requests as $request_options) {
+      foreach ($days as $day => $hours) {
         $option_rows = [];
 
-        foreach ($request_options as $option) {
-          $teacher_name = $option->teacher_name;
-          $school_name = $option->school_name;
-          $date = new DrupalDateTime($option->preferred_date);
+        foreach ($hours as $hour => $teachers) {
 
-          $match_rows = [];
-          $judge_matches = $judges_in_the_classroom->getMatches($county, $option->preferred_day, $option->preferred_hour);
-          if ($judge_matches) {
-            foreach ($judge_matches as $match) {
-              $match_rows[] = [
-                $match['court_name'],
-                $match['name'],
-                $match['email'],
-              ];
+          foreach ($teachers as $teacher) {
+            $teacher_name = $teacher['teacher_name'];
+            $school_name = $teacher['school_name'];
+            $date = new DrupalDateTime($teacher['preferred_date']);
+
+            $match_rows = [];
+            $judge_matches = $judges_in_the_classroom->getMatches($county, $day, $hour, JudgesInTheClassroom::JUDGE);
+            if ($judge_matches) {
+              foreach ($judge_matches as $match) {
+                $match_rows[] = [
+                  $match['court_name'],
+                  $match['name'],
+                  $match['email'],
+                ];
+              }
             }
-          }
-          $match_rows_output = [
-            '#theme' => 'table',
-            '#header' => ['Court', 'Judge', 'Email'],
-            '#rows' => $match_rows,
-          ];
+            $match_rows_output = [
+              '#theme' => 'table',
+              '#header' => ['Court', 'Judge', 'Email'],
+              '#rows' => $match_rows,
+            ];
 
-          $option_rows[] = [
-            $date->format('F j, Y'),
-            $date->format('l'),
-            $date->format('hA'),
-            !empty($match_rows) ? render($match_rows_output) : 'No exact matches found.',
-          ];
+            $option_rows[] = [
+              $date->format('F j, Y'),
+              $date->format('l'),
+              $date->format('hA'),
+              !empty($match_rows) ? render($match_rows_output) : 'No exact matches found.',
+            ];
+          }
         }
 
         $option_rows_output = [

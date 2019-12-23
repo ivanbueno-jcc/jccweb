@@ -2,6 +2,7 @@ name: jccweb
 recipe: drupal8
 config:
   webroot: web
+  php: '7.3'
 proxy:
   pma:
     - pma.jccweb.lndo.site
@@ -10,3 +11,5 @@ services:
     type: phpmyadmin
     hosts:
       - database
+  appserver:
+    xdebug: true
