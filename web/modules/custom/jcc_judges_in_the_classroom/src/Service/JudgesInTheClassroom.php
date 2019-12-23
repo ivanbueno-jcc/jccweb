@@ -212,11 +212,13 @@ class JudgesInTheClassroom {
    *   Day.
    * @param string $hour
    *   Hour.
+   * @param string $type
+   *   TYpe.
    *
    * @return bool|mixed
    *   Judge matches.
    */
-  public function getMatches(string $type = self::JUDGE, string $county, string $day, string $hour = NULL) {
+  public function getMatches(string $county, string $day, string $hour = NULL, string $type = self::JUDGE) {
 
     $profiles = $type == self::JUDGE ? $this->getJudges() : $this->getTeachers();
     $matches = FALSE;

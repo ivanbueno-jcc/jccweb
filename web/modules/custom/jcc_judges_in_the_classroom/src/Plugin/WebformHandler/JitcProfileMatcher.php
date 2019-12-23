@@ -2,13 +2,8 @@
 
 namespace Drupal\jcc_judges_in_the_classroom\Plugin\WebformHandler;
 
-use Drupal\Component\Render\FormattableMarkup;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Url;
-use Drupal\webform\Element\WebformMessage;
-use Drupal\webform\Element\WebformOtherBase;
 use Drupal\webform\Plugin\WebformHandler\EmailWebformHandler;
-use Drupal\webform\Utility\WebformDateHelper;
 use Drupal\webform\WebformSubmissionInterface;
 use Drupal\jcc_judges_in_the_classroom\Service\JudgesInTheClassroom;
 
@@ -32,8 +27,8 @@ class JitcProfileMatcher extends EmailWebformHandler {
    */
   public function defaultConfiguration() {
     return parent::defaultConfiguration() + [
-        'match_with' => JudgesInTheClassroom::JUDGE,
-      ];
+      'match_with' => JudgesInTheClassroom::JUDGE,
+    ];
   }
 
   /**
@@ -45,7 +40,7 @@ class JitcProfileMatcher extends EmailWebformHandler {
       '#type' => 'details',
       '#title' => $this->t('Judges in the Classroom'),
       '#help' => FALSE,
-      '#description' => $this->t('Searches for a match with @profile'. ['@profile' => $this->configuration['match_with']]),
+      '#description' => $this->t('Searches for a match with @profile', ['@profile' => $this->configuration['match_with']]),
     ];
     return $summary;
   }
@@ -80,20 +75,6 @@ class JitcProfileMatcher extends EmailWebformHandler {
   /**
    * {@inheritdoc}
    */
-  public function validateConfigurationForm(array &$form, FormStateInterface $form_state) {
-    parent::validateConfigurationForm($form, $form_state);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function submitConfigurationForm(array &$form, FormStateInterface $form_state) {
-    parent::submitConfigurationForm($form, $form_state);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function alterForm(array &$form, FormStateInterface $form_state, WebformSubmissionInterface $webform_submission) {
   }
 
@@ -113,9 +94,11 @@ class JitcProfileMatcher extends EmailWebformHandler {
   /**
    * Send messages to matched profiles.
    *
-   * @param \Drupal\webform\WebformSubmissionInterface $webformSubmission
+   * @param \Drupal\webform\WebformSubmissionInterface $webform_submission
+   *   Webform submission.
    *
    * @return array
+   *   Boolean.
    */
   public function sendMessages(WebformSubmissionInterface $webform_submission) {
     $matches = $this->findMatches($webform_submission);
@@ -144,8 +127,10 @@ class JitcProfileMatcher extends EmailWebformHandler {
    * Find matches between judges and teacher.
    *
    * @param \Drupal\webform\WebformSubmissionInterface $webform_submission
+   *   Webform submission.
    *
    * @return array
+   *   Matches.
    */
   public function findMatches(WebformSubmissionInterface $webform_submission) {
     $matches = [];
@@ -157,7 +142,7 @@ class JitcProfileMatcher extends EmailWebformHandler {
       [
         'counties' => [
           $data['county'] => $data['county'],
-        ]
+        ],
       ]
     );
 
@@ -171,10 +156,10 @@ class JitcProfileMatcher extends EmailWebformHandler {
         if (!empty($time)) {
           $hour = substr($time, 0, 2);
           $profiles = $jitc->getMatches(
-            $this->configuration['match_with'],
             $data['county'],
             $date['preferred_day'],
-            $hour
+            $hour,
+            $this->configuration['match_with']
           );
           if ($profiles) {
             foreach ($profiles as $match) {
@@ -185,54 +170,6 @@ class JitcProfileMatcher extends EmailWebformHandler {
       }
     }
 
-    /**
-     *     [data] => Array
-    (
-    [name] => Oratione
-    [email] => random@random.com
-    [county] => Trinity
-    [court_name] => Dixisset
-    [courthouse_address] => 11 Brook Alley Road. APT 1
-    [preferred_group] => Array
-    (
-    [0] => Elementary
-    [1] => Middle
-    [2] => High School
-    )
-
-    [preferred_hours_and_days] => Array
-    (
-    [0] => Array
-    (
-    [preferred_day] => Friday
-    [preferred_time] => 17:00:00
-    [alternative_time] => 17:00:00
-    [optional_time] => 09:00:00
-    )
-
-    [1] => Array
-    (
-    [preferred_day] => Monday
-    [preferred_time] => 17:00:00
-    [alternative_time] => 09:00:00
-    [optional_time] => 17:00:00
-    )
-
-    [2] => Array
-    (
-    [preferred_day] => Thursday
-    [preferred_time] => 17:00:00
-    [alternative_time] => 17:00:00
-    [optional_time] => 17:00:00
-    )
-
-    )
-
-    [additional_expertise] => Lorem ipsum dolor sit amet, consectetur adipiscing elit. Negat esse eam, inquit, propter se expetendam. Primum Theophrasti, Strato, physicum se voluit; Id mihi magnum videtur. Itaque mihi non satis videmini considerare quod iter sit naturae quaeque progressio. Quare hoc videndum est, possitne nobis hoc ratio philosophorum dare. Est enim tanti philosophi tamque nobilis audacter sua decreta defendere.
-    [additional_questions_or_comments] => Quae cum dixisset, finem ille. Quamquam non negatis nos intellegere quid sit voluptas, sed quid ille dicat. Progredientibus autem aetatibus sensim tardeve potius quasi nosmet ipsos cognoscimus. Gloriosa ostentatio in constituendo summo bono. Qui-vere falsone, quaerere mittimus-dicitur oculis se privasse; Duarum enim vitarum nobis erunt instituta capienda. Comprehensum, quod cognitum non habet? Qui enim existimabit posse se miserum esse beatus non erit. Causa autem fuit huc veniendi ut quosdam hinc libros promerem. Nunc omni virtuti vitium contrario nomine opponitur.
-    )
-     */
-
     return $matches;
   }
 
@@ -240,17 +177,20 @@ class JitcProfileMatcher extends EmailWebformHandler {
    * Add matches to the message body.
    *
    * @param array $message
+   *   Message.
    * @param array $matches
+   *   Matches.
    *
    * @return array
+   *   Message.
    */
-  protected function AddMatchesToMessage(array $message, array $matches) {
+  protected function addMatchesToMessage(array $message, array $matches) {
 
     $count = 0;
     $text_matches = [];
     foreach ($matches as $county => $days) {
       foreach ($days as $day => $hours) {
-        foreach ($hours as $hour => $profiles)
+        foreach ($hours as $hour => $profiles) {
           $count++;
 
           if ($this->configuration['match_with'] == JudgesInTheClassroom::JUDGE) {
@@ -267,6 +207,7 @@ class JitcProfileMatcher extends EmailWebformHandler {
               $text_matches[] = date('m d Y. H:i s', $profile['preferred_date']) . ' - ' . $profile['teacher_name'] . ' - ' . $profile['school_name'];
             }
           }
+        }
       }
     }
 

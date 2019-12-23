@@ -49,7 +49,7 @@ class JitcOverview extends FormBase {
             $date = new DrupalDateTime($teacher['preferred_date']);
 
             $match_rows = [];
-            $judge_matches = $judges_in_the_classroom->getMatches(JudgesInTheClassroom::JUDGE, $county, $day, $hour);
+            $judge_matches = $judges_in_the_classroom->getMatches($county, $day, $hour, JudgesInTheClassroom::JUDGE);
             if ($judge_matches) {
               foreach ($judge_matches as $match) {
                 $match_rows[] = [
