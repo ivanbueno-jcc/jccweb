@@ -207,6 +207,8 @@ class JitcProfileMatcher extends EmailWebformHandler {
               'Visit Date',
               'School',
               'Teacher',
+              'Email',
+              'Phone',
             ];
           }
 
@@ -238,9 +240,15 @@ class JitcProfileMatcher extends EmailWebformHandler {
                   'style' => ['border: 1px solid #a0a0a0; padding: 8px;'],
                 ],
                 [
-                  'data' => $profile['teacher_name'] . "<br />\n" .
-                  $profile['email'] . "<br />\n" .
-                  $profile['phone'],
+                  'data' => $profile['teacher_name'],
+                  'style' => ['border: 1px solid #a0a0a0; padding: 8px;'],
+                ],
+                [
+                  'data' => $profile['email'],
+                  'style' => ['border: 1px solid #a0a0a0; padding: 8px;'],
+                ],
+                [
+                  'data' => $profile['phone'],
                   'style' => ['border: 1px solid #a0a0a0; padding: 8px;'],
                 ],
               ];
@@ -255,9 +263,11 @@ class JitcProfileMatcher extends EmailWebformHandler {
       }
     }
 
-    $text = '<h2>';
-    $text .= $this->formatPlural($count, 'One match found.', '@count matches found!');
-    $text .= '</h2>';
+    $text = '<h1>';
+    $text .= $this->formatPlural($count, 'One :type found.', '@count :types found!', [
+      ':type' => $this->configuration['match_with'],
+    ]);
+    $text .= '</h1>';
     $text .= render($table_matches);
     $message['body'] = str_replace('[matches]', $text, $message['body']);
 
