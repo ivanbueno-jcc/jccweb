@@ -213,29 +213,35 @@ class JitcProfileMatcher extends EmailWebformHandler {
           foreach ($profiles as $profile) {
             if ($this->configuration['match_with'] == JudgesInTheClassroom::JUDGE) {
               $rows_matches[] = [
-                '#markup' => [
-                  $profile['court_name'],
-                  $profile['day'],
-                  $profile['hour'],
+                [
+                  'data' => $profile['court_name'],
+                  'style' => ['border: 2px dashed #a0a0a0; padding: 4px;'],
                 ],
-                '#wrapper_attributes' => [
-                  'style' => ['border: 2px dashed #a0a0a0;'],
-                  'cellpadding' => 2,
+                [
+                  'data' => $profile['day'],
+                  'style' => ['border: 2px dashed #a0a0a0; padding: 4px;'],
+                ],
+                [
+                  'data' => $profile['hour'],
+                  'style' => ['border: 2px dashed #a0a0a0; padding: 4px;'],
                 ],
               ];
             }
             else {
               $rows_matches[] = [
-                '#markup' => [
-                  date('M d, Y h:iA', strtotime($profile['preferred_date'])),
-                  $profile['school_name'],
-                  $profile['teacher_name'] . '<br />' .
-                  $profile['email'] . '<br />' .
-                  $profile['phone'],
+                [
+                  'data' => date('M d, Y h:iA', strtotime($profile['preferred_date'])),
+                  'style' => ['border: 2px dashed #a0a0a0; padding: 4px;'],
                 ],
-                '#wrapper_attributes' => [
-                  'style' => ['border: 2px dashed #a0a0a0;'],
-                  'cellpadding' => 2,
+                [
+                  'data' => $profile['school_name'],
+                  'style' => ['border: 2px dashed #a0a0a0; padding: 4px;'],
+                ],
+                [
+                  'data' => $profile['teacher_name'] . '<br />' .
+                    $profile['email'] . '<br />' .
+                    $profile['phone'],
+                  'style' => ['border: 2px dashed #a0a0a0; padding: 4px;'],
                 ],
               ];
             }
