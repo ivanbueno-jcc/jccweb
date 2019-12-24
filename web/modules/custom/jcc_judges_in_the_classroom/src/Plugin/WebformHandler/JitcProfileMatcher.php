@@ -187,26 +187,54 @@ class JitcProfileMatcher extends EmailWebformHandler {
   protected function addMatchesToMessage(array $message, array $matches) {
 
     $count = 0;
-    $text_matches = [];
+    $table_matches = [];
+    $header_matches = [];
+    $rows_matches = [];
     foreach ($matches as $county => $days) {
       foreach ($days as $day => $hours) {
         foreach ($hours as $hour => $profiles) {
           $count++;
 
           if ($this->configuration['match_with'] == JudgesInTheClassroom::JUDGE) {
-            $text_matches[] = $this->formatPlural(count($profiles),
-              'A judge is available on :day at :hour',
-              '@count judges are available on :day at :hour',
-              [
-                'day' => $day,
-                'hour' => $hour,
-              ]);
+            $header_matches = [
+              'Court Name',
+              'Day',
+              'Hour',
+            ];
           }
           else {
-            foreach ($profiles as $profile) {
-              $text_matches[] = date('M d, Y h:i s', strtotime($profile['preferred_date'])) . ' - ' . $profile['teacher_name'] . ' - ' . $profile['school_name'];
+            $header_matches = [
+              'Visit Date',
+              'School',
+              'Teacher',
+              'Email',
+              'Phone',
+            ];
+          }
+
+          foreach ($profiles as $profile) {
+            if ($this->configuration['match_with'] == JudgesInTheClassroom::JUDGE) {
+              $rows_matches[] = [
+                $profile['court_name'],
+                $profile['day'],
+                $profile['hour'],
+              ];
+            }
+            else {
+              $rows_matches[] = [
+                date('M d, Y h:iA', strtotime($profile['preferred_date'])),
+                $profile['school_name'],
+                $profile['teacher_name'],
+                $profile['email'],
+                $profile['phone'],
+              ];
             }
           }
+          $table_matches = [
+            '#theme' => 'table',
+            '#header' => $header_matches,
+            '#rows' => $rows_matches,
+          ];
         }
       }
     }
@@ -214,9 +242,7 @@ class JitcProfileMatcher extends EmailWebformHandler {
     $text = '<h2>';
     $text .= $this->formatPlural($count, 'One match found.', '@count matches found!');
     $text .= '</h2>';
-    $text .= '<ul>';
-    $text .= implode('</li><li>', $text_matches);
-    $text .= '</ul>';
+    $text .= render($table_matches);
     $message['body'] = str_replace('[matches]', $text, $message['body']);
 
     return $message;
