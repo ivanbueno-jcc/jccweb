@@ -310,8 +310,10 @@ class JitcProfileMatcher extends EmailWebformHandler {
    * @param array $message
    *   Message.
    * @param array $judge_email_matches
-   *    Judges emails.
+   *   Judges emails.
+   *
    * @return bool
+   *   Message sent success or failure.
    */
   protected function sendJudgeEmails(WebformSubmissionInterface $webform_submission, array $message, array $judge_email_matches) {
 
