@@ -106,7 +106,7 @@ class JitcProfileMatcher extends EmailWebformHandler {
 
       // Get message to make sure there is a destination.
       $message = $this->getMessage($webform_submission);
-      $message = $this->addMatchesToMessage($message, $matches);
+      $message = $this->addMatchesToMessage($webform_submission, $message, $matches);
 
       // Don't send the message if empty (aka To, CC, and BCC is empty).
       if (!$this->hasRecipient($webform_submission, $message)) {
@@ -146,7 +146,24 @@ class JitcProfileMatcher extends EmailWebformHandler {
       ]
     );
 
-    foreach ($data['preferred_hours_and_days'] as $date) {
+    // $data['preferred_datetime']
+    $preferred_datetime = [];
+    if ($this->configuration['match_with'] == JudgesInTheClassroom::TEACHER) {
+      $preferred_datetime = $data['preferred_hours_and_days'];
+    }
+    else {
+      foreach ($data['preferred_datetime'] as $datetime) {
+        $timestamp = strtotime($datetime);
+        $preferred_datetime[] = [
+          'preferred_day' => date('l', $timestamp),
+          'preferred_time' => date('H', $timestamp),
+          'alternative_time' => '',
+          'optional_time' => '',
+        ];
+      }
+    }
+
+    foreach ($preferred_datetime as $date) {
       foreach (
         [
           $date['preferred_time'],
@@ -176,6 +193,8 @@ class JitcProfileMatcher extends EmailWebformHandler {
   /**
    * Add matches to the message body.
    *
+   * @param \Drupal\webform\WebformSubmissionInterface $webform_submission
+   *   Webform submission.
    * @param array $message
    *   Message.
    * @param array $matches
@@ -184,25 +203,26 @@ class JitcProfileMatcher extends EmailWebformHandler {
    * @return array
    *   Message.
    */
-  protected function addMatchesToMessage(array $message, array $matches) {
+  protected function addMatchesToMessage(WebformSubmissionInterface $webform_submission, array $message, array $matches) {
 
     $count = 0;
     $table_matches = [];
     $header_matches = [];
     $rows_matches = [];
+    $judge_email_matches = [];
     foreach ($matches as $county => $days) {
       foreach ($days as $day => $hours) {
         foreach ($hours as $hour => $profiles) {
-          $count++;
-
           if ($this->configuration['match_with'] == JudgesInTheClassroom::JUDGE) {
+            $count += count($profiles);
             $header_matches = [
-              'Court Name',
-              'Day',
-              'Hour',
+              'County',
+              'Date',
+              'Availability',
             ];
           }
           else {
+            $count++;
             $header_matches = [
               'Visit Date',
               'School',
@@ -212,24 +232,27 @@ class JitcProfileMatcher extends EmailWebformHandler {
             ];
           }
 
-          foreach ($profiles as $profile) {
-            if ($this->configuration['match_with'] == JudgesInTheClassroom::JUDGE) {
-              $rows_matches[] = [
-                [
-                  'data' => $profile['court_name'],
-                  'style' => ['border: 1px solid #a0a0a0; padding: 8px;'],
-                ],
-                [
-                  'data' => $profile['day'],
-                  'style' => ['border: 1px solid #a0a0a0; padding: 8px;'],
-                ],
-                [
-                  'data' => $profile['hour'],
-                  'style' => ['border: 1px solid #a0a0a0; padding: 8px;'],
-                ],
-              ];
+          if ($this->configuration['match_with'] == JudgesInTheClassroom::JUDGE) {
+            $rows_matches[] = [
+              [
+                'data' => $county,
+                'style' => ['border: 1px solid #a0a0a0; padding: 8px;'],
+              ],
+              [
+                'data' => $day . ' at ' . $hour,
+                'style' => ['border: 1px solid #a0a0a0; padding: 8px;'],
+              ],
+              [
+                'data' => $this->formatPlural(count($profiles), 'One judge available.', '@count judges available.'),
+                'style' => ['border: 1px solid #a0a0a0; padding: 8px;'],
+              ],
+            ];
+            foreach ($profiles as $profile) {
+              $judge_email_matches[] = $profile['email'];
             }
-            else {
+          }
+          else {
+            foreach ($profiles as $profile) {
               $rows_matches[] = [
                 [
                   'data' => date('M d, Y h:iA', strtotime($profile['preferred_date'])),
@@ -264,14 +287,50 @@ class JitcProfileMatcher extends EmailWebformHandler {
     }
 
     $text = '<h1>';
-    $text .= $this->formatPlural($count, 'One :type found.', '@count :types found!', [
+    $text .= $this->formatPlural($count, 'One :type found matching your schedule.', '@count :types found matching your schedule.', [
       ':type' => $this->configuration['match_with'],
     ]);
     $text .= '</h1>';
     $text .= render($table_matches);
     $message['body'] = str_replace('[matches]', $text, $message['body']);
 
+    // Send judges a notification of a new teacher that matches schedule.
+    if (!empty($judge_email_matches)) {
+      $this->sendJudgeEmails($webform_submission, $message, $judge_email_matches);
+    }
+
     return $message;
+  }
+
+  /**
+   * Email the teacher's profile to the judges who matched the schedule.
+   *
+   * @param \Drupal\webform\WebformSubmissionInterface $webform_submission
+   *   Webform submission.
+   * @param array $message
+   *   Message.
+   * @param array $judge_email_matches
+   *    Judges emails.
+   * @return bool
+   */
+  protected function sendJudgeEmails(WebformSubmissionInterface $webform_submission, array $message, array $judge_email_matches) {
+
+    // Remove all empty email addresses.
+    $emails = array_filter($judge_email_matches);
+    // Make sure all email addresses are unique.
+    $emails = array_unique($emails);
+    // Sort email addresses to make it easier to debug queuing and/or sending
+    // issues.
+    asort($emails);
+    // Implode unique emails and tokens.
+    $emails = implode(',', array_unique($emails));
+
+    $message['to_mail'] = '';
+    $message['bcc_mail'] = $emails;
+    $message['subject'] = 'Test';
+    $message['body'] = 'Test';
+
+    return $this->sendMessage($webform_submission, $message);
   }
 
 }
