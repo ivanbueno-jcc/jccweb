@@ -204,7 +204,7 @@ class JitcProfileMatcher extends EmailWebformHandler {
           }
           else {
             foreach ($profiles as $profile) {
-              $text_matches[] = date('m d Y. H:i s', $profile['preferred_date']) . ' - ' . $profile['teacher_name'] . ' - ' . $profile['school_name'];
+              $text_matches[] = date('M d, Y h:i s', strtotime($profile['preferred_date'])) . ' - ' . $profile['teacher_name'] . ' - ' . $profile['school_name'];
             }
           }
         }
@@ -217,7 +217,7 @@ class JitcProfileMatcher extends EmailWebformHandler {
     $text .= '<ul>';
     $text .= implode('</li><li>', $text_matches);
     $text .= '</ul>';
-    $message['body'] .= $text;
+    $message['body'] = str_replace('[matches]', $text, $message['body']);
 
     return $message;
   }
