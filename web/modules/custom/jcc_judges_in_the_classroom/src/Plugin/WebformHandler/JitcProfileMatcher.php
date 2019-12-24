@@ -215,15 +215,15 @@ class JitcProfileMatcher extends EmailWebformHandler {
               $rows_matches[] = [
                 [
                   'data' => $profile['court_name'],
-                  'style' => ['border: 2px dashed #a0a0a0; padding: 4px;'],
+                  'style' => ['border: 1px solid #a0a0a0; padding: 8px;'],
                 ],
                 [
                   'data' => $profile['day'],
-                  'style' => ['border: 2px dashed #a0a0a0; padding: 4px;'],
+                  'style' => ['border: 1px solid #a0a0a0; padding: 8px;'],
                 ],
                 [
                   'data' => $profile['hour'],
-                  'style' => ['border: 2px dashed #a0a0a0; padding: 4px;'],
+                  'style' => ['border: 1px solid #a0a0a0; padding: 8px;'],
                 ],
               ];
             }
@@ -231,17 +231,17 @@ class JitcProfileMatcher extends EmailWebformHandler {
               $rows_matches[] = [
                 [
                   'data' => date('M d, Y h:iA', strtotime($profile['preferred_date'])),
-                  'style' => ['border: 2px dashed #a0a0a0; padding: 4px;'],
+                  'style' => ['border: 1px solid #a0a0a0; padding: 8px;'],
                 ],
                 [
                   'data' => $profile['school_name'],
-                  'style' => ['border: 2px dashed #a0a0a0; padding: 4px;'],
+                  'style' => ['border: 1px solid #a0a0a0; padding: 8px;'],
                 ],
                 [
-                  'data' => $profile['teacher_name'] . '<br />' .
-                  $profile['email'] . '<br />' .
+                  'data' => $profile['teacher_name'] . "<br />\n" .
+                  $profile['email'] . "<br />\n" .
                   $profile['phone'],
-                  'style' => ['border: 2px dashed #a0a0a0; padding: 4px;'],
+                  'style' => ['border: 1px solid #a0a0a0; padding: 8px;'],
                 ],
               ];
             }
