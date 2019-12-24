@@ -207,26 +207,36 @@ class JitcProfileMatcher extends EmailWebformHandler {
               'Visit Date',
               'School',
               'Teacher',
-              'Email',
-              'Phone',
             ];
           }
 
           foreach ($profiles as $profile) {
             if ($this->configuration['match_with'] == JudgesInTheClassroom::JUDGE) {
               $rows_matches[] = [
-                $profile['court_name'],
-                $profile['day'],
-                $profile['hour'],
+                '#markup' => [
+                  $profile['court_name'],
+                  $profile['day'],
+                  $profile['hour'],
+                ],
+                '#wrapper_attributes' => [
+                  'style' => ['border: 2px dashed #a0a0a0;'],
+                  'cellpadding' => 2,
+                ],
               ];
             }
             else {
               $rows_matches[] = [
-                date('M d, Y h:iA', strtotime($profile['preferred_date'])),
-                $profile['school_name'],
-                $profile['teacher_name'],
-                $profile['email'],
-                $profile['phone'],
+                '#markup' => [
+                  date('M d, Y h:iA', strtotime($profile['preferred_date'])),
+                  $profile['school_name'],
+                  $profile['teacher_name'] . '<br />' .
+                  $profile['email'] . '<br />' .
+                  $profile['phone'],
+                ],
+                '#wrapper_attributes' => [
+                  'style' => ['border: 2px dashed #a0a0a0;'],
+                  'cellpadding' => 2,
+                ],
               ];
             }
           }
