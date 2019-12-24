@@ -239,8 +239,8 @@ class JitcProfileMatcher extends EmailWebformHandler {
                 ],
                 [
                   'data' => $profile['teacher_name'] . '<br />' .
-                    $profile['email'] . '<br />' .
-                    $profile['phone'],
+                  $profile['email'] . '<br />' .
+                  $profile['phone'],
                   'style' => ['border: 2px dashed #a0a0a0; padding: 4px;'],
                 ],
               ];
