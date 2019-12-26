@@ -213,8 +213,8 @@ class JitcProfileMatcher extends EmailWebformHandler {
     foreach ($matches as $county => $days) {
       foreach ($days as $day => $hours) {
         foreach ($hours as $hour => $profiles) {
+          $count += count($profiles);
           if ($this->configuration['match_with'] == JudgesInTheClassroom::JUDGE) {
-            $count += count($profiles);
             $header_matches = [
               'County',
               'Date',
@@ -222,7 +222,6 @@ class JitcProfileMatcher extends EmailWebformHandler {
             ];
           }
           else {
-            $count++;
             $header_matches = [
               'Visit Date',
               'School',
@@ -330,10 +329,23 @@ class JitcProfileMatcher extends EmailWebformHandler {
     $token_service = \Drupal::token();
     $teacher_data = $token_service->replace('[webform_submission:values]', ['webform_submission' => $webform_submission]);
 
+    $teacher_data = $webform_submission->getData();
+    $teacher_rows = [];
+    foreach ($teacher_data as $label => $value) {
+      $teacher_rows[] = [
+        $label,
+        $value,
+      ];
+    }
+    $table_matches = [
+      '#theme' => 'table',
+      '#rows' => $teacher_rows,
+    ];
+
     $message['to_mail'] = $message['from_mail'];
     $message['bcc_mail'] = $emails;
     $message['subject'] = 'A teacher matched your schedule.';
-    $message['body'] = $teacher_data;
+    $message['body'] = render($table_matches);
 
     return $this->sendMessage($webform_submission, $message);
   }
