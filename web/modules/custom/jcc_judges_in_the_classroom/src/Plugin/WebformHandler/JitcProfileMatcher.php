@@ -332,7 +332,7 @@ class JitcProfileMatcher extends EmailWebformHandler {
 
     $message['to_mail'] = $message['from_mail'];
     $message['bcc_mail'] = $emails;
-    $message['subject'] = 'A teacher looking for a judge matched your schedule.';
+    $message['subject'] = 'A teacher matched your schedule.';
     $message['body'] = $teacher_data;
 
     return $this->sendMessage($webform_submission, $message);
