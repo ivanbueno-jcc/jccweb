@@ -325,7 +325,7 @@ class JitcProfileMatcher extends EmailWebformHandler {
     // issues.
     asort($emails);
     // Implode unique emails and tokens.
-    $emails = join(',', array_unique($emails));
+    $emails = implode(',', array_unique($emails));
 
     $message['to_mail'] = $message['from_mail'];
     $message['bcc_mail'] = $emails;
