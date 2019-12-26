@@ -333,8 +333,14 @@ class JitcProfileMatcher extends EmailWebformHandler {
     $teacher_rows = [];
     foreach ($teacher_data as $label => $value) {
       $teacher_rows[] = [
-        $label,
-        $value,
+        [
+          'data' => $label,
+          'style' => ['border: 1px solid #a0a0a0; padding: 8px; text-align: right; font-weight: bold;'],
+        ],
+        [
+          'data' => $value,
+          'style' => ['border: 1px solid #a0a0a0; padding: 8px;'],
+        ],
       ];
     }
     $table_matches = [
@@ -345,7 +351,7 @@ class JitcProfileMatcher extends EmailWebformHandler {
     $message['to_mail'] = $message['from_mail'];
     $message['bcc_mail'] = $emails;
     $message['subject'] = 'A teacher matched your schedule.';
-    $message['body'] = render($table_matches);
+    $message['body'] = '<h1>A teacher requested an event that you may be able to help with.</h1>' . render($table_matches);
 
     return $this->sendMessage($webform_submission, $message);
   }
