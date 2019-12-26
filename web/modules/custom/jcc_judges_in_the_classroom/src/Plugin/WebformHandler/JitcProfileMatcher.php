@@ -327,11 +327,13 @@ class JitcProfileMatcher extends EmailWebformHandler {
     // Implode unique emails and tokens.
     $emails = implode(',', array_unique($emails));
 
+    $token_service = \Drupal::token();
+    $teacher_data = $token_service->replace('[webform_submission:values]', ['webform_submission' => $webform_submission]);
+
     $message['to_mail'] = $message['from_mail'];
     $message['bcc_mail'] = $emails;
     $message['subject'] = 'A teacher looking for a judge matched your schedule.';
-    $message['body'] = 'Test';
-    $message['debug'] = TRUE;
+    $message['body'] = $teacher_data;
 
     return $this->sendMessage($webform_submission, $message);
   }
