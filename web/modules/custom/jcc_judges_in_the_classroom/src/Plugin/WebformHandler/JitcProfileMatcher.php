@@ -285,11 +285,11 @@ class JitcProfileMatcher extends EmailWebformHandler {
       }
     }
 
-    $text = '<h1>';
+    $text = '<h3>';
     $text .= $this->formatPlural($count, 'One :type found matching your schedule.', '@count :types found matching your schedule.', [
       ':type' => $this->configuration['match_with'],
     ]);
-    $text .= '</h1>';
+    $text .= '</h3>';
     $text .= render($table_matches);
     $message['body'] = str_replace('[matches]', $text, $message['body']);
 
@@ -351,7 +351,7 @@ class JitcProfileMatcher extends EmailWebformHandler {
     $message['to_mail'] = $message['from_mail'];
     $message['bcc_mail'] = $emails;
     $message['subject'] = 'A teacher matched your schedule.';
-    $message['body'] = '<h1>A teacher requested an event that you may be able to help with.</h1>' . render($table_matches);
+    $message['body'] = '<h3>A teacher requested an event that you may be able to help with.</h3>' . render($table_matches);
 
     return $this->sendMessage($webform_submission, $message);
   }
