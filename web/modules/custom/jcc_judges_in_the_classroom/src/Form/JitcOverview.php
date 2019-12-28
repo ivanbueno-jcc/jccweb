@@ -4,7 +4,6 @@ namespace Drupal\jcc_judges_in_the_classroom\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\jcc_judges_in_the_classroom\Service\JudgesInTheClassroom;
 
 /**
@@ -47,7 +46,7 @@ class JitcOverview extends FormBase {
           'colspan' => 4,
           'class' => 'font-serif-xl',
           'style' => 'border: 0px solid #ccc;',
-        ]
+        ],
       ];
 
       foreach ($hs as $h => $visits) {
@@ -61,7 +60,7 @@ class JitcOverview extends FormBase {
             'colspan' => 3,
             'class' => 'font-serif-lg',
             'style' => 'border: 0px solid #ccc;',
-          ]
+          ],
         ];
 
         $rows_visit[] = [
@@ -114,7 +113,7 @@ class JitcOverview extends FormBase {
                 'style' => 'font-weight: normal; background-color: #f9f9f9; border-width: 0 0 1px 0; border-color: #eee; border-style: solid;',
               ],
               [
-                'data' =>'Judge',
+                'data' => 'Judge',
                 'style' => 'font-weight: normal; background-color: #f9f9f9; border-width: 0 0 1px 0; border-color: #eee; border-style: solid;',
               ],
               [
@@ -155,8 +154,6 @@ EOT;
 
         }
       }
-
-
     }
 
     $form['table'] = [
