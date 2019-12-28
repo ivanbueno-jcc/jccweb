@@ -206,8 +206,11 @@ class JudgesInTheClassroom {
   /**
    * Flatten the Teacher visits array.
    *
-   * @return array $visits
-   *   Visits.
+   * @param string $type
+   *   Type.
+   *
+   * @return array
+   *   Array.
    */
   public function getRaw(string $type) {
     $visits = [];
