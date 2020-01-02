@@ -82,7 +82,10 @@ class JitcProfileMatcher extends EmailWebformHandler {
    * {@inheritdoc}
    */
   public function postSave(WebformSubmissionInterface $webform_submission, $update = TRUE) {
-    $messages = $this->sendMessages($webform_submission);
+    $state = $webform_submission->getWebform()->getSetting('results_disabled') ? WebformSubmissionInterface::STATE_COMPLETED : $webform_submission->getState();
+    if ($this->configuration['states'] && in_array($state, $this->configuration['states'])) {
+      $messages = $this->sendMessages($webform_submission);
+    }
   }
 
   /**

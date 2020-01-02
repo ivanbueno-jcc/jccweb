@@ -204,6 +204,75 @@ class JudgesInTheClassroom {
   }
 
   /**
+   * Flatten the Teacher visits array.
+   *
+   * @param string $type
+   *   Type.
+   *
+   * @return array
+   *   Array.
+   */
+  public function getRaw(string $type) {
+    $visits = [];
+    $source = [];
+
+    if ($type == self::TEACHER) {
+      if (empty($this->teacherRequests)) {
+        $this->teacherRequests = $this->getTeachers();
+      }
+      $source = $this->teacherRequests;
+    }
+    else {
+      if (empty($this->judgeSchedules)) {
+        $this->judgeSchedules = $this->getJudges();
+      }
+      $source = $this->judgeSchedules;
+    }
+
+    foreach ($source as $county => $days) {
+      foreach ($days as $day => $hours) {
+        foreach ($hours as $hour => $persons) {
+          foreach ($persons as $person) {
+            if ($type == self::TEACHER) {
+              $visits[] = [
+                'sid' => $person['sid'],
+                'preferred_date' => $person['preferred_date'],
+                'teacher_name' => $person['teacher_name'],
+                'email' => $person['email'],
+                'phone' => $person['phone'],
+                'school_name' => $person['school_name'],
+                'grade_level' => $person['grade_level'],
+                'hour' => $hour,
+                'day' => $day,
+                'county' => $county,
+              ];
+            }
+            else {
+              $visits[] = [
+                'sid' => $person['sid'],
+                'name' => $person['name'],
+                'email' => $person['email'],
+                'court_name' => $person['court_name'],
+                'day' => $day,
+                'hour' => $hour,
+                'county' => $county,
+              ];
+            }
+          }
+        }
+      }
+    }
+
+    if ($type == self::TEACHER) {
+      usort($visits, function ($a, $b) {
+        return strcmp($a["preferred_date"], $b["preferred_date"]);
+      });
+    }
+
+    return $visits;
+  }
+
+  /**
    * Get judge matches.
    *
    * @param string $county
