@@ -263,6 +263,12 @@ class JudgesInTheClassroom {
       }
     }
 
+    if ($type == self::TEACHER) {
+      usort($visits, function ($a, $b) {
+        return strcmp($a["preferred_date"], $b["preferred_date"]);
+      });
+    }
+
     return $visits;
   }
 

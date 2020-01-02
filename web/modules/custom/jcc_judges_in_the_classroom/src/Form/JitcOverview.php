@@ -30,6 +30,7 @@ class JitcOverview extends FormBase {
 
     $visits = $judges_in_the_classroom->getRaw(JudgesInTheClassroom::TEACHER);
     $visit_formatted = [];
+
     foreach ($visits as $visit) {
       $timestamp = strtotime($visit['preferred_date']);
       $date = date('M d, Y, l', $timestamp);
@@ -43,7 +44,7 @@ class JitcOverview extends FormBase {
       $rows_visit[] = [
         [
           'data' => $d,
-          'colspan' => 4,
+          'colspan' => 3,
           'class' => 'font-serif-xl',
           'style' => 'border: 0px solid #ccc;',
         ],
@@ -52,9 +53,6 @@ class JitcOverview extends FormBase {
       foreach ($hs as $h => $visits) {
 
         $rows_visit[] = [
-          [
-            'style' => 'border: 0px solid #ccc;',
-          ],
           [
             'data' => $h,
             'colspan' => 3,
@@ -68,17 +66,14 @@ class JitcOverview extends FormBase {
             'style' => 'border: 0px solid #ccc;',
           ],
           [
-            'style' => 'border: 0px solid #ccc;',
-          ],
-          [
             'data' => 'Teacher',
-            'class' => 'font-serif-md',
+            'class' => 'font-serif-sm',
             'style' => 'background-color: #f9f9f9; border-width: 0 0 1px 0; border-color: #eee; border-style: solid;',
             'width' => '30%',
           ],
           [
             'data' => 'Judges',
-            'class' => 'font-serif-md',
+            'class' => 'font-serif-sm',
             'style' => 'background-color: #f9f9f9; border-width: 0 0 1px 0; border-color: #eee; border-style: solid;',
           ],
         ];
@@ -93,14 +88,17 @@ class JitcOverview extends FormBase {
                 [
                   'data' => $match['court_name'],
                   'style' => 'border-width: 0 0 1px 0; border-color: #eee; border-style: solid;',
+                  'class' => 'font-sans-2xs',
                 ],
                 [
                   'data' => $match['name'],
                   'style' => 'border-width: 0 0 1px 0; border-color: #eee; border-style: solid;',
+                  'class' => 'font-sans-2xs',
                 ],
                 [
                   'data' => $match['email'],
                   'style' => 'border-width: 0 0 1px 0; border-color: #eee; border-style: solid;',
+                  'class' => 'font-sans-2xs',
                 ],
               ];
             }
@@ -111,14 +109,17 @@ class JitcOverview extends FormBase {
               [
                 'data' => 'Court',
                 'style' => 'font-weight: normal; background-color: #f9f9f9; border-width: 0 0 1px 0; border-color: #eee; border-style: solid;',
+                'class' => 'font-sans-2xs',
               ],
               [
                 'data' => 'Judge',
                 'style' => 'font-weight: normal; background-color: #f9f9f9; border-width: 0 0 1px 0; border-color: #eee; border-style: solid;',
+                'class' => 'font-sans-2xs',
               ],
               [
                 'data' => 'Email',
                 'style' => 'font-weight: normal; background-color: #f9f9f9; border-width: 0 0 1px 0; border-color: #eee; border-style: solid;',
+                'class' => 'font-sans-2xs',
               ],
             ],
             '#rows' => $match_rows,
@@ -127,7 +128,7 @@ class JitcOverview extends FormBase {
           $teacher_data = <<<EOT
 <span class="usa-tag">{$visit['county']}</span>
 <div class="font-serif-md">{$visit['school_name']}</div>
-<div class="margin-top-2 font-serif-lg">{$visit['teacher_name']}</div>
+<div class="margin-top-2 font-serif-md">{$visit['teacher_name']}</div>
 <div class="font-mono-2xs">{$visit['email']}</div>
 <div class="font-mono-2xs">{$visit['phone']}</div>
 <div class="font-mono-2xs">{$visit['grade_level']}</div>
@@ -138,16 +139,13 @@ EOT;
               'style' => 'border: 0px solid #ccc;',
             ],
             [
-              'style' => 'border: 0px solid #ccc;',
-            ],
-            [
               'data' => [
                 '#markup' => $teacher_data,
               ],
               'style' => ['border-width: 0 0 1px 0; border-color: #eee; border-style: solid; padding: 8px;'],
             ],
             [
-              'data' => !empty($match_rows) ? render($match_rows_output) : 'No exact matches found.',
+              'data' => !empty($match_rows) ? render($match_rows_output) : 'No judges available.',
               'style' => ['border-width: 0 0 1px 0; border-color: #ddd; border-style: solid; padding: 8px;'],
             ],
           ];
