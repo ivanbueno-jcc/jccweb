@@ -123,6 +123,9 @@ class JitcOverview extends FormBase {
               ],
             ],
             '#rows' => $match_rows,
+            '#attributes' => [
+              'class' => ['width-full'],
+            ],
           ];
 
           $teacher_data = <<<EOT
@@ -157,6 +160,9 @@ EOT;
     $form['table'] = [
       '#type' => 'table',
       '#rows' => $rows_visit,
+      '#attributes' => [
+        'class' => ['width-full'],
+      ],
     ];
     return $form;
   }
