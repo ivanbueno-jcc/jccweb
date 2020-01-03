@@ -188,9 +188,17 @@ class JudgesInTheClassroom {
       $teachers = $query->fetchAll();
 
       foreach ($teachers as $t) {
-        $this->teacherRequests[$t->county][$t->preferred_day][$t->preferred_hour][] = [
+        $timestamp = strtotime($t->preferred_date);
+        $date = \Drupal::service('date.formatter')->format(
+          $timestamp, 'custom', 'Y-m-d H:i:s P'
+        );
+        $hour = \Drupal::service('date.formatter')->format(
+          $timestamp, 'custom', 'H'
+        );
+
+        $this->teacherRequests[$t->county][$t->preferred_day][$hour][] = [
           'sid' => $t->sid,
-          'preferred_date' => $t->preferred_date,
+          'preferred_date' => $date,
           'teacher_name' => $t->teacher_name,
           'email' => $t->email,
           'phone' => $t->phone,
