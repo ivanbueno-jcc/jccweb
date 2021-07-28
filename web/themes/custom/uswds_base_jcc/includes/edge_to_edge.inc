@@ -20,7 +20,6 @@ function _uswds_edge_to_edge_mode() {
     if (theme_get_setting('uswds_paragraphs_edge_to_edge')) {
       if (_uswds_current_entity_references_paragraphs()) {
         // Make sure we are not editing a node.
-        // @TODO: Do this in a better way that includes all entity types.
         $current_path = \Drupal::service('path.current')->getPath();
         if (!preg_match('/node\/(\d+)\/(edit|revisions|delete)/', $current_path, $matches)) {
           $result = TRUE;
@@ -38,7 +37,6 @@ function _uswds_edge_to_edge_mode() {
  *   TRUE if the current entity references paragraphs, FALSE otherwise.
  */
 function _uswds_current_entity_references_paragraphs() {
-  // @TODO: Is there a better way to do this? This seems overly complicated.
   foreach (\Drupal::routeMatch()->getParameters() as $entity) {
     if ($entity instanceof FieldableEntityInterface) {
       $entity_type = $entity->getEntityType()->id();
