@@ -139,7 +139,7 @@ class JitcProfileMatcher extends EmailWebformHandler {
     $matches = [];
     $data = $webform_submission->getData();
 
-    /* @var \Drupal\jcc_judges_in_the_classroom\Service\JudgesInTheClassroom $jitc */
+    /** @var \Drupal\jcc_judges_in_the_classroom\Service\JudgesInTheClassroom $jitc */
     $jitc = \Drupal::service('jcc.jitc');
     $jitc->setFilters(
       [

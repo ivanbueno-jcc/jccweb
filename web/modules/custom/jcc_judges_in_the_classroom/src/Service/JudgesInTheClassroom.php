@@ -6,7 +6,7 @@ use Drupal\Core\Database\Connection;
 use Drupal\webform\Entity\WebformOptions;
 
 /**
- * JudgesInTheClassroom class.
+ * Manages judge scheduling.
  */
 class JudgesInTheClassroom {
 
@@ -95,7 +95,7 @@ class JudgesInTheClassroom {
     if (empty($this->judgeSchedules)) {
       $query = $this->database->query("
         SELECT wsd_day.sid, wsd_day.`value` as day, wsd_county.`value` as county, wsd_preferred_time.`value` as preferred_time, wsd_alternative_time.`value` as alternative_time, wsd_optional_time.`value` as optional_time, wsd_name.`value` as name, wsd_email.`value` as email, wsd_court_name.`value` as court_name
-        FROM {webform_submission_data} wsd_day 
+        FROM {webform_submission_data} wsd_day
           LEFT JOIN {webform_submission_data} wsd_county ON wsd_county.`sid` = wsd_day.`sid`
           LEFT JOIN {webform_submission_data} wsd_preferred_time ON wsd_preferred_time.`sid` = wsd_day.`sid`
           LEFT JOIN {webform_submission_data} wsd_alternative_time ON wsd_alternative_time.`sid` = wsd_day.`sid`
@@ -103,8 +103,8 @@ class JudgesInTheClassroom {
           LEFT JOIN {webform_submission_data} wsd_name ON wsd_name.`sid` = wsd_day.`sid`
           LEFT JOIN {webform_submission_data} wsd_email ON wsd_email.`sid` = wsd_day.`sid`
           LEFT JOIN {webform_submission_data} wsd_court_name ON wsd_court_name.`sid` = wsd_day.`sid`
-        WHERE wsd_day.`webform_id` = 'judges_in_the_classroom_judges' 
-          AND wsd_day.`name` = 'preferred_hours_and_days' 
+        WHERE wsd_day.`webform_id` = 'judges_in_the_classroom_judges'
+          AND wsd_day.`name` = 'preferred_hours_and_days'
           AND wsd_day.`property` = 'preferred_day'
           AND wsd_county.`name` = 'county'
           AND wsd_preferred_time.`property` = 'preferred_time'

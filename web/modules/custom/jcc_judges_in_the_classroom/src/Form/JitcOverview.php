@@ -7,7 +7,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\jcc_judges_in_the_classroom\Service\JudgesInTheClassroom;
 
 /**
- * Class JitcOverview.
+ * JITC administration form.
  *
  * @package Drupal\jcc_judges_in_the_classroom\Form
  */
@@ -25,7 +25,7 @@ class JitcOverview extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    /* @var \Drupal\jcc_judges_in_the_classroom\Service\JudgesInTheClassroom $judges_in_the_classroom */
+    /** @var \Drupal\jcc_judges_in_the_classroom\Service\JudgesInTheClassroom $judges_in_the_classroom */
     $judges_in_the_classroom = \Drupal::service('jcc.jitc');
 
     $visits = $judges_in_the_classroom->getRaw(JudgesInTheClassroom::TEACHER);
