@@ -232,9 +232,6 @@
             "drupal/core": "-p2"
         },
         "patches": {
-            "drupal/core": {
-                "https://www.drupal.org/project/drupal/issues/3056458": "https://www.drupal.org/files/issues/2019-05-24/check-for-book-before-adding-elements-3056458-5.patch"
-            },
             "drupal/menu_token": {
                 "Fix multilingual issue - https://www.drupal.org/project/menu_token/issues/3011295": "https://www.drupal.org/files/issues/2019-02-22/menu_token-link_attributes_active-3011295-8.patch"
             }
