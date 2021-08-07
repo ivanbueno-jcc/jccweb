@@ -6528,7 +6528,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/search_api.git",
-                "reference": "5ff98fecfa300caf7e17864b9b3f49b89cfbc24a"
+                "reference": "7e56fd2f01fbd5b1257596547e9df0d0a3396b9a"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9"
@@ -6553,7 +6553,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.x-dev",
-                    "datestamp": "1626684369",
+                    "datestamp": "1628231254",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -6590,7 +6590,7 @@
                 "issues": "https://www.drupal.org/project/issues/search_api",
                 "irc": "irc://irc.freenode.org/drupal-search-api"
             },
-            "time": "2021-07-19T08:45:49+00:00"
+            "time": "2021-08-06T06:34:59+00:00"
         },
         {
             "name": "drupal/search_api_attachments",
